@@ -17,6 +17,7 @@ class App extends Component {
     const articles = await getArticles();
     this.setState({ articles });
   };
+
   render() {
     const { articles } = this.state;
     return articles.length !== 0 ? (

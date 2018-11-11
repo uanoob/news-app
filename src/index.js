@@ -1,11 +1,11 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
+import axios from 'axios';
 import App from './App';
 import * as serviceWorker from './serviceWorker';
 
-import axios from 'axios';
-import { BASE_URL } from './config';
+import BASE_URL from './config';
 
 axios.defaults.baseURL = BASE_URL;
 axios.defaults.withCredentials = true;
