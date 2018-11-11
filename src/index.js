@@ -4,6 +4,12 @@ import './index.css';
 import App from './App';
 import * as serviceWorker from './serviceWorker';
 
+import axios from 'axios';
+import { BASE_URL } from './config';
+
+axios.defaults.baseURL = BASE_URL;
+axios.defaults.withCredentials = true;
+
 ReactDOM.render(<App />, document.getElementById('root'));
 
 // If you want your app to work offline and load faster, you can change
