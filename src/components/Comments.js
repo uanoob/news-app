@@ -4,6 +4,21 @@ import PropTypes from 'prop-types';
 import Comment from '../containers/Comment';
 
 class Comments extends Component {
+  static defaultProps = {
+    comments: [],
+  };
+
+  static propTypes = {
+    comments: PropTypes.arrayOf(
+      PropTypes.shape({
+        date: PropTypes.string.isRequired,
+        text: PropTypes.string.isRequired,
+        user: PropTypes.string.isRequired,
+        _id: PropTypes.string.isRequired,
+      }),
+    ),
+  };
+
   state = {
     isOpen: false,
   };
@@ -40,20 +55,5 @@ class Comments extends Component {
     );
   }
 }
-
-Comments.defaultProps = {
-  comments: [],
-};
-
-Comments.propTypes = {
-  comments: PropTypes.arrayOf(
-    PropTypes.shape({
-      date: PropTypes.string.isRequired,
-      text: PropTypes.string.isRequired,
-      user: PropTypes.string.isRequired,
-      _id: PropTypes.string.isRequired,
-    }),
-  ),
-};
 
 export default Comments;
