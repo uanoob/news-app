@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import './App.css';
 
-import Articles from './Articles';
+import Articles from './components/Articles';
 import { getArticles } from './api';
 
 class App extends Component {
