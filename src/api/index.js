@@ -1,11 +1,3 @@
-import axios from 'axios';
+export { getArticles, getArticleById } from './article.api';
 
-export const getArticles = async () => {
-  const request = await axios.get('/article');
-  return request.data;
-};
-
-export const getArticleById = async (id) => {
-  const request = await axios.get(`/article/${id}`);
-  return request.data;
-};
+export { getComments, getCommentById } from './comment.api';
