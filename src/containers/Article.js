@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 
 import Comments from '../components/Comments';
 import { getCommentById } from '../api';
+import ToggleOpen from '../decorators/toggleOpen';
 
 class Article extends Component {
   static propTypes = {
@@ -13,10 +14,11 @@ class Article extends Component {
       title: PropTypes.string.isRequired,
       _id: PropTypes.string.isRequired,
     }).isRequired,
+    isOpen: PropTypes.bool.isRequired,
+    toggleOpen: PropTypes.func.isRequired,
   };
 
   state = {
-    isOpen: false,
     comments: [],
   };
 
@@ -38,20 +40,13 @@ class Article extends Component {
     });
   };
 
-  toggleOpen = () => {
-    const { isOpen } = this.state;
-    this.setState({
-      isOpen: !isOpen,
-    });
-  };
-
   render() {
-    const { article } = this.props;
-    const { isOpen, comments } = this.state;
+    const { article, isOpen, toggleOpen } = this.props;
+    const { comments } = this.state;
     return (
       <div>
         <h3>{article.title}</h3>
-        <button type="button" onClick={this.toggleOpen}>
+        <button type="button" onClick={toggleOpen}>
           {isOpen ? 'Close' : 'Open'}
         </button>
         {isOpen ? (
@@ -65,4 +60,4 @@ class Article extends Component {
   }
 }
 
-export default Article;
+export default ToggleOpen(Article);

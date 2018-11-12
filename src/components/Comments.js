@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 
+import ToggleOpen from '../decorators/toggleOpen';
 import Comment from '../containers/Comment';
 
 class Comments extends Component {
@@ -17,10 +18,8 @@ class Comments extends Component {
         _id: PropTypes.string.isRequired,
       }),
     ),
-  };
-
-  state = {
-    isOpen: false,
+    isOpen: PropTypes.bool.isRequired,
+    toggleOpen: PropTypes.func.isRequired,
   };
 
   getCommentsElement = () => {
@@ -36,18 +35,11 @@ class Comments extends Component {
     );
   };
 
-  toggleOpen = () => {
-    const { isOpen } = this.state;
-    this.setState({
-      isOpen: !isOpen,
-    });
-  };
-
   render() {
-    const { isOpen } = this.state;
+    const { isOpen, toggleOpen } = this.props;
     return (
       <div>
-        <button type="button" onClick={this.toggleOpen}>
+        <button type="button" onClick={toggleOpen}>
           {isOpen ? 'Hide comments' : 'Show comments'}
         </button>
         {isOpen ? <ul>{this.getCommentsElement()}</ul> : null}
@@ -56,4 +48,4 @@ class Comments extends Component {
   }
 }
 
-export default Comments;
+export default ToggleOpen(Comments);
