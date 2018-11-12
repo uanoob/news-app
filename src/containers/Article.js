@@ -6,8 +6,8 @@ import { getCommentById } from '../api';
 
 class Article extends Component {
   state = {
-    isOpenArticle: false,
-    commentsArticle: [],
+    isOpen: false,
+    comments: [],
   };
 
   componentDidMount() {
@@ -24,39 +24,30 @@ class Article extends Component {
       });
     }
     return this.setState({
-      commentsArticle: arr,
+      comments: arr,
     });
   };
 
-  showComments = () => {
-    const { commentsArticle } = this.state;
-    return commentsArticle.length !== 0 ? (
-      <Comments comments={commentsArticle} />
-    ) : (
-      <div>No comments yep</div>
-    );
-  };
-
   toggleOpen = () => {
-    const { isOpenArticle } = this.state;
+    const { isOpen } = this.state;
     this.setState({
-      isOpenArticle: !isOpenArticle,
+      isOpen: !isOpen,
     });
   };
 
   render() {
     const { article } = this.props;
-    const { isOpenArticle } = this.state;
+    const { isOpen, comments } = this.state;
     return (
       <div>
         <h3>{article.title}</h3>
         <button type="button" onClick={this.toggleOpen}>
-          {isOpenArticle ? 'Close' : 'Open'}
+          {isOpen ? 'Close' : 'Open'}
         </button>
-        {isOpenArticle ? (
+        {isOpen ? (
           <section>
             <p>{article.text}</p>
-            {this.showComments()}
+            <Comments comments={comments} />
           </section>
         ) : null}
       </div>
