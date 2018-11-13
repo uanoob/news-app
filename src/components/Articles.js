@@ -1,12 +1,17 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import Article from '../containers/Article';
+import accordion from '../decorators/accordion';
 
 const Articles = (props) => {
-  const { articles } = props;
+  const { articles, openItemId, toggleOpenItem } = props;
   const articleElements = articles.map(article => (
     <li key={article._id}>
-      <Article article={article} />
+      <Article
+        article={article}
+        isOpen={article._id === openItemId}
+        toggleOpen={() => toggleOpenItem(article._id)}
+      />
     </li>
   ));
   return <ul>{articleElements}</ul>;
@@ -14,6 +19,7 @@ const Articles = (props) => {
 
 Articles.defaultProps = {
   articles: [],
+  openItemId: null,
 };
 
 Articles.propTypes = {
@@ -26,6 +32,8 @@ Articles.propTypes = {
       _id: PropTypes.string.isRequired,
     }),
   ),
+  toggleOpenItem: PropTypes.func.isRequired,
+  openItemId: PropTypes.string,
 };
 
-export default Articles;
+export default accordion(Articles);

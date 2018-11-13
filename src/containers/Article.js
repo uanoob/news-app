@@ -3,7 +3,6 @@ import PropTypes from 'prop-types';
 
 import Comments from '../components/Comments';
 import { getCommentById } from '../api';
-import ToggleOpen from '../decorators/toggleOpen';
 
 class Article extends Component {
   static propTypes = {
@@ -60,4 +59,4 @@ class Article extends Component {
   }
 }
 
-export default ToggleOpen(Article);
+export default Article;
