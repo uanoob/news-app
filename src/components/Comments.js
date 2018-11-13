@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 
-import ToggleOpen from '../decorators/toggleOpen';
+import toggler from '../decorators/toggler';
 import Comment from '../containers/Comment';
 
 class Comments extends Component {
@@ -48,4 +48,4 @@ class Comments extends Component {
   }
 }
 
-export default ToggleOpen(Comments);
+export default toggler(Comments);

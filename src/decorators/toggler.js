@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 
-export default OriginalComponent => class WrappedComponent extends Component {
+export default OriginalComponent => class ToggleComponent extends Component {
     state = {
       isOpen: false,
     };
@@ -14,6 +14,12 @@ export default OriginalComponent => class WrappedComponent extends Component {
 
     render() {
       const { isOpen } = this.state;
-      return <OriginalComponent {...this.props} isOpen={isOpen} toggleOpen={this.toggleOpen} />;
+      return (
+        <OriginalComponent
+          {...this.props}
+          isOpen={isOpen}
+          toggleOpen={this.toggleOpen}
+        />
+      );
     }
 };
