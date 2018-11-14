@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 
 import toggler from '../decorators/toggler';
 import Comment from '../containers/Comment';
+import CommentForm from './CommentForm';
 
 class Comments extends Component {
   static defaultProps = {
@@ -39,6 +40,7 @@ class Comments extends Component {
     const { isOpen, toggleOpen } = this.props;
     return (
       <div>
+        <CommentForm />
         <button type="button" onClick={toggleOpen}>
           {isOpen ? 'Hide comments' : 'Show comments'}
         </button>
