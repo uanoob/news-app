@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 
-import Comments from '../components/Comments';
+import Comments from './Comments';
 import { getCommentById } from '../api';
 
 class Article extends Component {
