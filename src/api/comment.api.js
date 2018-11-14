@@ -10,3 +10,13 @@ export const getCommentById = async (id) => {
   // console.log(request.data);
   return request.data;
 };
+
+export const createComment = async (user, text) => {
+  const postData = {
+    user,
+    text,
+  };
+  const request = await axios.post('/comment', postData);
+  console.log(request.data);
+  return request.data;
+};
