@@ -1,29 +1,21 @@
-import React, { Component } from 'react';
+import React from 'react';
 import './App.css';
+import {
+  Route, Switch, Redirect, withRouter,
+} from 'react-router-dom';
+import Navbar from './components/Navbar';
+import MainPage from './containers/MainPage';
+import LoginForm from './components/LoginForm';
 
-import Select from 'react-select';
-import Articles from './components/Articles';
+const App = () => (
+  <div>
+    <Navbar />
+    <Switch>
+      <Route exact path="/" component={MainPage} />
+      <Route exact path="/login" component={LoginForm} />
+      <Redirect to="/" />
+    </Switch>
+  </div>
+);
 
-class App extends Component {
-  state = {
-    selection: null,
-  };
-
-  changeSelection = (selection) => {
-    this.setState({
-      selection,
-    });
-  };
-
-  render() {
-    const { selection } = this.state;
-    return (
-      <div>
-        <Select value={selection} onChange={this.changeSelection} isMulti />
-        <Articles />
-      </div>
-    );
-  }
-}
-
-export default App;
+export default withRouter(App);

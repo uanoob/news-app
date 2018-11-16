@@ -1,6 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
+import { BrowserRouter as Router } from 'react-router-dom';
 import axios from 'axios';
 import { Provider } from 'react-redux';
 import store from './store/store';
@@ -14,7 +15,9 @@ axios.defaults.withCredentials = true;
 
 const app = (
   <Provider store={store}>
-    <App />
+    <Router basename={process.env.PUBLIC_URL}>
+      <App />
+    </Router>
   </Provider>
 );
 
