@@ -1,6 +1,8 @@
 const checkValidity = (name, value) => {
   const limits = {
-    user: { min: 5, max: 15 },
+    name: { min: 3, max: 20 },
+    password: { min: 6, max: 100 },
+    email: { min: 5, max: 50 },
     text: { min: 20, max: 500 },
   };
   let isValid = true;
