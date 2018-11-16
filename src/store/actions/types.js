@@ -4,3 +4,6 @@ export const GET_ALL_ARTICLES_FAIL = '[articles] get all articles fail';
 export const GET_ALL_COMMENTS_BY_ARTICLE_ID_START = '[comments] get all comments by article_id start';
 export const GET_ALL_COMMENTS_BY_ARTICLE_ID_SUCCESS = '[comments] get all comments by article_id success';
 export const GET_ALL_COMMENTS_BY_ARTICLE_ID_FAIL = '[comments] get all comments by article_id fail';
+export const CREATE_COMMENT_START = '[comment] create comment start';
+export const CREATE_COMMENT_SUCCESS = '[comment] create comment success';
+export const CREATE_COMMENT_FAIL = '[comment] create comment fail';

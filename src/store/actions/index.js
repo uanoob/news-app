@@ -4,3 +4,5 @@ export {
   getAllCommentsSuccess,
   getAllCommentsByArticleId,
 } from './comments.action';
+
+export { createCommentSuccess, createComment } from './comment.action';
