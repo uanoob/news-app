@@ -5,21 +5,23 @@ const Comment = (props) => {
   const { comment } = props;
   return (
     <div>
-      <strong>{comment.user}</strong>
+      <strong>{comment.author_name}</strong>
       <br />
       {comment.text}
       <br />
-      {comment.date}
+      {comment.posted_at}
     </div>
   );
 };
 
 Comment.propTypes = {
   comment: PropTypes.shape({
-    date: PropTypes.string.isRequired,
-    text: PropTypes.string.isRequired,
-    user: PropTypes.string.isRequired,
     _id: PropTypes.string.isRequired,
+    text: PropTypes.string.isRequired,
+    author_id: PropTypes.string.isRequired,
+    author_name: PropTypes.string.isRequired,
+    article_id: PropTypes.string.isRequired,
+    posted_at: PropTypes.string.isRequired,
   }).isRequired,
 };
 

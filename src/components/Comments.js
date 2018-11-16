@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
+import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
-
+import { getAllCommentsByArticleId } from '../store/actions';
 import toggler from '../decorators/toggler';
 import Comment from '../containers/Comment';
 import CommentForm from './CommentForm';
@@ -13,15 +14,24 @@ class Comments extends Component {
   static propTypes = {
     comments: PropTypes.arrayOf(
       PropTypes.shape({
-        date: PropTypes.string.isRequired,
-        text: PropTypes.string.isRequired,
-        user: PropTypes.string.isRequired,
         _id: PropTypes.string.isRequired,
+        text: PropTypes.string.isRequired,
+        author_id: PropTypes.string.isRequired,
+        author_name: PropTypes.string.isRequired,
+        article_id: PropTypes.string.isRequired,
+        posted_at: PropTypes.string.isRequired,
       }),
     ),
     isOpen: PropTypes.bool.isRequired,
     toggleOpen: PropTypes.func.isRequired,
+    onGetAllCommentsByArticleId: PropTypes.func.isRequired,
+    articleId: PropTypes.string.isRequired,
   };
+
+  componentDidMount() {
+    const { onGetAllCommentsByArticleId, articleId } = this.props;
+    onGetAllCommentsByArticleId(articleId);
+  }
 
   getCommentsElement = () => {
     const { comments } = this.props;
@@ -38,6 +48,7 @@ class Comments extends Component {
 
   render() {
     const { isOpen, toggleOpen } = this.props;
+    // console.log('---', 'render comments list');
     return (
       <div>
         <CommentForm />
@@ -50,4 +61,15 @@ class Comments extends Component {
   }
 }
 
-export default toggler(Comments);
+const mapStateToProps = state => ({
+  comments: state.comments.comments,
+});
+
+const mapDispatchToProps = {
+  onGetAllCommentsByArticleId: getAllCommentsByArticleId,
+};
+
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps,
+)(toggler(Comments));
