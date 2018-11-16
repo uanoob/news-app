@@ -1,11 +1,11 @@
 import {
-  GET_ALL_ARTICLES_START,
-  GET_ALL_ARTICLES_SUCCESS,
-  GET_ALL_ARTICLES_FAIL,
+  GET_ALL_COMMENTS_BY_ARTICLE_ID_START,
+  GET_ALL_COMMENTS_BY_ARTICLE_ID_SUCCESS,
+  GET_ALL_COMMENTS_BY_ARTICLE_ID_FAIL,
 } from '../actions/types';
 
 const initialState = {
-  articles: [],
+  comments: [],
   loading: false,
   loaded: false,
   error: null,
@@ -13,21 +13,22 @@ const initialState = {
 
 export default function (state = initialState, action) {
   switch (action.type) {
-    case GET_ALL_ARTICLES_START:
+    case GET_ALL_COMMENTS_BY_ARTICLE_ID_START:
       return {
         ...state,
         loading: true,
         loaded: false,
         error: null,
       };
-    case GET_ALL_ARTICLES_SUCCESS:
+    case GET_ALL_COMMENTS_BY_ARTICLE_ID_SUCCESS:
       return {
         ...state,
-        articles: action.payload,
+        comments: action.payload,
         loading: false,
         loaded: true,
+        error: null,
       };
-    case GET_ALL_ARTICLES_FAIL:
+    case GET_ALL_COMMENTS_BY_ARTICLE_ID_FAIL:
       return {
         ...state,
         loading: false,
