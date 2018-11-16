@@ -1,26 +1,24 @@
 import React, { Component } from 'react';
+import PropTypes from 'prop-types';
+import { connect } from 'react-redux';
 import classNames from 'classnames';
 
 import checkValidity from '../utils/validator.utils';
 import './CommentForm.css';
-import { createComment } from '../api/index';
+import { createComment } from '../store/actions';
 
 class CommentForm extends Component {
+  static propTypes = {
+    articleId: PropTypes.string.isRequired,
+    onCreateComment: PropTypes.func.isRequired,
+  };
+
   state = {
-    user: '',
-    userInputTouched: false,
-    userInputValid: false,
+    authorId: '5bed63f4ad3be324495971f9',
+    authorName: 'bred',
     text: '',
     textInputTouched: false,
     textInputValid: false,
-  };
-
-  handleUserInput = (e) => {
-    this.setState({
-      user: e.target.value,
-      userInputTouched: true,
-      userInputValid: checkValidity('user', e.target.value),
-    });
   };
 
   handleTextInput = (e) => {
@@ -33,37 +31,17 @@ class CommentForm extends Component {
 
   handleSubmit = (e) => {
     e.preventDefault();
-    const { user, text } = this.state;
-    createComment(user, text);
+    const { articleId, onCreateComment } = this.props;
+    const { text, authorId, authorName } = this.state;
+    onCreateComment(articleId, text, authorId, authorName);
   };
 
   render() {
-    const {
-      user,
-      userInputTouched,
-      userInputValid,
-      text,
-      textInputTouched,
-      textInputValid,
-    } = this.state;
+    const { text, textInputTouched, textInputValid } = this.state;
 
     return (
       <div>
         <form>
-          <label htmlFor="user-input">
-            Name
-            <input
-              id="user-input"
-              type="input"
-              name="user"
-              placeholder="Enter you name"
-              value={user}
-              onChange={event => this.handleUserInput(event)}
-              className={
-                !userInputValid && userInputTouched ? 'input-error' : ''
-              }
-            />
-          </label>
           <label htmlFor="text-input">
             Text
             <input
@@ -87,4 +65,15 @@ class CommentForm extends Component {
   }
 }
 
-export default CommentForm;
+const mapStateToProps = state => ({
+  comment: state.comment.comment,
+});
+
+const mapDispatchToProps = {
+  onCreateComment: createComment,
+};
+
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps,
+)(CommentForm);

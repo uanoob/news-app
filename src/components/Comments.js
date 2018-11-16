@@ -47,11 +47,11 @@ class Comments extends Component {
   };
 
   render() {
-    const { isOpen, toggleOpen } = this.props;
+    const { isOpen, toggleOpen, articleId } = this.props;
     // console.log('---', 'render comments list');
     return (
       <div>
-        <CommentForm />
+        <CommentForm articleId={articleId} />
         <button type="button" onClick={toggleOpen}>
           {isOpen ? 'Hide comments' : 'Show comments'}
         </button>
