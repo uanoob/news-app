@@ -5,4 +5,8 @@ export {
   getAllCommentsByArticleId,
 } from './comments.action';
 
+export { authCheckState } from './auth.action';
+
+export { login, getUserByToken, logout } from './user.action';
+
 export { createCommentSuccess, createComment } from './comment.action';
