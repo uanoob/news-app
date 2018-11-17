@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import classNames from 'classnames';
 
-import checkValidity from '../utils/validator.utils';
+import { checkValidityLength } from '../utils/validator.utils';
 import './CommentForm.css';
 import { createComment } from '../store/actions';
 
@@ -25,7 +25,7 @@ class CommentForm extends Component {
     this.setState({
       text: e.target.value,
       textInputTouched: true,
-      textInputValid: checkValidity('text', e.target.value),
+      textInputValid: checkValidityLength('text', e.target.value),
     });
   };
 

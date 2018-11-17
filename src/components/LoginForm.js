@@ -1,9 +1,14 @@
 import React from 'react';
+import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import { withStyles } from '@material-ui/core/styles';
 import TextField from '@material-ui/core/TextField';
 import Button from '@material-ui/core/Button';
-import checkValidity from '../utils/validator.utils';
+import {
+  checkValidityLength,
+  checkValidityEmail,
+} from '../utils/validator.utils';
+import { login } from '../store/actions';
 
 const styles = theme => ({
   container: {
@@ -31,17 +36,24 @@ class LoginForm extends React.Component {
   handleChange = name => (event) => {
     const touched = `${name}Touched`;
     const isValid = `${name}IsValid`;
+    const checkValidity = () => {
+      if (name === 'email') {
+        return checkValidityEmail(event.target.value);
+      }
+      return checkValidityLength(name, event.target.value);
+    };
     this.setState({
       [name]: event.target.value,
       [touched]: true,
-      [isValid]: checkValidity(name, event.target.value),
+      [isValid]: checkValidity(),
     });
   };
 
   handleSubmit = (event) => {
     event.preventDefault();
     const { email, password } = this.state;
-    console.log('submit', email, password);
+    const { onLogin } = this.props;
+    onLogin(email, password);
   };
 
   render() {
@@ -105,6 +117,14 @@ LoginForm.propTypes = {
     container: PropTypes.string.isRequired,
     textField: PropTypes.string.isRequired,
   }).isRequired,
+  onLogin: PropTypes.func.isRequired,
 };
 
-export default withStyles(styles)(LoginForm);
+const mapDispatchToProps = {
+  onLogin: login,
+};
+
+export default connect(
+  null,
+  mapDispatchToProps,
+)(withStyles(styles)(LoginForm));
