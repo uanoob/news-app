@@ -12,9 +12,9 @@ import IconButton from '@material-ui/core/IconButton';
 import Typography from '@material-ui/core/Typography';
 import red from '@material-ui/core/colors/red';
 import FavoriteIcon from '@material-ui/icons/Favorite';
-import ShareIcon from '@material-ui/icons/Share';
 import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
-import MoreVertIcon from '@material-ui/icons/MoreVert';
+import ForwardIcon from '@material-ui/icons/ForwardOutlined';
+import CommentIcon from '@material-ui/icons/Comment';
 import Comments from './Comments';
 
 const styles = theme => ({
@@ -63,7 +63,7 @@ class Article extends Component {
 )}
           action={(
             <IconButton>
-              <MoreVertIcon />
+              <ForwardIcon />
             </IconButton>
 )}
           title={article.title}
@@ -78,8 +78,8 @@ class Article extends Component {
           <IconButton aria-label="Add to favorites">
             <FavoriteIcon />
           </IconButton>
-          <IconButton aria-label="Share">
-            <ShareIcon />
+          <IconButton aria-label="Message">
+            <CommentIcon />
           </IconButton>
           <IconButton
             className={classnames(classes.expand, {
