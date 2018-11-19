@@ -1,72 +1,113 @@
 import React, { Component } from 'react';
-import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
-import classNames from 'classnames';
-
+import PropTypes from 'prop-types';
+import { withStyles } from '@material-ui/core/styles';
+import TextField from '@material-ui/core/TextField';
+import Button from '@material-ui/core/Button';
+import Send from '@material-ui/icons/Send';
 import { checkValidityLength } from '../utils/validator.utils';
-import './CommentForm.css';
 import { createComment } from '../store/actions';
 
-class CommentForm extends Component {
-  static propTypes = {
-    articleId: PropTypes.string.isRequired,
-    onCreateComment: PropTypes.func.isRequired,
-  };
+const styles = theme => ({
+  container: {
+    display: 'flex',
+    flexDirection: 'column',
+    flexWrap: 'wrap',
+  },
+  textField: {
+    marginLeft: theme.spacing.unit,
+    marginRight: theme.spacing.unit,
+  },
+  button: {
+    margin: theme.spacing.unit,
+  },
+  rightIcon: {
+    marginLeft: theme.spacing.unit,
+  },
+});
 
+class CommentForm extends Component {
   state = {
-    authorId: '5bed63f4ad3be324495971f9',
-    authorName: 'bred',
-    text: '',
-    textInputTouched: false,
-    textInputValid: false,
+    comment: '',
+    commentInputTouched: false,
+    commentInputValid: false,
   };
 
   handleTextInput = (e) => {
     this.setState({
-      text: e.target.value,
-      textInputTouched: true,
-      textInputValid: checkValidityLength('text', e.target.value),
+      comment: e.target.value,
+      commentInputTouched: true,
+      commentInputValid: checkValidityLength('comment', e.target.value),
     });
   };
 
   handleSubmit = (e) => {
     e.preventDefault();
-    const { articleId, onCreateComment } = this.props;
-    const { text, authorId, authorName } = this.state;
-    onCreateComment(articleId, text, authorId, authorName);
+    const {
+      articleId,
+      onCreateComment,
+      userId,
+      userName,
+      handleModalClick,
+    } = this.props;
+    const { comment } = this.state;
+    onCreateComment(articleId, comment, userId, userName);
+    handleModalClick();
   };
 
   render() {
-    const { text, textInputTouched, textInputValid } = this.state;
+    const { classes } = this.props;
+    const { comment, commentInputTouched, commentInputValid } = this.state;
 
     return (
       <div>
-        <form>
-          <label htmlFor="text-input">
-            Text
-            <input
-              id="text-input"
-              type="input"
-              name="text"
-              placeholder="Enter your comment"
-              value={text}
-              onChange={event => this.handleTextInput(event)}
-              className={classNames({
-                'input-error': !textInputValid && textInputTouched,
-              })}
-            />
-          </label>
-          <button type="submit" onClick={this.handleSubmit}>
-            Send Comment
-          </button>
+        <form className={classes.container} noValidate autoComplete="off">
+          <TextField
+            id="outlined-multiline-flexible"
+            label="Your comment here"
+            multiline
+            rows="4"
+            value={comment}
+            onChange={event => this.handleTextInput(event)}
+            className={classes.textField}
+            margin="normal"
+            variant="outlined"
+            error={!commentInputValid && commentInputTouched}
+          />
+          <div>
+            <Button
+              variant="contained"
+              color="primary"
+              className={classes.button}
+              type="submit"
+              onClick={this.handleSubmit}
+              disabled={!commentInputValid}
+            >
+              Send
+              <Send className={classes.rightIcon}>send</Send>
+            </Button>
+          </div>
         </form>
       </div>
     );
   }
 }
 
+CommentForm.propTypes = {
+  classes: PropTypes.shape({
+    container: PropTypes.string.isRequired,
+    textField: PropTypes.string.isRequired,
+  }).isRequired,
+  articleId: PropTypes.string.isRequired,
+  onCreateComment: PropTypes.func.isRequired,
+  userId: PropTypes.string.isRequired,
+  userName: PropTypes.string.isRequired,
+  handleModalClick: PropTypes.func.isRequired,
+};
+
 const mapStateToProps = state => ({
-  comment: state.comment.comment,
+  userId: state.user.user._id,
+  userName: state.user.user.name,
 });
 
 const mapDispatchToProps = {
@@ -76,4 +117,4 @@ const mapDispatchToProps = {
 export default connect(
   mapStateToProps,
   mapDispatchToProps,
-)(CommentForm);
+)(withStyles(styles)(CommentForm));

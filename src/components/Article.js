@@ -15,7 +15,9 @@ import FavoriteIcon from '@material-ui/icons/Favorite';
 import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
 import ForwardIcon from '@material-ui/icons/ForwardOutlined';
 import CommentIcon from '@material-ui/icons/Comment';
+import Modal from '@material-ui/core/Modal';
 import Comments from './Comments';
+import CommentForm from './CommentForm';
 
 const styles = theme => ({
   card: {
@@ -41,18 +43,38 @@ const styles = theme => ({
   avatar: {
     backgroundColor: red[500],
   },
+  paper: {
+    position: 'absolute',
+    top: '50%',
+    left: '50%',
+    marginLeft: -(theme.spacing.unit * 50) / 2,
+    marginTop: -(theme.spacing.unit * 50) / 2,
+    width: theme.spacing.unit * 50,
+    backgroundColor: theme.palette.background.paper,
+    boxShadow: theme.shadows[5],
+    padding: theme.spacing.unit * 4,
+    borderRadius: '5px',
+    outline: 'none',
+  },
 });
 
 class Article extends Component {
-  state = { expanded: false };
+  state = { expanded: false, modal: false };
 
   handleExpandClick = () => {
     this.setState(state => ({ expanded: !state.expanded }));
   };
 
+  handleModalClick = () => {
+    const { modal } = this.state;
+    this.setState({
+      modal: !modal,
+    });
+  };
+
   render() {
     const { classes, article } = this.props;
-    const { expanded } = this.state;
+    const { expanded, modal } = this.state;
     return (
       <Card className={classes.card}>
         <CardHeader
@@ -78,9 +100,22 @@ class Article extends Component {
           <IconButton aria-label="Add to favorites">
             <FavoriteIcon />
           </IconButton>
-          <IconButton aria-label="Message">
+          <IconButton aria-label="Message" onClick={this.handleModalClick}>
             <CommentIcon />
           </IconButton>
+          <Modal
+            aria-labelledby="modal-title"
+            aria-describedby="modal-description"
+            open={modal}
+            onClose={this.handleModalClick}
+          >
+            <div className={classes.paper}>
+              <CommentForm
+                handleModalClick={this.handleModalClick}
+                articleId={article._id}
+              />
+            </div>
+          </Modal>
           <IconButton
             className={classnames(classes.expand, {
               [classes.expandOpen]: expanded,
