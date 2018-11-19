@@ -12,6 +12,33 @@ import {
   GET_USER_BY_TOKEN_FAIL,
 } from './types';
 
+const logoutStart = () => ({
+  type: LOGOUT_START,
+});
+
+const logoutSuccess = data => ({
+  type: LOGOUT_SUCCESS,
+  payload: data,
+});
+
+const logoutFail = err => ({
+  type: LOGIN_FAIL,
+  payload: err,
+});
+
+export const logout = () => (dispatch) => {
+  dispatch(logoutStart());
+  axios
+    .get('/logout')
+    .then((response) => {
+      dispatch(logoutSuccess(response.data));
+      localStorage.removeItem('token');
+    })
+    .catch((error) => {
+      dispatch(logoutFail(error));
+    });
+};
+
 const getUserByTokenStart = () => ({
   type: GET_USER_BY_TOKEN_START,
 });
@@ -39,7 +66,7 @@ export const getUserByToken = () => (dispatch) => {
     })
     .catch((error) => {
       dispatch(getUserByTokenFail(error.response.data));
-      localStorage.removeItem('token');
+      dispatch(logout());
     });
 };
 
@@ -71,31 +98,4 @@ export const login = (email, password) => (dispatch) => {
       dispatch(getUserByToken());
     })
     .catch(error => dispatch(loginFail(error)));
-};
-
-const logoutStart = () => ({
-  type: LOGOUT_START,
-});
-
-const logoutSuccess = data => ({
-  type: LOGOUT_SUCCESS,
-  payload: data,
-});
-
-const logoutFail = err => ({
-  type: LOGIN_FAIL,
-  payload: err,
-});
-
-export const logout = () => (dispatch) => {
-  dispatch(logoutStart());
-  axios
-    .get('/logout')
-    .then((response) => {
-      dispatch(logoutSuccess(response.data));
-      localStorage.removeItem('token');
-    })
-    .catch((error) => {
-      dispatch(logoutFail(error));
-    });
 };
