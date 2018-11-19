@@ -2,8 +2,13 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import { withStyles } from '@material-ui/core/styles';
-import TextField from '@material-ui/core/TextField';
 import Button from '@material-ui/core/Button';
+import TextField from '@material-ui/core/TextField';
+import Dialog from '@material-ui/core/Dialog';
+import DialogActions from '@material-ui/core/DialogActions';
+import DialogContent from '@material-ui/core/DialogContent';
+import DialogContentText from '@material-ui/core/DialogContentText';
+import DialogTitle from '@material-ui/core/DialogTitle';
 import Send from '@material-ui/icons/Send';
 import { checkValidityLength } from '../utils/validator.utils';
 import { createComment } from '../store/actions';
@@ -48,21 +53,45 @@ class CommentForm extends Component {
       onCreateComment,
       userId,
       userName,
-      handleModalClick,
+      handleDialogClick,
     } = this.props;
     const { comment } = this.state;
     onCreateComment(articleId, comment, userId, userName);
-    handleModalClick();
+    this.clearTextField();
+    handleDialogClick();
   };
 
+  handleCancelClick = () => {
+    const { handleDialogClick } = this.props;
+    this.clearTextField();
+    handleDialogClick();
+  };
+
+  clearTextField = () => {
+    this.setState({
+      comment: '',
+      commentInputTouched: false,
+      commentInputValid: false,
+    });
+  }
+
   render() {
-    const { classes } = this.props;
+    const { classes, dialog, handleDialogClick } = this.props;
     const { comment, commentInputTouched, commentInputValid } = this.state;
 
     return (
-      <div>
-        <form className={classes.container} noValidate autoComplete="off">
+      <Dialog
+        open={dialog}
+        onClose={handleDialogClick}
+        aria-labelledby="form-dialog-title"
+      >
+        <DialogTitle id="form-dialog-title">Add a comment</DialogTitle>
+        <DialogContent>
+          <DialogContentText>
+            To leave a comment to this article, please enter your comment here.
+          </DialogContentText>
           <TextField
+            autoFocus
             id="outlined-multiline-flexible"
             label="Your comment here"
             multiline
@@ -73,22 +102,26 @@ class CommentForm extends Component {
             margin="normal"
             variant="outlined"
             error={!commentInputValid && commentInputTouched}
+            fullWidth
           />
-          <div>
-            <Button
-              variant="contained"
-              color="primary"
-              className={classes.button}
-              type="submit"
-              onClick={this.handleSubmit}
-              disabled={!commentInputValid}
-            >
-              Send
-              <Send className={classes.rightIcon}>send</Send>
-            </Button>
-          </div>
-        </form>
-      </div>
+        </DialogContent>
+        <DialogActions>
+          <Button onClick={this.handleCancelClick} color="primary">
+            Cancel
+          </Button>
+          <Button
+            variant="contained"
+            color="primary"
+            className={classes.button}
+            type="submit"
+            onClick={this.handleSubmit}
+            disabled={!commentInputValid}
+          >
+            Send
+            <Send className={classes.rightIcon}>send</Send>
+          </Button>
+        </DialogActions>
+      </Dialog>
     );
   }
 }
@@ -102,7 +135,8 @@ CommentForm.propTypes = {
   onCreateComment: PropTypes.func.isRequired,
   userId: PropTypes.string.isRequired,
   userName: PropTypes.string.isRequired,
-  handleModalClick: PropTypes.func.isRequired,
+  dialog: PropTypes.bool.isRequired,
+  handleDialogClick: PropTypes.func.isRequired,
 };
 
 const mapStateToProps = state => ({
