@@ -18,6 +18,8 @@ import CommentIcon from '@material-ui/icons/Comment';
 
 import Comments from './Comments';
 import CommentForm from './CommentForm';
+import handleAuthorAvatar from '../utils/avatar.utils';
+import stringToColor from '../utils/stringToColor.utils';
 
 const styles = theme => ({
   card: {
@@ -69,8 +71,15 @@ class Article extends Component {
       <Card className={classes.card}>
         <CardHeader
           avatar={(
-            <Avatar aria-label="Recipe" className={classes.avatar}>
-              R
+            <Avatar
+              aria-label="Recipe"
+              style={{
+                backgroundColor: stringToColor(
+                  article.author_name || 'Anonymous',
+                ),
+              }}
+            >
+              {handleAuthorAvatar(article.author_name || 'Anonymous')}
             </Avatar>
 )}
           action={(

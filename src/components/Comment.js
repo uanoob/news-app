@@ -13,6 +13,8 @@ import EditIcon from '@material-ui/icons/Edit';
 import red from '@material-ui/core/colors/red';
 import { deleteComment } from '../store/actions';
 import CommentForm from './CommentForm';
+import handleAuthorAvatar from '../utils/avatar.utils';
+import stringToColor from '../utils/stringToColor.utils';
 
 const styles = theme => ({
   card: {
@@ -52,8 +54,15 @@ class Comment extends Component {
         <CardHeader
           avatar={(
             <IconButton>
-              <Avatar aria-label="Author" className={classes.avatar}>
-                R
+              <Avatar
+                aria-label="Author"
+                style={{
+                  backgroundColor: stringToColor(
+                    comment.author_name || 'Anonymous',
+                  ),
+                }}
+              >
+                {handleAuthorAvatar(comment.author_name || 'Anonymous')}
               </Avatar>
             </IconButton>
 )}
