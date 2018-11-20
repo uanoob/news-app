@@ -5,6 +5,9 @@ import {
   DELETE_COMMENT_START,
   DELETE_COMMENT_SUCCESS,
   DELETE_COMMENT_FAIL,
+  UPDATE_COMMENT_START,
+  UPDATE_COMMENT_SUCCESS,
+  UPDATE_COMMENT_FAIL,
 } from '../actions/types';
 
 const initialState = {
@@ -60,6 +63,28 @@ export default function (state = initialState, action) {
         loading: false,
         loaded: false,
         message: action.payload,
+        error: action.payload,
+      };
+    case UPDATE_COMMENT_START:
+      return {
+        ...state,
+        loading: true,
+        loaded: false,
+        error: null,
+      };
+    case UPDATE_COMMENT_SUCCESS:
+      return {
+        ...state,
+        comment: action.payload,
+        loading: false,
+        loaded: true,
+        error: null,
+      };
+    case UPDATE_COMMENT_FAIL:
+      return {
+        ...state,
+        loading: false,
+        loaded: false,
         error: action.payload,
       };
     default:

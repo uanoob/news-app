@@ -11,7 +11,7 @@ import DialogContentText from '@material-ui/core/DialogContentText';
 import DialogTitle from '@material-ui/core/DialogTitle';
 import Send from '@material-ui/icons/Send';
 import { checkValidityLength } from '../utils/validator.utils';
-import { createComment } from '../store/actions';
+import { createComment, updateComment } from '../store/actions';
 
 const styles = theme => ({
   container: {
@@ -51,12 +51,18 @@ class CommentForm extends Component {
     const {
       articleId,
       onCreateComment,
+      onUpdateComment,
       userId,
       userName,
       handleDialogClick,
+      commentId,
     } = this.props;
     const { comment } = this.state;
-    onCreateComment(articleId, comment, userId, userName);
+    if (!commentId) {
+      onCreateComment(articleId, comment, userId, userName);
+    } else {
+      onUpdateComment(articleId, comment, commentId);
+    }
     this.clearTextField();
     handleDialogClick();
   };
@@ -76,7 +82,14 @@ class CommentForm extends Component {
   };
 
   render() {
-    const { classes, dialog, handleDialogClick } = this.props;
+    const {
+      classes,
+      dialog,
+      handleDialogClick,
+      title,
+      description,
+      commentText,
+    } = this.props;
     const { comment, commentInputTouched, commentInputValid } = this.state;
 
     return (
@@ -85,18 +98,16 @@ class CommentForm extends Component {
         onClose={handleDialogClick}
         aria-labelledby="form-dialog-title"
       >
-        <DialogTitle id="form-dialog-title">Add a comment</DialogTitle>
+        <DialogTitle id="form-dialog-title">{title}</DialogTitle>
         <DialogContent>
-          <DialogContentText>
-            To leave a comment to this article, please enter your comment here.
-          </DialogContentText>
+          <DialogContentText>{description}</DialogContentText>
           <TextField
             autoFocus
             id="outlined-multiline-flexible"
             label="Your comment here"
             multiline
             rows="4"
-            value={comment}
+            value={comment || commentText}
             onChange={event => this.handleTextInput(event)}
             className={classes.textField}
             margin="normal"
@@ -126,6 +137,11 @@ class CommentForm extends Component {
   }
 }
 
+CommentForm.defaultProps = {
+  commentId: '',
+  commentText: '',
+};
+
 CommentForm.propTypes = {
   classes: PropTypes.shape({
     container: PropTypes.string.isRequired,
@@ -133,10 +149,15 @@ CommentForm.propTypes = {
   }).isRequired,
   articleId: PropTypes.string.isRequired,
   onCreateComment: PropTypes.func.isRequired,
+  onUpdateComment: PropTypes.func.isRequired,
   userId: PropTypes.string.isRequired,
   userName: PropTypes.string.isRequired,
   dialog: PropTypes.bool.isRequired,
   handleDialogClick: PropTypes.func.isRequired,
+  title: PropTypes.string.isRequired,
+  description: PropTypes.string.isRequired,
+  commentId: PropTypes.string,
+  commentText: PropTypes.string,
 };
 
 const mapStateToProps = state => ({
@@ -146,6 +167,7 @@ const mapStateToProps = state => ({
 
 const mapDispatchToProps = {
   onCreateComment: createComment,
+  onUpdateComment: updateComment,
 };
 
 export default connect(

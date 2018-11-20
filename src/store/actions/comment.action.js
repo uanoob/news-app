@@ -7,6 +7,9 @@ import {
   DELETE_COMMENT_START,
   DELETE_COMMENT_SUCCESS,
   DELETE_COMMENT_FAIL,
+  UPDATE_COMMENT_START,
+  UPDATE_COMMENT_SUCCESS,
+  UPDATE_COMMENT_FAIL,
 } from './types';
 
 import { getAllCommentsByArticleId } from '.';
@@ -72,5 +75,35 @@ export const deleteComment = (commentId, articleId) => (dispatch) => {
     })
     .catch((err) => {
       dispatch(deleteCommentFail(err));
+    });
+};
+
+const updateCommentStart = () => ({
+  type: UPDATE_COMMENT_START,
+});
+
+const updateCommentSuccess = comment => ({
+  type: UPDATE_COMMENT_SUCCESS,
+  payload: comment,
+});
+
+const updateCommentFail = error => ({
+  type: UPDATE_COMMENT_FAIL,
+  payload: error,
+});
+
+export const updateComment = (articleId, comment, commentId) => (dispatch) => {
+  dispatch(updateCommentStart());
+  const commentData = {
+    text: comment,
+  };
+  axios
+    .put(`/comment/${commentId}`, commentData)
+    .then((response) => {
+      dispatch(updateCommentSuccess(response.data));
+      dispatch(getAllCommentsByArticleId(articleId));
+    })
+    .catch((err) => {
+      dispatch(updateCommentFail(err));
     });
 };

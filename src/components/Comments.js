@@ -5,7 +5,7 @@ import { withStyles } from '@material-ui/core/styles';
 import List from '@material-ui/core/List';
 import ListItem from '@material-ui/core/ListItem';
 import { getAllCommentsByArticleId } from '../store/actions';
-import Comment from '../containers/Comment';
+import Comment from './Comment';
 
 const styles = theme => ({
   root: {

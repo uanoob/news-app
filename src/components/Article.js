@@ -98,6 +98,8 @@ class Article extends Component {
             articleId={article._id}
             dialog={dialog}
             handleDialogClick={this.handleDialogClick}
+            title="Add a comment"
+            description="Please enter your comment here."
           />
 
           <IconButton

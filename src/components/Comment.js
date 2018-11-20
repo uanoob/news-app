@@ -12,6 +12,7 @@ import DeleteIcon from '@material-ui/icons/Delete';
 import EditIcon from '@material-ui/icons/Edit';
 import red from '@material-ui/core/colors/red';
 import { deleteComment } from '../store/actions';
+import CommentForm from './CommentForm';
 
 const styles = theme => ({
   card: {
@@ -27,13 +28,25 @@ const styles = theme => ({
 });
 
 class Comment extends Component {
+  state = {
+    dialog: false,
+  };
+
   handleDeleteComment = (commentId) => {
     const { onDeleteComment, comment } = this.props;
     onDeleteComment(commentId, comment.article_id);
   };
 
+  handleDialogClick = () => {
+    const { dialog } = this.state;
+    this.setState({
+      dialog: !dialog,
+    });
+  };
+
   render() {
     const { classes, comment, userId } = this.props;
+    const { dialog } = this.state;
     return (
       <Card className={classes.card}>
         <CardHeader
@@ -48,7 +61,7 @@ class Comment extends Component {
             comment.author_id === userId ? (
               <div>
                 <IconButton>
-                  <EditIcon />
+                  <EditIcon onClick={this.handleDialogClick} />
                 </IconButton>
                 <IconButton
                   type="button"
@@ -65,6 +78,15 @@ class Comment extends Component {
         <CardContent>
           <Typography component="p">{comment.text}</Typography>
         </CardContent>
+        <CommentForm
+          articleId={comment.article_id}
+          dialog={dialog}
+          handleDialogClick={this.handleDialogClick}
+          title="Edit a comment"
+          description="Please edit your comment here."
+          commentId={comment._id}
+          commentText={comment.text}
+        />
       </Card>
     );
   }
