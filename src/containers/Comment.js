@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { withStyles } from '@material-ui/core/styles';
@@ -11,6 +11,7 @@ import Typography from '@material-ui/core/Typography';
 import DeleteIcon from '@material-ui/icons/Delete';
 import EditIcon from '@material-ui/icons/Edit';
 import red from '@material-ui/core/colors/red';
+import { deleteComment } from '../store/actions';
 
 const styles = theme => ({
   card: {
@@ -25,39 +26,49 @@ const styles = theme => ({
   },
 });
 
-const Comment = (props) => {
-  const { classes, comment, userId } = props;
-  return (
-    <Card className={classes.card}>
-      <CardHeader
-        avatar={(
-          <IconButton>
-            <Avatar aria-label="Author" className={classes.avatar}>
-              R
-            </Avatar>
-          </IconButton>
+class Comment extends Component {
+  handleDeleteComment = (commentId) => {
+    const { onDeleteComment, comment } = this.props;
+    onDeleteComment(commentId, comment.article_id);
+  };
+
+  render() {
+    const { classes, comment, userId } = this.props;
+    return (
+      <Card className={classes.card}>
+        <CardHeader
+          avatar={(
+            <IconButton>
+              <Avatar aria-label="Author" className={classes.avatar}>
+                R
+              </Avatar>
+            </IconButton>
 )}
-        action={
-          comment.author_id === userId ? (
-            <div>
-              <IconButton>
-                <EditIcon />
-              </IconButton>
-              <IconButton>
-                <DeleteIcon />
-              </IconButton>
-            </div>
-          ) : null
-        }
-        title={comment.author_name}
-        subheader={comment.posted_at}
-      />
-      <CardContent>
-        <Typography component="p">{comment.text}</Typography>
-      </CardContent>
-    </Card>
-  );
-};
+          action={
+            comment.author_id === userId ? (
+              <div>
+                <IconButton>
+                  <EditIcon />
+                </IconButton>
+                <IconButton
+                  type="button"
+                  onClick={() => this.handleDeleteComment(comment._id)}
+                >
+                  <DeleteIcon />
+                </IconButton>
+              </div>
+            ) : null
+          }
+          title={comment.author_name}
+          subheader={comment.posted_at}
+        />
+        <CardContent>
+          <Typography component="p">{comment.text}</Typography>
+        </CardContent>
+      </Card>
+    );
+  }
+}
 
 Comment.propTypes = {
   classes: PropTypes.shape({
@@ -74,10 +85,19 @@ Comment.propTypes = {
     posted_at: PropTypes.string.isRequired,
   }).isRequired,
   userId: PropTypes.string.isRequired,
+  onDeleteComment: PropTypes.func.isRequired,
 };
 
 const mapStateToProps = state => ({
   userId: state.user.user._id,
+  message: state.comment.message,
 });
 
-export default connect(mapStateToProps)(withStyles(styles)(Comment));
+const mapDispatchToProps = {
+  onDeleteComment: deleteComment,
+};
+
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps,
+)(withStyles(styles)(Comment));

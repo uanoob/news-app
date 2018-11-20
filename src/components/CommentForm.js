@@ -73,7 +73,7 @@ class CommentForm extends Component {
       commentInputTouched: false,
       commentInputValid: false,
     });
-  }
+  };
 
   render() {
     const { classes, dialog, handleDialogClick } = this.props;
