@@ -27,8 +27,8 @@ class App extends Component {
     if (isAuthenticated) {
       routes = (
         <Switch>
-          <Route exact path="/" component={MainPage} />
-          <Redirect to="/" />
+          <Route exact path="/main" component={MainPage} />
+          <Redirect to="/main" />
         </Switch>
       );
     }
