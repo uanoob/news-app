@@ -16,10 +16,13 @@ import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
 import ForwardIcon from '@material-ui/icons/ForwardOutlined';
 import CommentIcon from '@material-ui/icons/Comment';
 
-import Comments from './Comments';
-import CommentForm from './CommentForm';
-import handleAuthorAvatar from '../utils/avatar.utils';
-import stringToColor from '../utils/stringToColor.utils';
+import Comments from '../comment/Comments';
+import CommentForm from '../comment/CommentForm';
+import {
+  handleAuthorAvatar,
+  stringToColor,
+  cutStringLength,
+} from '../../utils';
 
 const styles = theme => ({
   card: {
@@ -92,7 +95,7 @@ class Article extends Component {
         />
 
         <CardContent>
-          <Typography component="p">{article.text}</Typography>
+          <Typography component="p">{cutStringLength(article.text)}</Typography>
         </CardContent>
 
         <CardActions className={classes.actions} disableActionSpacing>

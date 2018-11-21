@@ -10,8 +10,8 @@ import DialogContent from '@material-ui/core/DialogContent';
 import DialogContentText from '@material-ui/core/DialogContentText';
 import DialogTitle from '@material-ui/core/DialogTitle';
 import Send from '@material-ui/icons/Send';
-import { checkValidityLength } from '../utils/validator.utils';
-import { createComment, updateComment } from '../store/actions';
+import { checkValidityLength } from '../../utils/validator.utils';
+import { createComment, updateComment } from '../../store/actions';
 
 const styles = theme => ({
   container: {

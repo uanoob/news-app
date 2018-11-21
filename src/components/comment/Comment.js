@@ -11,10 +11,9 @@ import Typography from '@material-ui/core/Typography';
 import DeleteIcon from '@material-ui/icons/Delete';
 import EditIcon from '@material-ui/icons/Edit';
 import red from '@material-ui/core/colors/red';
-import { deleteComment } from '../store/actions';
+import { deleteComment } from '../../store/actions';
 import CommentForm from './CommentForm';
-import handleAuthorAvatar from '../utils/avatar.utils';
-import stringToColor from '../utils/stringToColor.utils';
+import { handleAuthorAvatar, stringToColor } from '../../utils';
 
 const styles = theme => ({
   card: {

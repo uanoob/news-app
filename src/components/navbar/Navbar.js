@@ -7,7 +7,7 @@ import { withStyles } from '@material-ui/core/styles';
 import AppBar from '@material-ui/core/AppBar';
 import Toolbar from '@material-ui/core/Toolbar';
 import Button from '@material-ui/core/Button';
-import { logout } from '../store/actions';
+import { logout } from '../../store/actions';
 
 const styles = {
   root: {

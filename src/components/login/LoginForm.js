@@ -7,8 +7,8 @@ import Button from '@material-ui/core/Button';
 import {
   checkValidityLength,
   checkValidityEmail,
-} from '../utils/validator.utils';
-import { login } from '../store/actions';
+} from '../../utils/validator.utils';
+import { login } from '../../store/actions';
 
 const styles = theme => ({
   container: {

@@ -5,9 +5,9 @@ import './App.css';
 import {
   Route, Switch, Redirect, withRouter,
 } from 'react-router-dom';
-import Navbar from './components/Navbar';
+import Navbar from './components/navbar/Navbar';
 import MainPage from './containers/MainPage';
-import LoginForm from './components/LoginForm';
+import LoginForm from './components/login/LoginForm';
 import { authCheckState } from './store/actions';
 
 class App extends Component {
