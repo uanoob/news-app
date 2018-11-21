@@ -1,5 +1,7 @@
 export { getAllArticles, getAllArticlesSuccess } from './articles.action';
 
+export { getArticleById, createArticle, updateArticle } from './article.action';
+
 export {
   getAllCommentsSuccess,
   getAllCommentsByArticleId,
