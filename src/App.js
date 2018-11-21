@@ -8,6 +8,7 @@ import {
 import Navbar from './components/navbar/Navbar';
 import MainPage from './containers/MainPage';
 import LoginForm from './components/login/LoginForm';
+import CurrentArticle from './components/article/CurrentArticle';
 import { authCheckState } from './store/actions';
 
 class App extends Component {
@@ -28,6 +29,7 @@ class App extends Component {
       routes = (
         <Switch>
           <Route exact path="/main" component={MainPage} />
+          <Route exact path="/article/:id" component={CurrentArticle} />
           <Redirect to="/main" />
         </Switch>
       );

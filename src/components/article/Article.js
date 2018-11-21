@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { withRouter } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import classnames from 'classnames';
 import { withStyles } from '@material-ui/core/styles';
@@ -15,9 +16,12 @@ import FavoriteIcon from '@material-ui/icons/Favorite';
 import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
 import ForwardIcon from '@material-ui/icons/ForwardOutlined';
 import CommentIcon from '@material-ui/icons/Comment';
+import DeleteIcon from '@material-ui/icons/Delete';
+import EditIcon from '@material-ui/icons/Edit';
 
 import Comments from '../comment/Comments';
 import CommentForm from '../comment/CommentForm';
+import ArticleForm from './ArticleForm';
 import {
   handleAuthorAvatar,
   stringToColor,
@@ -53,23 +57,53 @@ const styles = theme => ({
 class Article extends Component {
   state = {
     expanded: false,
-    dialog: false,
+    articleDialog: false,
+    commentDialog: false,
   };
 
   handleExpandClick = () => {
     this.setState(state => ({ expanded: !state.expanded }));
   };
 
-  handleDialogClick = () => {
-    const { dialog } = this.state;
+  handleArticleClick = () => {
+    const { articleDialog } = this.state;
     this.setState({
-      dialog: !dialog,
+      articleDialog: !articleDialog,
     });
   };
 
+  handleCommentClick = () => {
+    const { commentDialog } = this.state;
+    this.setState({
+      commentDialog: !commentDialog,
+    });
+  };
+
+  handleCurrentArticle = (articleId) => {
+    const { history } = this.props;
+    history.push(`/article/${articleId}`);
+  };
+
+  handleIsAuthor = () => {
+    const { article, userId } = this.props;
+    return article.author_id === userId ? (
+      <div>
+        <IconButton>
+          <EditIcon onClick={this.handleArticleClick} />
+        </IconButton>
+        <IconButton
+          type="button"
+          onClick={() => this.handleDeleteArticle(article._id)}
+        >
+          <DeleteIcon />
+        </IconButton>
+      </div>
+    ) : null;
+  };
+
   render() {
-    const { classes, article } = this.props;
-    const { expanded, dialog } = this.state;
+    const { classes, article, userId } = this.props;
+    const { expanded, articleDialog, commentDialog } = this.state;
     return (
       <Card className={classes.card}>
         <CardHeader
@@ -85,33 +119,51 @@ class Article extends Component {
               {handleAuthorAvatar(article.author_name || 'Anonymous')}
             </Avatar>
 )}
-          action={(
-            <IconButton>
-              <ForwardIcon />
-            </IconButton>
-)}
+          action={
+            !userId ? (
+              <IconButton
+                onClick={() => this.handleCurrentArticle(article._id)}
+              >
+                <ForwardIcon />
+              </IconButton>
+            ) : (
+              this.handleIsAuthor()
+            )
+          }
           title={article.title}
           subheader={article.posted_at}
         />
 
         <CardContent>
-          <Typography component="p">{cutStringLength(article.text)}</Typography>
+          <Typography component="p">
+            {userId ? article.text : cutStringLength(article.text)}
+          </Typography>
         </CardContent>
 
         <CardActions className={classes.actions} disableActionSpacing>
           <IconButton aria-label="Add to favorites">
             <FavoriteIcon />
           </IconButton>
-          <IconButton aria-label="Message" onClick={this.handleDialogClick}>
+          <IconButton aria-label="Message" onClick={this.handleCommentClick}>
             <CommentIcon />
           </IconButton>
 
           <CommentForm
             articleId={article._id}
-            dialog={dialog}
-            handleDialogClick={this.handleDialogClick}
+            dialog={commentDialog}
+            handleDialogClick={this.handleCommentClick}
             title="Add a comment"
             description="Please enter your comment here."
+          />
+
+          <ArticleForm
+            articleId={article._id}
+            articleTitle={article.title}
+            articleText={article.text}
+            dialog={articleDialog}
+            handleDialogClick={this.handleArticleClick}
+            header="Edit an article"
+            description="Please edit your article here."
           />
 
           <IconButton
@@ -136,6 +188,10 @@ class Article extends Component {
   }
 }
 
+Article.defaultProps = {
+  userId: '',
+};
+
 Article.propTypes = {
   classes: PropTypes.shape({
     card: PropTypes.string.isRequired,
@@ -152,6 +208,8 @@ Article.propTypes = {
     author_name: PropTypes.string.isRequired,
     posted_at: PropTypes.string.isRequired,
   }).isRequired,
+  history: PropTypes.shape({ push: PropTypes.func.isRequired }).isRequired,
+  userId: PropTypes.string,
 };
 
-export default withStyles(styles)(Article);
+export default withRouter(withStyles(styles)(Article));
