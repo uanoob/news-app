@@ -1,5 +1,5 @@
 /* eslint-disable */
-const stringToColour = function(str) {
+export const stringToColor = function(str) {
   let hash = 0;
   for (var i = 0; i < str.length; i++) {
     hash = str.charCodeAt(i) + ((hash << 5) - hash);
@@ -12,5 +12,5 @@ const stringToColour = function(str) {
   return colour;
 };
 
-export default stringToColour;
+export default stringToColor;
 /* eslint-enable */
