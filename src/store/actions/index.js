@@ -9,6 +9,8 @@ export {
 
 export { authCheckState } from './auth.action';
 
-export { login, getUserByToken, logout } from './user.action';
+export {
+  login, signUp, getUserByToken, logout,
+} from './user.action';
 
 export { createComment, deleteComment, updateComment } from './comment.action';

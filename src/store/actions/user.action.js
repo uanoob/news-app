@@ -4,6 +4,9 @@ import {
   LOGIN_START,
   LOGIN_SUCCESS,
   LOGIN_FAIL,
+  SIGNUP_START,
+  SIGNUP_SUCCESS,
+  SIGNUP_FAIL,
   LOGOUT_START,
   LOGOUT_SUCCESS,
   LOGOUT_FAIL,
@@ -98,4 +101,37 @@ export const login = (email, password) => (dispatch) => {
       dispatch(getUserByToken());
     })
     .catch(error => dispatch(loginFail(error)));
+};
+
+const signUpStart = () => ({
+  type: SIGNUP_START,
+});
+
+const signUpSuccess = token => ({
+  type: SIGNUP_SUCCESS,
+  payload: token,
+});
+
+const signUpFail = err => ({
+  type: SIGNUP_FAIL,
+  payload: err,
+});
+
+export const signUp = (name, email, password) => (dispatch) => {
+  dispatch(signUpStart());
+  const signUpData = {
+    name,
+    email,
+    password,
+  };
+  axios
+    .post('/auth', signUpData)
+    .then((response) => {
+      localStorage.setItem('token', response.data.token);
+      dispatch(signUpSuccess(response.data));
+      dispatch(getUserByToken());
+    })
+    .catch((error) => {
+      dispatch(signUpFail(error));
+    });
 };

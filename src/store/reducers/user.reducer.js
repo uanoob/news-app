@@ -2,6 +2,9 @@ import {
   LOGIN_START,
   LOGIN_SUCCESS,
   LOGIN_FAIL,
+  SIGNUP_START,
+  SIGNUP_SUCCESS,
+  SIGNUP_FAIL,
   LOGOUT_START,
   LOGOUT_SUCCESS,
   LOGOUT_FAIL,
@@ -41,6 +44,31 @@ export default function (state = initialState, action) {
       return {
         ...state,
         user: null,
+        token: null,
+        auth: false,
+        loading: false,
+        loaded: false,
+        error: action.payload,
+      };
+    case SIGNUP_START:
+      return {
+        ...state,
+        loading: true,
+        loaded: false,
+        error: null,
+      };
+    case SIGNUP_SUCCESS:
+      return {
+        ...state,
+        token: action.payload.token,
+        auth: action.payload.auth,
+        loading: false,
+        loaded: true,
+        error: null,
+      };
+    case SIGNUP_FAIL:
+      return {
+        ...state,
         token: null,
         auth: false,
         loading: false,
