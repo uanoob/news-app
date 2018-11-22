@@ -14,7 +14,14 @@ import {
 } from '../actions/types';
 
 const initialState = {
-  user: null,
+  user: {
+    _id: '',
+    name: '',
+    email: '',
+    password: '',
+    created_at: '',
+    updated_at: '',
+  },
   token: null,
   auth: false,
   loading: false,
@@ -43,7 +50,14 @@ export default function (state = initialState, action) {
     case LOGIN_FAIL:
       return {
         ...state,
-        user: null,
+        user: {
+          _id: '',
+          name: '',
+          email: '',
+          password: '',
+          created_at: '',
+          updated_at: '',
+        },
         token: null,
         auth: false,
         loading: false,
@@ -85,7 +99,14 @@ export default function (state = initialState, action) {
     case LOGOUT_SUCCESS:
       return {
         ...state,
-        user: null,
+        user: {
+          _id: '',
+          name: '',
+          email: '',
+          password: '',
+          created_at: '',
+          updated_at: '',
+        },
         token: null,
         auth: false,
         loading: false,
@@ -95,7 +116,14 @@ export default function (state = initialState, action) {
     case LOGOUT_FAIL:
       return {
         ...state,
-        user: null,
+        user: {
+          _id: '',
+          name: '',
+          email: '',
+          password: '',
+          created_at: '',
+          updated_at: '',
+        },
         token: null,
         auth: false,
         loading: false,
@@ -105,7 +133,14 @@ export default function (state = initialState, action) {
     case GET_USER_BY_TOKEN_START:
       return {
         ...state,
-        user: null,
+        user: {
+          _id: '',
+          name: '',
+          email: '',
+          password: '',
+          created_at: '',
+          updated_at: '',
+        },
         token: null,
         auth: false,
         loading: true,
@@ -125,7 +160,14 @@ export default function (state = initialState, action) {
     case GET_USER_BY_TOKEN_FAIL:
       return {
         ...state,
-        user: null,
+        user: {
+          _id: '',
+          name: '',
+          email: '',
+          password: '',
+          created_at: '',
+          updated_at: '',
+        },
         token: null,
         auth: false,
         loading: false,

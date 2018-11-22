@@ -77,9 +77,9 @@ const loginStart = () => ({
   type: LOGIN_START,
 });
 
-const loginSuccess = token => ({
+const loginSuccess = data => ({
   type: LOGIN_SUCCESS,
-  payload: token,
+  payload: data,
 });
 
 const loginFail = err => ({
@@ -107,9 +107,9 @@ const signUpStart = () => ({
   type: SIGNUP_START,
 });
 
-const signUpSuccess = token => ({
+const signUpSuccess = data => ({
   type: SIGNUP_SUCCESS,
-  payload: token,
+  payload: data,
 });
 
 const signUpFail = err => ({
