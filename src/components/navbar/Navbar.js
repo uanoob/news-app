@@ -41,8 +41,8 @@ class Navbar extends Component {
         <Link className={classes.link} to="/login">
           <Button color="inherit">Login</Button>
         </Link>
-        <Link className={classes.link} to="/register">
-          <Button color="inherit">Register</Button>
+        <Link className={classes.link} to="/signup">
+          <Button color="inherit">Sign Up</Button>
         </Link>
       </div>
     ) : (

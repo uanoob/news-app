@@ -8,6 +8,7 @@ import {
 import Navbar from './components/navbar/Navbar';
 import MainPage from './containers/MainPage';
 import LoginForm from './components/login/LoginForm';
+import SignUpForm from './components/signup/SignUpForm';
 import CurrentArticle from './components/article/CurrentArticle';
 import { authCheckState } from './store/actions';
 
@@ -22,6 +23,7 @@ class App extends Component {
     let routes = (
       <Switch>
         <Route path="/login" component={LoginForm} />
+        <Route path="/signup" component={SignUpForm} />
         <Redirect to="/login" />
       </Switch>
     );
