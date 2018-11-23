@@ -1,4 +1,8 @@
-export { getAllArticles, getArticlesByAuthorId } from './articles.action';
+export {
+  getAllArticles,
+  getArticlesByAuthorId,
+  clearArticles,
+} from './articles.action';
 
 export {
   getArticleById,

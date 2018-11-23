@@ -108,7 +108,6 @@ export const updateArticle = (
   axios
     .put(`/article/${articleId}`, articleData)
     .then((response) => {
-      console.log(response.data);
       dispatch(updateArticleSuccess(response.data));
       dispatch(getAllArticles());
     })

@@ -5,6 +5,8 @@ import {
   GET_ARTICLES_BY_AUTHOR_ID_START,
   GET_ARTICLES_BY_AUTHOR_ID_SUCCESS,
   GET_ARTICLES_BY_AUTHOR_ID_FAIL,
+  CLEAR_ARTICLES_START,
+  CLEAR_ARTICLES_SUCCESS,
 } from '../actions/types';
 
 const initialState = {
@@ -59,6 +61,21 @@ export default function (state = initialState, action) {
         loading: false,
         loaded: false,
         error: action.payload,
+      };
+    case CLEAR_ARTICLES_START:
+      return {
+        ...state,
+        loading: true,
+        loaded: false,
+        error: null,
+      };
+    case CLEAR_ARTICLES_SUCCESS:
+      return {
+        ...state,
+        articles: [],
+        loading: false,
+        loaded: true,
+        error: null,
       };
     default:
       return state;

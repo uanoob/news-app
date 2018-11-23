@@ -3,7 +3,7 @@ export const checkValidityLength = (name, value) => {
     name: { min: 3, max: 20 },
     password: { min: 3, max: 100 },
     title: { min: 2, max: 100 },
-    text: { min: 20, max: 1000 },
+    text: { min: 20, max: 2000 },
     comment: { min: 3, max: 250 },
   };
   let isValid = true;

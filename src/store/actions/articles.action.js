@@ -7,6 +7,8 @@ import {
   GET_ARTICLES_BY_AUTHOR_ID_START,
   GET_ARTICLES_BY_AUTHOR_ID_SUCCESS,
   GET_ARTICLES_BY_AUTHOR_ID_FAIL,
+  CLEAR_ARTICLES_START,
+  CLEAR_ARTICLES_SUCCESS,
 } from './types';
 
 const getAllArticlesStart = () => ({
@@ -59,4 +61,17 @@ export const getArticlesByAuthorId = authorId => (dispatch) => {
     .catch((error) => {
       dispatch(getArticlesByAuthorIdFail(error));
     });
+};
+
+const clearArticlesStart = () => ({
+  type: CLEAR_ARTICLES_START,
+});
+
+const clearArticlesSuccess = () => ({
+  type: CLEAR_ARTICLES_SUCCESS,
+});
+
+export const clearArticles = () => (dispatch) => {
+  dispatch(clearArticlesStart());
+  dispatch(clearArticlesSuccess());
 };
