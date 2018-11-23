@@ -5,7 +5,7 @@ import { withStyles } from '@material-ui/core/styles';
 import List from '@material-ui/core/List';
 import ListItem from '@material-ui/core/ListItem';
 import Article from './Article';
-import { getAllArticles } from '../../store/actions';
+import { getAllArticles, getArticlesByAuthorId } from '../../store/actions';
 
 const styles = theme => ({
   root: {
@@ -15,18 +15,19 @@ const styles = theme => ({
     maxWidth: 600,
     backgroundColor: theme.palette.background.paper,
   },
-  nested: {
-    paddingLeft: theme.spacing.unit * 4,
-  },
 });
 
 class Articles extends Component {
   state = {};
 
   componentDidMount() {
-    const { onGetAllArticles } = this.props;
-    onGetAllArticles();
+    this.getArticles();
   }
+
+  getArticles = () => {
+    const { authorId, onGetAllArticles, onGetArticlesByAuthorId } = this.props;
+    return authorId ? onGetArticlesByAuthorId(authorId) : onGetAllArticles();
+  };
 
   render() {
     const { classes, articles } = this.props;
@@ -46,12 +47,12 @@ class Articles extends Component {
 
 Articles.defaultProps = {
   articles: [],
+  authorId: '',
 };
 
 Articles.propTypes = {
   classes: PropTypes.shape({
     root: PropTypes.string.isRequired,
-    nested: PropTypes.string.isRequired,
   }).isRequired,
   articles: PropTypes.arrayOf(
     PropTypes.shape({
@@ -60,10 +61,13 @@ Articles.propTypes = {
       text: PropTypes.string.isRequired,
       author_id: PropTypes.string.isRequired,
       author_name: PropTypes.string.isRequired,
-      posted_at: PropTypes.string.isRequired,
+      created_at: PropTypes.string.isRequired,
+      updated_at: PropTypes.string.isRequired,
     }).isRequired,
   ),
+  authorId: PropTypes.string,
   onGetAllArticles: PropTypes.func.isRequired,
+  onGetArticlesByAuthorId: PropTypes.func.isRequired,
 };
 
 const mapStateToProps = state => ({
@@ -72,6 +76,7 @@ const mapStateToProps = state => ({
 
 const mapDispatchToProps = {
   onGetAllArticles: getAllArticles,
+  onGetArticlesByAuthorId: getArticlesByAuthorId,
 };
 
 export default connect(

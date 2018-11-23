@@ -41,6 +41,15 @@ class ArticleForm extends Component {
     textInputValid: false,
   };
 
+  componentWillReceiveProps(nextProps) {
+    this.setState({
+      title: nextProps.articleTitle,
+      titleInputValid: checkValidityLength('title', nextProps.articleTitle),
+      text: nextProps.articleText,
+      textInputValid: checkValidityLength('text', nextProps.articleText),
+    });
+  }
+
   handleTitleInput = (e) => {
     this.setState({
       title: e.target.value,
@@ -97,8 +106,6 @@ class ArticleForm extends Component {
   render() {
     const {
       classes,
-      articleTitle,
-      articleText,
       dialog,
       handleDialogClick,
       header,
@@ -126,7 +133,7 @@ class ArticleForm extends Component {
             autoFocus
             id="article-title"
             label="Title article here"
-            value={title || articleTitle}
+            value={title}
             onChange={event => this.handleTitleInput(event)}
             className={classes.textField}
             margin="normal"
@@ -139,7 +146,7 @@ class ArticleForm extends Component {
             label="Text article here"
             multiline
             rows="10"
-            value={text || articleText}
+            value={text}
             onChange={event => this.handleTextInput(event)}
             className={classes.textField}
             margin="normal"
@@ -158,7 +165,7 @@ class ArticleForm extends Component {
             className={classes.button}
             type="submit"
             onClick={this.handleSubmit}
-            disabled={!titleInputValid}
+            disabled={!titleInputValid || !textInputValid}
           >
             Send
             <Send className={classes.rightIcon}>send</Send>

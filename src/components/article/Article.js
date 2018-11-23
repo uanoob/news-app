@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { connect } from 'react-redux';
 import { withRouter } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import classnames from 'classnames';
@@ -18,7 +19,7 @@ import ForwardIcon from '@material-ui/icons/ForwardOutlined';
 import CommentIcon from '@material-ui/icons/Comment';
 import DeleteIcon from '@material-ui/icons/Delete';
 import EditIcon from '@material-ui/icons/Edit';
-
+import { deleteArticle } from '../../store/actions';
 import Comments from '../comment/Comments';
 import CommentForm from '../comment/CommentForm';
 import ArticleForm from './ArticleForm';
@@ -82,6 +83,13 @@ class Article extends Component {
   handleCurrentArticle = (articleId) => {
     const { history } = this.props;
     history.push(`/article/${articleId}`);
+  };
+
+  handleDeleteArticle = (articleId) => {
+    const { onDeleteArticle, userId } = this.props;
+    onDeleteArticle(articleId, userId);
+    const { history } = this.props;
+    history.push(`/author/${userId}`);
   };
 
   handleIsAuthor = () => {
@@ -206,10 +214,21 @@ Article.propTypes = {
     text: PropTypes.string.isRequired,
     author_id: PropTypes.string.isRequired,
     author_name: PropTypes.string.isRequired,
-    posted_at: PropTypes.string.isRequired,
+    created_at: PropTypes.string.isRequired,
+    updated_at: PropTypes.string.isRequired,
   }).isRequired,
   history: PropTypes.shape({ push: PropTypes.func.isRequired }).isRequired,
   userId: PropTypes.string,
+  onDeleteArticle: PropTypes.func.isRequired,
 };
 
-export default withRouter(withStyles(styles)(Article));
+const mapDispatchToProps = {
+  onDeleteArticle: deleteArticle,
+};
+
+export default withRouter(
+  connect(
+    null,
+    mapDispatchToProps,
+  )(withStyles(styles)(Article)),
+);

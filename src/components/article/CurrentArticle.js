@@ -36,7 +36,8 @@ CurrentArticle.propTypes = {
     text: PropTypes.string.isRequired,
     author_id: PropTypes.string.isRequired,
     author_name: PropTypes.string.isRequired,
-    posted_at: PropTypes.string.isRequired,
+    created_at: PropTypes.string.isRequired,
+    updated_at: PropTypes.string.isRequired,
   }).isRequired,
   userId: PropTypes.string.isRequired,
 };
