@@ -5,7 +5,12 @@ import { withStyles } from '@material-ui/core/styles';
 import List from '@material-ui/core/List';
 import ListItem from '@material-ui/core/ListItem';
 import Article from './Article';
-import { getAllArticles, getArticlesByAuthorId } from '../../store/actions';
+import Preloader from '../../containers/preloader/Preloader';
+import {
+  getAllArticles,
+  getArticlesByAuthorId,
+  clearArticles,
+} from '../../store/actions';
 
 const styles = theme => ({
   root: {
@@ -14,6 +19,7 @@ const styles = theme => ({
     width: '100%',
     maxWidth: 600,
     backgroundColor: theme.palette.background.paper,
+    textAlign: 'center',
   },
 });
 
@@ -22,6 +28,12 @@ class Articles extends Component {
 
   componentDidMount() {
     this.getArticles();
+  }
+
+  componentWillUnmount() {
+    const { onClearArticles } = this.props;
+    onClearArticles();
+    console.log('articles will unmount');
   }
 
   getArticles = () => {
@@ -41,7 +53,11 @@ class Articles extends Component {
           ))}
         </List>
       </div>
-    ) : null;
+    ) : (
+      <div className={classes.root}>
+        <Preloader />
+      </div>
+    );
   }
 }
 
@@ -68,6 +84,7 @@ Articles.propTypes = {
   authorId: PropTypes.string,
   onGetAllArticles: PropTypes.func.isRequired,
   onGetArticlesByAuthorId: PropTypes.func.isRequired,
+  onClearArticles: PropTypes.func.isRequired,
 };
 
 const mapStateToProps = state => ({
@@ -77,6 +94,7 @@ const mapStateToProps = state => ({
 const mapDispatchToProps = {
   onGetAllArticles: getAllArticles,
   onGetArticlesByAuthorId: getArticlesByAuthorId,
+  onClearArticles: clearArticles,
 };
 
 export default connect(
