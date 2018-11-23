@@ -3,6 +3,9 @@
 export const GET_ALL_ARTICLES_START = '[articles] get all articles start';
 export const GET_ALL_ARTICLES_SUCCESS = '[articles] get all articles success';
 export const GET_ALL_ARTICLES_FAIL = '[articles] get all articles fail';
+export const GET_ARTICLES_BY_AUTHOR_ID_START = '[articles] get articles by author id start';
+export const GET_ARTICLES_BY_AUTHOR_ID_SUCCESS = '[articles] get articles by author id success';
+export const GET_ARTICLES_BY_AUTHOR_ID_FAIL = '[articles] get articles by author id fail';
 export const GET_ARTICLE_BY_ID_START = '[article] get article by id start';
 export const GET_ARTICLE_BY_ID_SUCCESS = '[article] get article by id success';
 export const GET_ARTICLE_BY_ID_FAIL = '[article] get article by id fail';
@@ -12,6 +15,9 @@ export const CREATE_ARTICLE_FAIL = '[article] create article fail';
 export const UPDATE_ARTICLE_START = '[article] update article start';
 export const UPDATE_ARTICLE_SUCCESS = '[article] update article success';
 export const UPDATE_ARTICLE_FAIL = '[article] update article fail';
+export const DELETE_ARTICLE_START = '[article] delete article start';
+export const DELETE_ARTICLE_SUCCESS = '[article] delete article success';
+export const DELETE_ARTICLE_FAIL = '[article] delete article fail';
 export const GET_ALL_COMMENTS_BY_ARTICLE_ID_START =
   '[comments] get all comments by article_id start';
 export const GET_ALL_COMMENTS_BY_ARTICLE_ID_SUCCESS =

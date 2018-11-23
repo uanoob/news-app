@@ -1,6 +1,11 @@
-export { getAllArticles, getAllArticlesSuccess } from './articles.action';
+export { getAllArticles, getArticlesByAuthorId } from './articles.action';
 
-export { getArticleById, createArticle, updateArticle } from './article.action';
+export {
+  getArticleById,
+  createArticle,
+  updateArticle,
+  deleteArticle,
+} from './article.action';
 
 export {
   getAllCommentsSuccess,

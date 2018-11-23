@@ -10,9 +10,12 @@ import {
   UPDATE_ARTICLE_START,
   UPDATE_ARTICLE_SUCCESS,
   UPDATE_ARTICLE_FAIL,
+  DELETE_ARTICLE_START,
+  DELETE_ARTICLE_SUCCESS,
+  DELETE_ARTICLE_FAIL,
 } from './types';
 
-import { getAllArticles } from '.';
+import { getAllArticles, getArticlesByAuthorId } from '.';
 
 const getArticleByIdStart = () => ({
   type: GET_ARTICLE_BY_ID_START,
@@ -70,9 +73,8 @@ export const createArticle = (
   axios
     .post('/article', articleData)
     .then((response) => {
-      console.log(response.data);
       dispatch(createArticleSuccess(response.data));
-      dispatch(getAllArticles());
+      dispatch(getArticlesByAuthorId(authorId));
     })
     .catch((err) => {
       dispatch(createArticleFail(err));
@@ -112,5 +114,32 @@ export const updateArticle = (
     })
     .catch((err) => {
       dispatch(updateArticleFail(err));
+    });
+};
+
+const deleteArticleStart = () => ({
+  type: DELETE_ARTICLE_START,
+});
+
+const deleteArticleSuccess = message => ({
+  type: DELETE_ARTICLE_SUCCESS,
+  payload: message,
+});
+
+const deleteArticleFail = error => ({
+  type: DELETE_ARTICLE_FAIL,
+  payload: error,
+});
+
+export const deleteArticle = (articleId, authorId) => (dispatch) => {
+  dispatch(deleteArticleStart());
+  axios
+    .delete(`/article/${articleId}`)
+    .then((response) => {
+      dispatch(deleteArticleSuccess(response.data));
+      dispatch(getArticlesByAuthorId(authorId));
+    })
+    .catch((err) => {
+      dispatch(deleteArticleFail(err));
     });
 };
