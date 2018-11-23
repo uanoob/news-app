@@ -94,7 +94,7 @@ Navbar.propTypes = {
 
 const mapStateToProps = state => ({
   isAuthenticated: state.user.auth,
-  userId: state.user._id,
+  userId: state.user.user._id,
 });
 
 const mapDispatchToProps = {

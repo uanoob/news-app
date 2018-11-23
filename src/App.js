@@ -7,6 +7,7 @@ import {
 } from 'react-router-dom';
 import Navbar from './components/navbar/Navbar';
 import MainPage from './containers/MainPage';
+import AuthorPage from './containers/AuthorPage';
 import LoginForm from './components/login/LoginForm';
 import SignUpForm from './components/signup/SignUpForm';
 import CurrentArticle from './components/article/CurrentArticle';
@@ -31,6 +32,7 @@ class App extends Component {
       routes = (
         <Switch>
           <Route exact path="/main" component={MainPage} />
+          <Route exact path="/author/:id" component={AuthorPage} />
           <Route exact path="/article/:id" component={CurrentArticle} />
           <Redirect to="/main" />
         </Switch>
