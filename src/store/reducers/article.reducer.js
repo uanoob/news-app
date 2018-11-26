@@ -11,6 +11,8 @@ import {
   DELETE_ARTICLE_START,
   DELETE_ARTICLE_SUCCESS,
   DELETE_ARTICLE_FAIL,
+  CLEAR_ARTICLE_START,
+  CLEAR_ARTICLE_SUCCESS,
 } from '../actions/types';
 
 const initialState = {
@@ -166,6 +168,29 @@ export default function (state = initialState, action) {
         loading: false,
         loaded: false,
         error: action.payload,
+      };
+    case CLEAR_ARTICLE_START:
+      return {
+        ...state,
+        loading: true,
+        loaded: false,
+        error: null,
+      };
+    case CLEAR_ARTICLE_SUCCESS:
+      return {
+        ...state,
+        article: {
+          _id: '',
+          title: '',
+          text: '',
+          author_id: '',
+          author_name: '',
+          created_at: '',
+          updated_at: '',
+        },
+        loading: false,
+        loaded: true,
+        error: null,
       };
     default:
       return state;

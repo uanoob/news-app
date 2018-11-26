@@ -13,6 +13,8 @@ import {
   DELETE_ARTICLE_START,
   DELETE_ARTICLE_SUCCESS,
   DELETE_ARTICLE_FAIL,
+  CLEAR_ARTICLE_START,
+  CLEAR_ARTICLE_SUCCESS,
 } from './types';
 
 import { getAllArticles, getArticlesByAuthorId } from '.';
@@ -141,4 +143,17 @@ export const deleteArticle = (articleId, authorId) => (dispatch) => {
     .catch((err) => {
       dispatch(deleteArticleFail(err));
     });
+};
+
+const clearArticleStart = () => ({
+  type: CLEAR_ARTICLE_START,
+});
+
+const clearArticleSuccess = () => ({
+  type: CLEAR_ARTICLE_SUCCESS,
+});
+
+export const clearArticle = () => (dispatch) => {
+  dispatch(clearArticleStart());
+  dispatch(clearArticleSuccess());
 };

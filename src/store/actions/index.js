@@ -9,12 +9,10 @@ export {
   createArticle,
   updateArticle,
   deleteArticle,
+  clearArticle,
 } from './article.action';
 
-export {
-  getAllCommentsSuccess,
-  getAllCommentsByArticleId,
-} from './comments.action';
+export { getAllCommentsByArticleId, clearComments } from './comments.action';
 
 export { authCheckState } from './auth.action';
 

@@ -141,8 +141,6 @@ export default function (state = initialState, action) {
           created_at: '',
           updated_at: '',
         },
-        token: null,
-        auth: false,
         loading: true,
         loaded: false,
         error: null,
@@ -151,7 +149,6 @@ export default function (state = initialState, action) {
       return {
         ...state,
         user: action.payload,
-        token: null,
         auth: true,
         loading: false,
         loaded: true,
