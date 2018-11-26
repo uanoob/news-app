@@ -19,10 +19,11 @@ import ForwardIcon from '@material-ui/icons/ForwardOutlined';
 import CommentIcon from '@material-ui/icons/Comment';
 import DeleteIcon from '@material-ui/icons/Delete';
 import EditIcon from '@material-ui/icons/Edit';
-import { deleteArticle } from '../../store/actions';
+import { deleteArticle, clearArticle } from '../../store/actions';
 import Comments from '../comment/Comments';
 import CommentForm from '../comment/CommentForm';
 import ArticleForm from './ArticleForm';
+import Preloader from '../../containers/preloader/Preloader';
 import {
   handleAuthorAvatar,
   stringToColor,
@@ -33,6 +34,9 @@ const styles = theme => ({
   card: {
     width: '100%',
     backgroundColor: theme.palette.background.paper,
+  },
+  loader: {
+    textAlign: 'center',
   },
   actions: {
     display: 'flex',
@@ -60,6 +64,15 @@ class Article extends Component {
     expanded: false,
     articleDialog: false,
     commentDialog: false,
+  };
+
+  componentWillUnmount() {
+    this.handleClearArticle();
+  }
+
+  handleClearArticle = () => {
+    const { onClearArticle, currentArticleId } = this.props;
+    return currentArticleId ? onClearArticle() : null;
   };
 
   handleExpandClick = () => {
@@ -110,21 +123,25 @@ class Article extends Component {
   };
 
   render() {
-    const { classes, article, userId } = this.props;
+    const {
+      classes, article, userId, isLoading,
+    } = this.props;
     const { expanded, articleDialog, commentDialog } = this.state;
-    return (
+    return isLoading ? (
+      <div className={classes.loader}>
+        <Preloader />
+      </div>
+    ) : (
       <Card className={classes.card}>
         <CardHeader
           avatar={(
             <Avatar
               aria-label="Recipe"
               style={{
-                backgroundColor: stringToColor(
-                  article.author_name || 'Anonymous',
-                ),
+                backgroundColor: stringToColor(article.author_name),
               }}
             >
-              {handleAuthorAvatar(article.author_name || 'Anonymous')}
+              {handleAuthorAvatar(article.author_name)}
             </Avatar>
 )}
           action={
@@ -198,6 +215,7 @@ class Article extends Component {
 
 Article.defaultProps = {
   userId: '',
+  currentArticleId: '',
 };
 
 Article.propTypes = {
@@ -220,15 +238,24 @@ Article.propTypes = {
   history: PropTypes.shape({ push: PropTypes.func.isRequired }).isRequired,
   userId: PropTypes.string,
   onDeleteArticle: PropTypes.func.isRequired,
+  onClearArticle: PropTypes.func.isRequired,
+  currentArticleId: PropTypes.string,
+  isLoading: PropTypes.bool.isRequired,
 };
+
+const mapStateToProps = state => ({
+  currentArticleId: state.article.article._id,
+  isLoading: state.article.loading,
+});
 
 const mapDispatchToProps = {
   onDeleteArticle: deleteArticle,
+  onClearArticle: clearArticle,
 };
 
 export default withRouter(
   connect(
-    null,
+    mapStateToProps,
     mapDispatchToProps,
   )(withStyles(styles)(Article)),
 );

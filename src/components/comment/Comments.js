@@ -4,13 +4,15 @@ import PropTypes from 'prop-types';
 import { withStyles } from '@material-ui/core/styles';
 import List from '@material-ui/core/List';
 import ListItem from '@material-ui/core/ListItem';
-import { getAllCommentsByArticleId } from '../../store/actions';
+import { getAllCommentsByArticleId, clearComments } from '../../store/actions';
+import Preloader from '../../containers/preloader/Preloader';
 import Comment from './Comment';
 
 const styles = theme => ({
   root: {
     width: '100%',
     backgroundColor: theme.palette.background.paper,
+    textAlign: 'center',
   },
 });
 
@@ -22,20 +24,28 @@ class Comments extends Component {
     onGetAllCommentsByArticleId(articleId);
   }
 
+  componentWillUnmount() {
+    const { onClearComments } = this.props;
+    onClearComments();
+  }
+
+  handleLoadingComments = () => {
+    const { isLoading, isLoaded } = this.props;
+    return isLoading && !isLoaded ? <Preloader /> : <div>No comments yep</div>;
+  };
+
   render() {
     const { classes, comments } = this.props;
     return (
       <div className={classes.root}>
         <List dense>
-          {comments.length !== 0 ? (
-            comments.map(comment => (
+          {comments.length !== 0
+            ? comments.map(comment => (
               <ListItem key={comment._id}>
                 <Comment comment={comment} />
               </ListItem>
             ))
-          ) : (
-            <div>No comments yep</div>
-          )}
+            : this.handleLoadingComments()}
         </List>
       </div>
     );
@@ -62,15 +72,21 @@ Comments.propTypes = {
     }),
   ),
   onGetAllCommentsByArticleId: PropTypes.func.isRequired,
+  onClearComments: PropTypes.func.isRequired,
   articleId: PropTypes.string.isRequired,
+  isLoading: PropTypes.bool.isRequired,
+  isLoaded: PropTypes.bool.isRequired,
 };
 
 const mapStateToProps = state => ({
   comments: state.comments.comments,
+  isLoading: state.comments.loading,
+  isLoaded: state.comments.loaded,
 });
 
 const mapDispatchToProps = {
   onGetAllCommentsByArticleId: getAllCommentsByArticleId,
+  onClearComments: clearComments,
 };
 
 export default connect(

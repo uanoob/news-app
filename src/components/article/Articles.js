@@ -19,6 +19,9 @@ const styles = theme => ({
     width: '100%',
     maxWidth: 600,
     backgroundColor: theme.palette.background.paper,
+  },
+  loader: {
+    margin: 'auto',
     textAlign: 'center',
   },
 });
@@ -33,7 +36,6 @@ class Articles extends Component {
   componentWillUnmount() {
     const { onClearArticles } = this.props;
     onClearArticles();
-    console.log('articles will unmount');
   }
 
   getArticles = () => {
@@ -54,7 +56,7 @@ class Articles extends Component {
         </List>
       </div>
     ) : (
-      <div className={classes.root}>
+      <div className={classes.loader}>
         <Preloader />
       </div>
     );
