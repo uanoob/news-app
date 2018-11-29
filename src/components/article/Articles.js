@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React, { Component, Fragment } from 'react';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import { withStyles } from '@material-ui/core/styles';
@@ -22,6 +22,7 @@ const styles = theme => ({
   },
   loader: {
     margin: 'auto',
+    marginTop: 20,
     textAlign: 'center',
   },
 });
@@ -44,21 +45,31 @@ class Articles extends Component {
   };
 
   render() {
-    const { classes, articles } = this.props;
-    return articles && articles.length !== 0 ? (
-      <div className={classes.root}>
-        <List component="nav">
-          {articles.map(article => (
-            <ListItem key={article._id}>
-              <Article article={article} />
-            </ListItem>
-          ))}
-        </List>
-      </div>
-    ) : (
-      <div className={classes.loader}>
-        <Preloader />
-      </div>
+    const {
+      classes, articles, isLoading, isLoaded, errorMsg,
+    } = this.props;
+    return (
+      <Fragment>
+        {articles && articles.length !== 0 && (
+          <div className={classes.root}>
+            <List component="nav">
+              {articles.map(article => (
+                <ListItem key={article._id}>
+                  <Article article={article} />
+                </ListItem>
+              ))}
+            </List>
+          </div>
+        )}
+        {isLoading && !isLoaded ? (
+          <div className={classes.loader}>
+            <Preloader />
+          </div>
+        ) : (
+          <div className={classes.loader}>No articles yep</div>
+        )}
+        {errorMsg && <div className={classes.loader}>{errorMsg}</div>}
+      </Fragment>
     );
   }
 }
@@ -66,6 +77,9 @@ class Articles extends Component {
 Articles.defaultProps = {
   articles: [],
   authorId: '',
+  isLoading: false,
+  isLoaded: false,
+  errorMsg: null,
 };
 
 Articles.propTypes = {
@@ -87,10 +101,16 @@ Articles.propTypes = {
   onGetAllArticles: PropTypes.func.isRequired,
   onGetArticlesByAuthorId: PropTypes.func.isRequired,
   onClearArticles: PropTypes.func.isRequired,
+  isLoading: PropTypes.bool,
+  isLoaded: PropTypes.bool,
+  errorMsg: PropTypes.string,
 };
 
 const mapStateToProps = state => ({
   articles: state.articles.articles,
+  isLoading: state.articles.loading,
+  isLoaded: state.articles.loaded,
+  errorMsg: state.articles.error,
 });
 
 const mapDispatchToProps = {

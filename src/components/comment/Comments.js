@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React, { Component, Fragment } from 'react';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import { withStyles } from '@material-ui/core/styles';
@@ -29,31 +29,37 @@ class Comments extends Component {
     onClearComments();
   }
 
-  handleLoadingComments = () => {
-    const { isLoading, isLoaded } = this.props;
-    return isLoading && !isLoaded ? <Preloader /> : <div>No comments yep</div>;
-  };
-
   render() {
-    const { classes, comments } = this.props;
+    const {
+      classes, comments, isLoading, isLoaded, errorMsg,
+    } = this.props;
     return (
-      <div className={classes.root}>
-        <List dense>
-          {comments.length !== 0
-            ? comments.map(comment => (
-              <ListItem key={comment._id}>
-                <Comment comment={comment} />
-              </ListItem>
-            ))
-            : this.handleLoadingComments()}
-        </List>
-      </div>
+      <Fragment>
+        <div className={classes.root}>
+          <List dense>
+            {comments
+              && comments.length !== 0
+              && comments.map(comment => (
+                <ListItem key={comment._id}>
+                  <Comment comment={comment} />
+                </ListItem>
+              ))}
+            {isLoading && !isLoaded ? (
+              <Preloader />
+            ) : (
+              <div>No comments yep</div>
+            )}
+            {errorMsg && <div>{errorMsg}</div>}
+          </List>
+        </div>
+      </Fragment>
     );
   }
 }
 
 Comments.defaultProps = {
   comments: [],
+  errorMsg: null,
 };
 
 Comments.propTypes = {
@@ -76,6 +82,7 @@ Comments.propTypes = {
   articleId: PropTypes.string.isRequired,
   isLoading: PropTypes.bool.isRequired,
   isLoaded: PropTypes.bool.isRequired,
+  errorMsg: PropTypes.string,
 };
 
 const mapStateToProps = state => ({

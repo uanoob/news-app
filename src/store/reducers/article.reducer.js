@@ -15,7 +15,7 @@ import {
   CLEAR_ARTICLE_SUCCESS,
 } from '../actions/types';
 
-const initialState = {
+export const initialState = {
   article: {
     _id: '',
     title: '',
