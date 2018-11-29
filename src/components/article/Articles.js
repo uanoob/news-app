@@ -22,12 +22,16 @@ const styles = theme => ({
   },
   loader: {
     margin: 'auto',
+    textAlign: 'center',
+  },
+  error: {
+    margin: 'auto',
     marginTop: 20,
     textAlign: 'center',
   },
 });
 
-class Articles extends Component {
+export class Articles extends Component {
   state = {};
 
   componentDidMount() {
@@ -68,7 +72,7 @@ class Articles extends Component {
         ) : (
           <div className={classes.loader}>No articles yep</div>
         )}
-        {errorMsg && <div className={classes.loader}>{errorMsg}</div>}
+        {errorMsg && <span className={classes.error}>{errorMsg}</span>}
       </Fragment>
     );
   }
