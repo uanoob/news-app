@@ -23,7 +23,7 @@ const styles = theme => ({
   },
 });
 
-class LoginForm extends React.Component {
+export class LoginForm extends React.Component {
   state = {
     email: '',
     emailTouched: false,
@@ -33,17 +33,19 @@ class LoginForm extends React.Component {
     passwordIsValid: false,
   };
 
-  handleChange = name => (event) => {
+  handleChange = (event) => {
+    event.preventDefault();
+    const { name, value } = event.target;
     const touched = `${name}Touched`;
     const isValid = `${name}IsValid`;
     const checkValidity = () => {
       if (name === 'email') {
-        return checkValidityEmail(event.target.value);
+        return checkValidityEmail(value);
       }
-      return checkValidityLength(name, event.target.value);
+      return checkValidityLength(name, value);
     };
     this.setState({
-      [name]: event.target.value,
+      [name]: value,
       [touched]: true,
       [isValid]: checkValidity(),
     });
@@ -78,7 +80,7 @@ class LoginForm extends React.Component {
           label="Email"
           className={classes.textField}
           value={email}
-          onChange={this.handleChange('email')}
+          onChange={e => this.handleChange(e)}
           type="email"
           name="email"
           autoComplete="email"
@@ -91,14 +93,16 @@ class LoginForm extends React.Component {
           label="Password"
           className={classes.textField}
           value={password}
-          onChange={this.handleChange('password')}
+          onChange={e => this.handleChange(e)}
           type="password"
+          name="password"
           autoComplete="current-password"
           margin="normal"
           variant="outlined"
           error={!passwordIsValid && passwordTouched}
         />
         <Button
+          id="submit-button"
           type="submit"
           variant="contained"
           color="primary"

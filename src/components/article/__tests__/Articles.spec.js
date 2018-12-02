@@ -17,28 +17,38 @@ describe('Articles', () => {
     onClearArticles: () => {},
   };
 
+  describe('Articles componentDidMount', () => {
+    const mockGetArticles = jest.fn();
+    const wrapper = shallow(<Articles {...props} />);
+    wrapper.instance().getArticles = mockGetArticles;
+    wrapper.instance().componentDidMount();
+    it('getArticles method should have been called', () => {
+      expect(mockGetArticles).toBeCalledTimes(1);
+    });
+  });
+
   describe('Articles initial', () => {
     const mockGetAllArticles = jest.fn();
     const nextProps = {
       ...props,
       onGetAllArticles: mockGetAllArticles,
     };
-    const articles = shallow(<Articles {...nextProps} />);
+    const wrapper = shallow(<Articles {...nextProps} />);
 
     it('renders properly', () => {
-      expect(articles).toMatchSnapshot();
+      expect(wrapper).toMatchSnapshot();
     });
     it('dispatches the onGetAllArticles method', () => {
       expect(mockGetAllArticles).toHaveBeenCalledTimes(1);
     });
     it('not render <List />', () => {
-      expect(articles.find(List)).toHaveLength(0);
+      expect(wrapper.find(List)).toHaveLength(0);
     });
     it('not render <Preloader />', () => {
-      expect(articles.find(Preloader)).toHaveLength(0);
+      expect(wrapper.find(Preloader)).toHaveLength(0);
     });
     it('not render errorMsg', () => {
-      expect(articles.find('span')).toHaveLength(0);
+      expect(wrapper.find('span')).toHaveLength(0);
     });
   });
 
@@ -49,11 +59,11 @@ describe('Articles', () => {
       authorId: '123',
       onGetArticlesByAuthorId: mockGetArticlesByAuthorId,
     };
-    const articles = shallow(<Articles {...nextProps} />);
+    const wrapper = shallow(<Articles {...nextProps} />);
     it('renders properly', () => {
-      expect(articles).toMatchSnapshot();
+      expect(wrapper).toMatchSnapshot();
     });
-    it('dispatches mockGetArticlesByAuthorId method', () => {
+    it('dispatches getArticlesByAuthorId method', () => {
       expect(mockGetArticlesByAuthorId).toBeCalledTimes(1);
       expect(mockGetArticlesByAuthorId).toBeCalledWith(nextProps.authorId);
     });
@@ -64,19 +74,19 @@ describe('Articles', () => {
       ...props,
       isLoading: true,
     };
-    const articles = shallow(<Articles {...nextProps} />);
+    const wrapper = shallow(<Articles {...nextProps} />);
 
     it('renders properly', () => {
-      expect(articles).toMatchSnapshot();
+      expect(wrapper).toMatchSnapshot();
     });
     it('render Preloader', () => {
-      expect(articles.find(Preloader)).toHaveLength(1);
+      expect(wrapper.find(Preloader)).toHaveLength(1);
     });
     it('not render <List />', () => {
-      expect(articles.find(List)).toHaveLength(0);
+      expect(wrapper.find(List)).toHaveLength(0);
     });
     it('not render errorMsg', () => {
-      expect(articles.find('span')).toHaveLength(0);
+      expect(wrapper.find('span')).toHaveLength(0);
     });
   });
 
@@ -97,19 +107,19 @@ describe('Articles', () => {
       isLoading: false,
       isLoaded: true,
     };
-    const articles = shallow(<Articles {...nextProps} />);
+    const wrapper = shallow(<Articles {...nextProps} />);
 
     it('renders properly', () => {
-      expect(articles).toMatchSnapshot();
+      expect(wrapper).toMatchSnapshot();
     });
     it('renders <List /> template', () => {
-      expect(articles.find(List)).toHaveLength(1);
+      expect(wrapper.find(List)).toHaveLength(1);
     });
     it('not render <Preloader />', () => {
-      expect(articles.find(Preloader)).toHaveLength(0);
+      expect(wrapper.find(Preloader)).toHaveLength(0);
     });
     it('not render errorMsg', () => {
-      expect(articles.find('span')).toHaveLength(0);
+      expect(wrapper.find('span')).toHaveLength(0);
     });
   });
 
@@ -118,13 +128,29 @@ describe('Articles', () => {
       ...props,
       errorMsg: 'Something going wrong',
     };
-    const articles = shallow(<Articles {...nextProps} />);
+    const wrapper = shallow(<Articles {...nextProps} />);
 
     it('renders properly', () => {
-      expect(articles).toMatchSnapshot();
+      expect(wrapper).toMatchSnapshot();
     });
     it('renders errorMsg', () => {
-      expect(articles.find('span').text()).toEqual(nextProps.errorMsg);
+      expect(wrapper.find('span').text()).toEqual(nextProps.errorMsg);
+    });
+  });
+
+  describe('Articles componentWillUnmount', () => {
+    const mockClearArticles = jest.fn();
+    const nextProps = {
+      ...props,
+      onClearArticles: mockClearArticles,
+    };
+    const wrapper = shallow(<Articles {...nextProps} />);
+    it('renders properly', () => {
+      expect(wrapper).toMatchSnapshot();
+    });
+    wrapper.unmount();
+    it('dispatches clearArticles method', () => {
+      expect(mockClearArticles).toBeCalledTimes(1);
     });
   });
 });
