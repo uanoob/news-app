@@ -1,9 +1,9 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Login render correctly LoginForm component 1`] = `
+exports[`Login render correctly LoginFormComponent component 1`] = `
 ShallowWrapper {
   Symbol(enzyme.__root__): [Circular],
-  Symbol(enzyme.__unrendered__): <LoginForm
+  Symbol(enzyme.__unrendered__): <LoginFormComponent
     classes={
       Object {
         "container": "",

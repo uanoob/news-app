@@ -1,7 +1,7 @@
 import React from 'react';
 import { shallow } from 'enzyme';
 import List from '@material-ui/core/List';
-import { Articles } from '../Articles';
+import { ArticlesComponent } from '../Articles';
 import Preloader from '../../../containers/preloader/Preloader';
 
 describe('Articles', () => {
@@ -19,7 +19,7 @@ describe('Articles', () => {
 
   describe('Articles componentDidMount', () => {
     const mockGetArticles = jest.fn();
-    const wrapper = shallow(<Articles {...props} />);
+    const wrapper = shallow(<ArticlesComponent {...props} />);
     wrapper.instance().getArticles = mockGetArticles;
     wrapper.instance().componentDidMount();
     it('getArticles method should have been called', () => {
@@ -33,7 +33,7 @@ describe('Articles', () => {
       ...props,
       onGetAllArticles: mockGetAllArticles,
     };
-    const wrapper = shallow(<Articles {...nextProps} />);
+    const wrapper = shallow(<ArticlesComponent {...nextProps} />);
 
     it('renders properly', () => {
       expect(wrapper).toMatchSnapshot();
@@ -59,7 +59,7 @@ describe('Articles', () => {
       authorId: '123',
       onGetArticlesByAuthorId: mockGetArticlesByAuthorId,
     };
-    const wrapper = shallow(<Articles {...nextProps} />);
+    const wrapper = shallow(<ArticlesComponent {...nextProps} />);
     it('renders properly', () => {
       expect(wrapper).toMatchSnapshot();
     });
@@ -74,7 +74,7 @@ describe('Articles', () => {
       ...props,
       isLoading: true,
     };
-    const wrapper = shallow(<Articles {...nextProps} />);
+    const wrapper = shallow(<ArticlesComponent {...nextProps} />);
 
     it('renders properly', () => {
       expect(wrapper).toMatchSnapshot();
@@ -107,7 +107,7 @@ describe('Articles', () => {
       isLoading: false,
       isLoaded: true,
     };
-    const wrapper = shallow(<Articles {...nextProps} />);
+    const wrapper = shallow(<ArticlesComponent {...nextProps} />);
 
     it('renders properly', () => {
       expect(wrapper).toMatchSnapshot();
@@ -128,7 +128,7 @@ describe('Articles', () => {
       ...props,
       errorMsg: 'Something going wrong',
     };
-    const wrapper = shallow(<Articles {...nextProps} />);
+    const wrapper = shallow(<ArticlesComponent {...nextProps} />);
 
     it('renders properly', () => {
       expect(wrapper).toMatchSnapshot();
@@ -144,7 +144,7 @@ describe('Articles', () => {
       ...props,
       onClearArticles: mockClearArticles,
     };
-    const wrapper = shallow(<Articles {...nextProps} />);
+    const wrapper = shallow(<ArticlesComponent {...nextProps} />);
     it('renders properly', () => {
       expect(wrapper).toMatchSnapshot();
     });

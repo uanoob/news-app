@@ -1,6 +1,6 @@
 import React from 'react';
 import { shallow } from 'enzyme';
-import { LoginForm } from '../LoginForm';
+import { LoginFormComponent } from '../LoginForm';
 
 describe('Login', () => {
   const mockLogin = jest.fn();
@@ -19,12 +19,12 @@ describe('Login', () => {
     },
     onLogin: mockLogin,
   };
-  const wrapper = shallow(<LoginForm {...props} />);
+  const wrapper = shallow(<LoginFormComponent {...props} />);
 
-  it('render correctly LoginForm component', () => {
+  it('render correctly LoginFormComponent component', () => {
     expect(wrapper).toMatchSnapshot();
   });
-  it('initialize LoginForm with initial state', () => {
+  it('initialize LoginFormComponent with initial state', () => {
     expect(wrapper.state()).toEqual(initialState);
   });
   describe('valid email input', () => {

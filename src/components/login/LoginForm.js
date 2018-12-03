@@ -23,7 +23,7 @@ const styles = theme => ({
   },
 });
 
-export class LoginForm extends React.Component {
+export class LoginFormComponent extends React.Component {
   state = {
     email: '',
     emailTouched: false,
@@ -116,7 +116,7 @@ export class LoginForm extends React.Component {
   }
 }
 
-LoginForm.propTypes = {
+LoginFormComponent.propTypes = {
   classes: PropTypes.shape({
     container: PropTypes.string.isRequired,
     textField: PropTypes.string.isRequired,
@@ -128,7 +128,9 @@ const mapDispatchToProps = {
   onLogin: login,
 };
 
-export default connect(
+const LoginForm = connect(
   null,
   mapDispatchToProps,
-)(withStyles(styles)(LoginForm));
+)(withStyles(styles)(LoginFormComponent));
+
+export default LoginForm;

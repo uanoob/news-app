@@ -31,7 +31,7 @@ const styles = theme => ({
   },
 });
 
-export class Articles extends Component {
+export class ArticlesComponent extends Component {
   state = {};
 
   componentDidMount() {
@@ -78,7 +78,7 @@ export class Articles extends Component {
   }
 }
 
-Articles.defaultProps = {
+ArticlesComponent.defaultProps = {
   articles: [],
   authorId: '',
   isLoading: false,
@@ -86,7 +86,7 @@ Articles.defaultProps = {
   errorMsg: null,
 };
 
-Articles.propTypes = {
+ArticlesComponent.propTypes = {
   classes: PropTypes.shape({
     root: PropTypes.string.isRequired,
   }).isRequired,
@@ -123,7 +123,9 @@ const mapDispatchToProps = {
   onClearArticles: clearArticles,
 };
 
-export default connect(
+const Articles = connect(
   mapStateToProps,
   mapDispatchToProps,
-)(withStyles(styles)(Articles));
+)(withStyles(styles)(ArticlesComponent));
+
+export default Articles;

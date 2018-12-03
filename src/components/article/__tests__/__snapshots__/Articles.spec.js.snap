@@ -3,7 +3,7 @@
 exports[`Articles Articles componentWillUnmount renders properly 1`] = `
 ShallowWrapper {
   Symbol(enzyme.__root__): [Circular],
-  Symbol(enzyme.__unrendered__): <Articles
+  Symbol(enzyme.__unrendered__): <ArticlesComponent
     articles={Array []}
     authorId=""
     classes={
@@ -127,7 +127,7 @@ ShallowWrapper {
 exports[`Articles Articles initial + authorId renders properly 1`] = `
 ShallowWrapper {
   Symbol(enzyme.__root__): [Circular],
-  Symbol(enzyme.__unrendered__): <Articles
+  Symbol(enzyme.__unrendered__): <ArticlesComponent
     articles={Array []}
     authorId="123"
     classes={
@@ -253,7 +253,7 @@ ShallowWrapper {
 exports[`Articles Articles initial renders properly 1`] = `
 ShallowWrapper {
   Symbol(enzyme.__root__): [Circular],
-  Symbol(enzyme.__unrendered__): <Articles
+  Symbol(enzyme.__unrendered__): <ArticlesComponent
     articles={Array []}
     authorId=""
     classes={
@@ -377,7 +377,7 @@ ShallowWrapper {
 exports[`Articles Articles isLoading renders properly 1`] = `
 ShallowWrapper {
   Symbol(enzyme.__root__): [Circular],
-  Symbol(enzyme.__unrendered__): <Articles
+  Symbol(enzyme.__unrendered__): <ArticlesComponent
     articles={Array []}
     authorId=""
     classes={
@@ -505,7 +505,7 @@ ShallowWrapper {
 exports[`Articles Articles render <List /> renders properly 1`] = `
 ShallowWrapper {
   Symbol(enzyme.__root__): [Circular],
-  Symbol(enzyme.__unrendered__): <Articles
+  Symbol(enzyme.__unrendered__): <ArticlesComponent
     articles={
       Array [
         Object {
@@ -869,7 +869,7 @@ ShallowWrapper {
 exports[`Articles Articles with errorMsg renders properly 1`] = `
 ShallowWrapper {
   Symbol(enzyme.__root__): [Circular],
-  Symbol(enzyme.__unrendered__): <Articles
+  Symbol(enzyme.__unrendered__): <ArticlesComponent
     articles={Array []}
     authorId=""
     classes={
