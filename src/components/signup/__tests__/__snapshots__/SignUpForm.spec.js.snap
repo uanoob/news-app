@@ -1,0 +1,349 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`SignUp render correctly SignUpFormComponent component 1`] = `
+ShallowWrapper {
+  Symbol(enzyme.__root__): [Circular],
+  Symbol(enzyme.__unrendered__): <SignUpFormComponent
+    classes={
+      Object {
+        "container": "",
+        "textField": "",
+      }
+    }
+    onSignUp={[MockFunction]}
+  />,
+  Symbol(enzyme.__renderer__): Object {
+    "batchedUpdates": [Function],
+    "getNode": [Function],
+    "render": [Function],
+    "simulateError": [Function],
+    "simulateEvent": [Function],
+    "unmount": [Function],
+  },
+  Symbol(enzyme.__node__): Object {
+    "instance": null,
+    "key": undefined,
+    "nodeType": "host",
+    "props": Object {
+      "autoComplete": "off",
+      "children": Array [
+        <TextField
+          autoComplete="current-name"
+          className=""
+          error={false}
+          id="outlined-name-input"
+          label="Name"
+          margin="normal"
+          onChange={[Function]}
+          required={false}
+          select={false}
+          type="text"
+          value=""
+          variant="outlined"
+        />,
+        <TextField
+          autoComplete="email"
+          className=""
+          error={false}
+          id="outlined-email-input"
+          label="Email"
+          margin="normal"
+          name="email"
+          onChange={[Function]}
+          required={false}
+          select={false}
+          type="email"
+          value=""
+          variant="outlined"
+        />,
+        <TextField
+          autoComplete="current-password"
+          className=""
+          error={false}
+          id="outlined-password-input"
+          label="Password"
+          margin="normal"
+          onChange={[Function]}
+          required={false}
+          select={false}
+          type="password"
+          value=""
+          variant="outlined"
+        />,
+        <WithStyles(Button)
+          color="primary"
+          disabled={true}
+          id="signup-button"
+          type="submit"
+          variant="contained"
+        >
+          Sign Up
+        </WithStyles(Button)>,
+      ],
+      "className": "",
+      "noValidate": true,
+      "onSubmit": [Function],
+    },
+    "ref": null,
+    "rendered": Array [
+      Object {
+        "instance": null,
+        "key": undefined,
+        "nodeType": "class",
+        "props": Object {
+          "autoComplete": "current-name",
+          "className": "",
+          "error": false,
+          "id": "outlined-name-input",
+          "label": "Name",
+          "margin": "normal",
+          "onChange": [Function],
+          "required": false,
+          "select": false,
+          "type": "text",
+          "value": "",
+          "variant": "outlined",
+        },
+        "ref": null,
+        "rendered": null,
+        "type": [Function],
+      },
+      Object {
+        "instance": null,
+        "key": undefined,
+        "nodeType": "class",
+        "props": Object {
+          "autoComplete": "email",
+          "className": "",
+          "error": false,
+          "id": "outlined-email-input",
+          "label": "Email",
+          "margin": "normal",
+          "name": "email",
+          "onChange": [Function],
+          "required": false,
+          "select": false,
+          "type": "email",
+          "value": "",
+          "variant": "outlined",
+        },
+        "ref": null,
+        "rendered": null,
+        "type": [Function],
+      },
+      Object {
+        "instance": null,
+        "key": undefined,
+        "nodeType": "class",
+        "props": Object {
+          "autoComplete": "current-password",
+          "className": "",
+          "error": false,
+          "id": "outlined-password-input",
+          "label": "Password",
+          "margin": "normal",
+          "onChange": [Function],
+          "required": false,
+          "select": false,
+          "type": "password",
+          "value": "",
+          "variant": "outlined",
+        },
+        "ref": null,
+        "rendered": null,
+        "type": [Function],
+      },
+      Object {
+        "instance": null,
+        "key": undefined,
+        "nodeType": "class",
+        "props": Object {
+          "children": "Sign Up",
+          "className": undefined,
+          "color": "primary",
+          "disabled": true,
+          "id": "signup-button",
+          "type": "submit",
+          "variant": "contained",
+        },
+        "ref": null,
+        "rendered": "Sign Up",
+        "type": [Function],
+      },
+    ],
+    "type": "form",
+  },
+  Symbol(enzyme.__nodes__): Array [
+    Object {
+      "instance": null,
+      "key": undefined,
+      "nodeType": "host",
+      "props": Object {
+        "autoComplete": "off",
+        "children": Array [
+          <TextField
+            autoComplete="current-name"
+            className=""
+            error={false}
+            id="outlined-name-input"
+            label="Name"
+            margin="normal"
+            onChange={[Function]}
+            required={false}
+            select={false}
+            type="text"
+            value=""
+            variant="outlined"
+          />,
+          <TextField
+            autoComplete="email"
+            className=""
+            error={false}
+            id="outlined-email-input"
+            label="Email"
+            margin="normal"
+            name="email"
+            onChange={[Function]}
+            required={false}
+            select={false}
+            type="email"
+            value=""
+            variant="outlined"
+          />,
+          <TextField
+            autoComplete="current-password"
+            className=""
+            error={false}
+            id="outlined-password-input"
+            label="Password"
+            margin="normal"
+            onChange={[Function]}
+            required={false}
+            select={false}
+            type="password"
+            value=""
+            variant="outlined"
+          />,
+          <WithStyles(Button)
+            color="primary"
+            disabled={true}
+            id="signup-button"
+            type="submit"
+            variant="contained"
+          >
+            Sign Up
+          </WithStyles(Button)>,
+        ],
+        "className": "",
+        "noValidate": true,
+        "onSubmit": [Function],
+      },
+      "ref": null,
+      "rendered": Array [
+        Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "class",
+          "props": Object {
+            "autoComplete": "current-name",
+            "className": "",
+            "error": false,
+            "id": "outlined-name-input",
+            "label": "Name",
+            "margin": "normal",
+            "onChange": [Function],
+            "required": false,
+            "select": false,
+            "type": "text",
+            "value": "",
+            "variant": "outlined",
+          },
+          "ref": null,
+          "rendered": null,
+          "type": [Function],
+        },
+        Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "class",
+          "props": Object {
+            "autoComplete": "email",
+            "className": "",
+            "error": false,
+            "id": "outlined-email-input",
+            "label": "Email",
+            "margin": "normal",
+            "name": "email",
+            "onChange": [Function],
+            "required": false,
+            "select": false,
+            "type": "email",
+            "value": "",
+            "variant": "outlined",
+          },
+          "ref": null,
+          "rendered": null,
+          "type": [Function],
+        },
+        Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "class",
+          "props": Object {
+            "autoComplete": "current-password",
+            "className": "",
+            "error": false,
+            "id": "outlined-password-input",
+            "label": "Password",
+            "margin": "normal",
+            "onChange": [Function],
+            "required": false,
+            "select": false,
+            "type": "password",
+            "value": "",
+            "variant": "outlined",
+          },
+          "ref": null,
+          "rendered": null,
+          "type": [Function],
+        },
+        Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "class",
+          "props": Object {
+            "children": "Sign Up",
+            "className": undefined,
+            "color": "primary",
+            "disabled": true,
+            "id": "signup-button",
+            "type": "submit",
+            "variant": "contained",
+          },
+          "ref": null,
+          "rendered": "Sign Up",
+          "type": [Function],
+        },
+      ],
+      "type": "form",
+    },
+  ],
+  Symbol(enzyme.__options__): Object {
+    "adapter": ReactSixteenAdapter {
+      "options": Object {
+        "enableComponentDidUpdateOnSetState": true,
+        "lifecycles": Object {
+          "componentDidUpdate": Object {
+            "onSetState": true,
+          },
+          "getDerivedStateFromProps": true,
+          "getSnapshotBeforeUpdate": true,
+          "setState": Object {
+            "skipsComponentDidUpdateOnNullish": true,
+          },
+        },
+      },
+    },
+  },
+}
+`;

@@ -23,7 +23,7 @@ const styles = theme => ({
   },
 });
 
-class SignUpForm extends React.Component {
+export class SignUpFormComponent extends React.Component {
   state = {
     name: '',
     nameTouched: false,
@@ -117,6 +117,7 @@ class SignUpForm extends React.Component {
           error={!passwordIsValid && passwordTouched}
         />
         <Button
+          id="signup-button"
           type="submit"
           variant="contained"
           color="primary"
@@ -130,7 +131,7 @@ class SignUpForm extends React.Component {
   }
 }
 
-SignUpForm.propTypes = {
+SignUpFormComponent.propTypes = {
   classes: PropTypes.shape({
     container: PropTypes.string.isRequired,
     textField: PropTypes.string.isRequired,
@@ -142,7 +143,9 @@ const mapDispatchToProps = {
   onSignUp: signUp,
 };
 
-export default connect(
+const SignUpForm = connect(
   null,
   mapDispatchToProps,
-)(withStyles(styles)(SignUpForm));
+)(withStyles(styles)(SignUpFormComponent));
+
+export default SignUpForm;
