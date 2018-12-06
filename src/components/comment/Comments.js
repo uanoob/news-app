@@ -16,7 +16,7 @@ const styles = theme => ({
   },
 });
 
-class Comments extends Component {
+export class CommentsComponent extends Component {
   state = {};
 
   componentDidMount() {
@@ -35,34 +35,33 @@ class Comments extends Component {
     } = this.props;
     return (
       <Fragment>
-        <div className={classes.root}>
-          <List dense>
-            {comments
-              && comments.length !== 0
-              && comments.map(comment => (
+        {comments && comments.length !== 0 && (
+          <div className={classes.root}>
+            <List dense>
+              {comments.map(comment => (
                 <ListItem key={comment._id}>
                   <Comment comment={comment} />
                 </ListItem>
               ))}
-            {isLoading && !isLoaded ? (
-              <Preloader />
-            ) : (
-              <div>No comments yep</div>
-            )}
-            {errorMsg && <div>{errorMsg}</div>}
-          </List>
-        </div>
+            </List>
+          </div>
+        )}
+        {isLoading && !isLoaded ? <Preloader /> : null}
+        {isLoaded && !comments.length ? (
+          <span id="empty-message">No comments yep</span>
+        ) : null}
+        {errorMsg && <span id="error-message">{errorMsg}</span>}
       </Fragment>
     );
   }
 }
 
-Comments.defaultProps = {
+CommentsComponent.defaultProps = {
   comments: [],
   errorMsg: null,
 };
 
-Comments.propTypes = {
+CommentsComponent.propTypes = {
   classes: PropTypes.shape({
     root: PropTypes.string.isRequired,
   }).isRequired,
@@ -96,7 +95,9 @@ const mapDispatchToProps = {
   onClearComments: clearComments,
 };
 
-export default connect(
+const Comments = connect(
   mapStateToProps,
   mapDispatchToProps,
-)(withStyles(styles)(Comments));
+)(withStyles(styles)(CommentsComponent));
+
+export default Comments;
