@@ -1,6 +1,128 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Articles Articles componentWillUnmount renders properly 1`] = `
+exports[`Articles ArticlesComponent Loaded & articles array empty render correctly ArticlesComponent 1`] = `
+ShallowWrapper {
+  Symbol(enzyme.__root__): [Circular],
+  Symbol(enzyme.__unrendered__): <ArticlesComponent
+    articles={Array []}
+    authorId=""
+    classes={
+      Object {
+        "root": "",
+      }
+    }
+    errorMsg={null}
+    isLoaded={true}
+    isLoading={false}
+    onClearArticles={[Function]}
+    onGetAllArticles={[Function]}
+    onGetArticlesByAuthorId={[Function]}
+  />,
+  Symbol(enzyme.__renderer__): Object {
+    "batchedUpdates": [Function],
+    "getNode": [Function],
+    "render": [Function],
+    "simulateError": [Function],
+    "simulateEvent": [Function],
+    "unmount": [Function],
+  },
+  Symbol(enzyme.__node__): Object {
+    "instance": null,
+    "key": undefined,
+    "nodeType": "function",
+    "props": Object {
+      "children": Array [
+        false,
+        null,
+        <span
+          id="articles-empty-message"
+        >
+          No articles yep
+        </span>,
+        null,
+      ],
+    },
+    "ref": null,
+    "rendered": Array [
+      false,
+      null,
+      Object {
+        "instance": null,
+        "key": undefined,
+        "nodeType": "host",
+        "props": Object {
+          "children": "No articles yep",
+          "className": undefined,
+          "id": "articles-empty-message",
+        },
+        "ref": null,
+        "rendered": "No articles yep",
+        "type": "span",
+      },
+      null,
+    ],
+    "type": Symbol(react.fragment),
+  },
+  Symbol(enzyme.__nodes__): Array [
+    Object {
+      "instance": null,
+      "key": undefined,
+      "nodeType": "function",
+      "props": Object {
+        "children": Array [
+          false,
+          null,
+          <span
+            id="articles-empty-message"
+          >
+            No articles yep
+          </span>,
+          null,
+        ],
+      },
+      "ref": null,
+      "rendered": Array [
+        false,
+        null,
+        Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "host",
+          "props": Object {
+            "children": "No articles yep",
+            "className": undefined,
+            "id": "articles-empty-message",
+          },
+          "ref": null,
+          "rendered": "No articles yep",
+          "type": "span",
+        },
+        null,
+      ],
+      "type": Symbol(react.fragment),
+    },
+  ],
+  Symbol(enzyme.__options__): Object {
+    "adapter": ReactSixteenAdapter {
+      "options": Object {
+        "enableComponentDidUpdateOnSetState": true,
+        "lifecycles": Object {
+          "componentDidUpdate": Object {
+            "onSetState": true,
+          },
+          "getDerivedStateFromProps": true,
+          "getSnapshotBeforeUpdate": true,
+          "setState": Object {
+            "skipsComponentDidUpdateOnNullish": true,
+          },
+        },
+      },
+    },
+  },
+}
+`;
+
+exports[`Articles ArticlesComponent componentWillUnmount render correctly 1`] = `
 ShallowWrapper {
   Symbol(enzyme.__root__): [Circular],
   Symbol(enzyme.__unrendered__): <ArticlesComponent
@@ -45,27 +167,16 @@ ShallowWrapper {
     "props": Object {
       "children": Array [
         false,
-        <div>
-          No articles yep
-        </div>,
+        null,
+        null,
         null,
       ],
     },
     "ref": null,
     "rendered": Array [
       false,
-      Object {
-        "instance": null,
-        "key": undefined,
-        "nodeType": "host",
-        "props": Object {
-          "children": "No articles yep",
-          "className": undefined,
-        },
-        "ref": null,
-        "rendered": "No articles yep",
-        "type": "div",
-      },
+      null,
+      null,
       null,
     ],
     "type": Symbol(react.fragment),
@@ -78,27 +189,16 @@ ShallowWrapper {
       "props": Object {
         "children": Array [
           false,
-          <div>
-            No articles yep
-          </div>,
+          null,
+          null,
           null,
         ],
       },
       "ref": null,
       "rendered": Array [
         false,
-        Object {
-          "instance": null,
-          "key": undefined,
-          "nodeType": "host",
-          "props": Object {
-            "children": "No articles yep",
-            "className": undefined,
-          },
-          "ref": null,
-          "rendered": "No articles yep",
-          "type": "div",
-        },
+        null,
+        null,
         null,
       ],
       "type": Symbol(react.fragment),
@@ -124,7 +224,7 @@ ShallowWrapper {
 }
 `;
 
-exports[`Articles Articles initial + authorId renders properly 1`] = `
+exports[`Articles ArticlesComponent initial + authorId render correctly 1`] = `
 ShallowWrapper {
   Symbol(enzyme.__root__): [Circular],
   Symbol(enzyme.__unrendered__): <ArticlesComponent
@@ -171,27 +271,16 @@ ShallowWrapper {
     "props": Object {
       "children": Array [
         false,
-        <div>
-          No articles yep
-        </div>,
+        null,
+        null,
         null,
       ],
     },
     "ref": null,
     "rendered": Array [
       false,
-      Object {
-        "instance": null,
-        "key": undefined,
-        "nodeType": "host",
-        "props": Object {
-          "children": "No articles yep",
-          "className": undefined,
-        },
-        "ref": null,
-        "rendered": "No articles yep",
-        "type": "div",
-      },
+      null,
+      null,
       null,
     ],
     "type": Symbol(react.fragment),
@@ -204,27 +293,16 @@ ShallowWrapper {
       "props": Object {
         "children": Array [
           false,
-          <div>
-            No articles yep
-          </div>,
+          null,
+          null,
           null,
         ],
       },
       "ref": null,
       "rendered": Array [
         false,
-        Object {
-          "instance": null,
-          "key": undefined,
-          "nodeType": "host",
-          "props": Object {
-            "children": "No articles yep",
-            "className": undefined,
-          },
-          "ref": null,
-          "rendered": "No articles yep",
-          "type": "div",
-        },
+        null,
+        null,
         null,
       ],
       "type": Symbol(react.fragment),
@@ -250,7 +328,7 @@ ShallowWrapper {
 }
 `;
 
-exports[`Articles Articles initial renders properly 1`] = `
+exports[`Articles ArticlesComponent initial render correctly 1`] = `
 ShallowWrapper {
   Symbol(enzyme.__root__): [Circular],
   Symbol(enzyme.__unrendered__): <ArticlesComponent
@@ -295,27 +373,16 @@ ShallowWrapper {
     "props": Object {
       "children": Array [
         false,
-        <div>
-          No articles yep
-        </div>,
+        null,
+        null,
         null,
       ],
     },
     "ref": null,
     "rendered": Array [
       false,
-      Object {
-        "instance": null,
-        "key": undefined,
-        "nodeType": "host",
-        "props": Object {
-          "children": "No articles yep",
-          "className": undefined,
-        },
-        "ref": null,
-        "rendered": "No articles yep",
-        "type": "div",
-      },
+      null,
+      null,
       null,
     ],
     "type": Symbol(react.fragment),
@@ -328,27 +395,16 @@ ShallowWrapper {
       "props": Object {
         "children": Array [
           false,
-          <div>
-            No articles yep
-          </div>,
+          null,
+          null,
           null,
         ],
       },
       "ref": null,
       "rendered": Array [
         false,
-        Object {
-          "instance": null,
-          "key": undefined,
-          "nodeType": "host",
-          "props": Object {
-            "children": "No articles yep",
-            "className": undefined,
-          },
-          "ref": null,
-          "rendered": "No articles yep",
-          "type": "div",
-        },
+        null,
+        null,
         null,
       ],
       "type": Symbol(react.fragment),
@@ -374,7 +430,7 @@ ShallowWrapper {
 }
 `;
 
-exports[`Articles Articles isLoading renders properly 1`] = `
+exports[`Articles ArticlesComponent isLoading render correctly 1`] = `
 ShallowWrapper {
   Symbol(enzyme.__root__): [Circular],
   Symbol(enzyme.__unrendered__): <ArticlesComponent
@@ -411,6 +467,7 @@ ShallowWrapper {
           <WithStyles(CircularIndeterminate) />
         </div>,
         null,
+        null,
       ],
     },
     "ref": null,
@@ -437,6 +494,7 @@ ShallowWrapper {
         "type": "div",
       },
       null,
+      null,
     ],
     "type": Symbol(react.fragment),
   },
@@ -451,6 +509,7 @@ ShallowWrapper {
           <div>
             <WithStyles(CircularIndeterminate) />
           </div>,
+          null,
           null,
         ],
       },
@@ -478,6 +537,7 @@ ShallowWrapper {
           "type": "div",
         },
         null,
+        null,
       ],
       "type": Symbol(react.fragment),
     },
@@ -502,7 +562,7 @@ ShallowWrapper {
 }
 `;
 
-exports[`Articles Articles render <List /> renders properly 1`] = `
+exports[`Articles ArticlesComponent render <List /> render correctly 1`] = `
 ShallowWrapper {
   Symbol(enzyme.__root__): [Circular],
   Symbol(enzyme.__unrendered__): <ArticlesComponent
@@ -569,9 +629,8 @@ ShallowWrapper {
             </WithStyles(ListItem)>
           </WithStyles(List)>
         </div>,
-        <div>
-          No articles yep
-        </div>,
+        null,
+        null,
         null,
       ],
     },
@@ -676,18 +735,8 @@ ShallowWrapper {
         },
         "type": "div",
       },
-      Object {
-        "instance": null,
-        "key": undefined,
-        "nodeType": "host",
-        "props": Object {
-          "children": "No articles yep",
-          "className": undefined,
-        },
-        "ref": null,
-        "rendered": "No articles yep",
-        "type": "div",
-      },
+      null,
+      null,
       null,
     ],
     "type": Symbol(react.fragment),
@@ -722,9 +771,8 @@ ShallowWrapper {
               </WithStyles(ListItem)>
             </WithStyles(List)>
           </div>,
-          <div>
-            No articles yep
-          </div>,
+          null,
+          null,
           null,
         ],
       },
@@ -829,18 +877,8 @@ ShallowWrapper {
           },
           "type": "div",
         },
-        Object {
-          "instance": null,
-          "key": undefined,
-          "nodeType": "host",
-          "props": Object {
-            "children": "No articles yep",
-            "className": undefined,
-          },
-          "ref": null,
-          "rendered": "No articles yep",
-          "type": "div",
-        },
+        null,
+        null,
         null,
       ],
       "type": Symbol(react.fragment),
@@ -866,7 +904,7 @@ ShallowWrapper {
 }
 `;
 
-exports[`Articles Articles with errorMsg renders properly 1`] = `
+exports[`Articles ArticlesComponent with errorMsg render correctly 1`] = `
 ShallowWrapper {
   Symbol(enzyme.__root__): [Circular],
   Symbol(enzyme.__unrendered__): <ArticlesComponent
@@ -899,10 +937,11 @@ ShallowWrapper {
     "props": Object {
       "children": Array [
         false,
-        <div>
-          No articles yep
-        </div>,
-        <span>
+        null,
+        null,
+        <span
+          id="articles-error-message"
+        >
           Something going wrong
         </span>,
       ],
@@ -910,18 +949,8 @@ ShallowWrapper {
     "ref": null,
     "rendered": Array [
       false,
-      Object {
-        "instance": null,
-        "key": undefined,
-        "nodeType": "host",
-        "props": Object {
-          "children": "No articles yep",
-          "className": undefined,
-        },
-        "ref": null,
-        "rendered": "No articles yep",
-        "type": "div",
-      },
+      null,
+      null,
       Object {
         "instance": null,
         "key": undefined,
@@ -929,6 +958,7 @@ ShallowWrapper {
         "props": Object {
           "children": "Something going wrong",
           "className": undefined,
+          "id": "articles-error-message",
         },
         "ref": null,
         "rendered": "Something going wrong",
@@ -945,10 +975,11 @@ ShallowWrapper {
       "props": Object {
         "children": Array [
           false,
-          <div>
-            No articles yep
-          </div>,
-          <span>
+          null,
+          null,
+          <span
+            id="articles-error-message"
+          >
             Something going wrong
           </span>,
         ],
@@ -956,18 +987,8 @@ ShallowWrapper {
       "ref": null,
       "rendered": Array [
         false,
-        Object {
-          "instance": null,
-          "key": undefined,
-          "nodeType": "host",
-          "props": Object {
-            "children": "No articles yep",
-            "className": undefined,
-          },
-          "ref": null,
-          "rendered": "No articles yep",
-          "type": "div",
-        },
+        null,
+        null,
         Object {
           "instance": null,
           "key": undefined,
@@ -975,6 +996,7 @@ ShallowWrapper {
           "props": Object {
             "children": "Something going wrong",
             "className": undefined,
+            "id": "articles-error-message",
           },
           "ref": null,
           "rendered": "Something going wrong",

@@ -69,10 +69,17 @@ export class ArticlesComponent extends Component {
           <div className={classes.loader}>
             <Preloader />
           </div>
-        ) : (
-          <div className={classes.loader}>No articles yep</div>
+        ) : null}
+        {isLoaded && !articles.length ? (
+          <span id="articles-empty-message" className={classes.error}>
+            No articles yep
+          </span>
+        ) : null}
+        {errorMsg && (
+          <span id="articles-error-message" className={classes.error}>
+            {errorMsg}
+          </span>
         )}
-        {errorMsg && <span className={classes.error}>{errorMsg}</span>}
       </Fragment>
     );
   }
