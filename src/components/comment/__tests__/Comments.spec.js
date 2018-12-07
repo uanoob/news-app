@@ -38,7 +38,7 @@ describe('Comments', () => {
       expect(wrapper.find(Preloader)).toHaveLength(0);
     });
     it('not render errorMsg', () => {
-      expect(wrapper.find('#error-message')).toHaveLength(0);
+      expect(wrapper.find('#comments-error-message')).toHaveLength(0);
     });
   });
 
@@ -59,7 +59,7 @@ describe('Comments', () => {
       expect(wrapper.find(List)).toHaveLength(0);
     });
     it('not render errorMsg', () => {
-      expect(wrapper.find('#error-message')).toHaveLength(0);
+      expect(wrapper.find('#comments-error-message')).toHaveLength(0);
     });
   });
 
@@ -81,10 +81,10 @@ describe('Comments', () => {
       expect(wrapper.find(List)).toHaveLength(0);
     });
     it('not render errorMsg', () => {
-      expect(wrapper.find('#error-message')).toHaveLength(0);
+      expect(wrapper.find('#comments-comments-error-message')).toHaveLength(0);
     });
     it('render No comments yep', () => {
-      expect(wrapper.find('#empty-message')).toHaveLength(1);
+      expect(wrapper.find('#comments-empty-message')).toHaveLength(1);
     });
   });
 
@@ -117,7 +117,7 @@ describe('Comments', () => {
       expect(wrapper.find(Preloader)).toHaveLength(0);
     });
     it('not render errorMsg', () => {
-      expect(wrapper.find('#error-message')).toHaveLength(0);
+      expect(wrapper.find('#comments-error-message')).toHaveLength(0);
     });
   });
 
@@ -132,11 +132,13 @@ describe('Comments', () => {
       expect(wrapper).toMatchSnapshot();
     });
     it('renders errorMsg', () => {
-      expect(wrapper.find('#error-message').text()).toEqual(nextProps.errorMsg);
+      expect(wrapper.find('#comments-error-message').text()).toEqual(
+        nextProps.errorMsg,
+      );
     });
   });
 
-  describe('CommentsComponentWillUnmount', () => {
+  describe('CommentsComponent Will Unmount', () => {
     const mockClearComments = jest.fn();
     const nextProps = {
       ...props,
@@ -147,7 +149,7 @@ describe('Comments', () => {
       expect(wrapper).toMatchSnapshot();
     });
     wrapper.unmount();
-    it('dispatches clearComments method', () => {
+    it('clearComments method should have been called', () => {
       expect(mockClearComments).toBeCalledTimes(1);
     });
   });
@@ -156,6 +158,9 @@ describe('Comments', () => {
     const mockStore = configureMockStore();
     const getAllCommentsByArticleId = () => ({
       type: 'GET_ALL_COMMENTS_BY_ARTICLE_ID',
+    });
+    const clearComments = () => ({
+      type: 'CLEAR_COMMENTS',
     });
     const comments = [
       {
@@ -173,15 +178,25 @@ describe('Comments', () => {
       isLoading: false,
       isLoaded: false,
     };
-    const store = mockStore(initialState);
-    const wrapper = shallow(<Comments store={store} />);
+    let store;
+    let wrapper;
+    beforeEach(() => {
+      store = mockStore(initialState);
+      wrapper = shallow(<Comments store={store} />);
+    });
     it('the state values were correctly passed as props', () => {
       expect(wrapper.props().store.getState()).toEqual(initialState);
     });
-    it('the store dispatched the expected actions', () => {
+    it('the store dispatched action: GET_ALL_COMMENTS_BY_ARTICLE_ID', () => {
       store.dispatch(getAllCommentsByArticleId());
       const actions = store.getActions();
       const expectedPayload = { type: 'GET_ALL_COMMENTS_BY_ARTICLE_ID' };
+      expect(actions).toEqual([expectedPayload]);
+    });
+    it('the store dispatched the action: CLEAR_COMMENTS', () => {
+      store.dispatch(clearComments());
+      const actions = store.getActions();
+      const expectedPayload = { type: 'CLEAR_COMMENTS' };
       expect(actions).toEqual([expectedPayload]);
     });
   });

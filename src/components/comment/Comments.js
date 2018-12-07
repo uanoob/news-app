@@ -48,9 +48,9 @@ export class CommentsComponent extends Component {
         )}
         {isLoading && !isLoaded ? <Preloader /> : null}
         {isLoaded && !comments.length ? (
-          <span id="empty-message">No comments yep</span>
+          <span id="comments-empty-message">No comments yep</span>
         ) : null}
-        {errorMsg && <span id="error-message">{errorMsg}</span>}
+        {errorMsg && <span id="comments-error-message">{errorMsg}</span>}
       </Fragment>
     );
   }

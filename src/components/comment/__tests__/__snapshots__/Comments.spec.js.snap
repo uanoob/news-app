@@ -34,7 +34,7 @@ ShallowWrapper {
         false,
         null,
         <span
-          id="empty-message"
+          id="comments-empty-message"
         >
           No comments yep
         </span>,
@@ -51,7 +51,7 @@ ShallowWrapper {
         "nodeType": "host",
         "props": Object {
           "children": "No comments yep",
-          "id": "empty-message",
+          "id": "comments-empty-message",
         },
         "ref": null,
         "rendered": "No comments yep",
@@ -71,7 +71,7 @@ ShallowWrapper {
           false,
           null,
           <span
-            id="empty-message"
+            id="comments-empty-message"
           >
             No comments yep
           </span>,
@@ -88,12 +88,113 @@ ShallowWrapper {
           "nodeType": "host",
           "props": Object {
             "children": "No comments yep",
-            "id": "empty-message",
+            "id": "comments-empty-message",
           },
           "ref": null,
           "rendered": "No comments yep",
           "type": "span",
         },
+        null,
+      ],
+      "type": Symbol(react.fragment),
+    },
+  ],
+  Symbol(enzyme.__options__): Object {
+    "adapter": ReactSixteenAdapter {
+      "options": Object {
+        "enableComponentDidUpdateOnSetState": true,
+        "lifecycles": Object {
+          "componentDidUpdate": Object {
+            "onSetState": true,
+          },
+          "getDerivedStateFromProps": true,
+          "getSnapshotBeforeUpdate": true,
+          "setState": Object {
+            "skipsComponentDidUpdateOnNullish": true,
+          },
+        },
+      },
+    },
+  },
+}
+`;
+
+exports[`Comments CommentsComponent Will Unmount render correctly CommentsComponent 1`] = `
+ShallowWrapper {
+  Symbol(enzyme.__root__): [Circular],
+  Symbol(enzyme.__unrendered__): <CommentsComponent
+    articleId=""
+    classes={
+      Object {
+        "root": "",
+      }
+    }
+    comments={Array []}
+    errorMsg={null}
+    isLoaded={false}
+    isLoading={false}
+    onClearComments={
+      [MockFunction] {
+        "calls": Array [
+          Array [],
+        ],
+        "results": Array [
+          Object {
+            "isThrow": false,
+            "value": undefined,
+          },
+        ],
+      }
+    }
+    onGetAllCommentsByArticleId={[Function]}
+  />,
+  Symbol(enzyme.__renderer__): Object {
+    "batchedUpdates": [Function],
+    "getNode": [Function],
+    "render": [Function],
+    "simulateError": [Function],
+    "simulateEvent": [Function],
+    "unmount": [Function],
+  },
+  Symbol(enzyme.__node__): Object {
+    "instance": null,
+    "key": undefined,
+    "nodeType": "function",
+    "props": Object {
+      "children": Array [
+        false,
+        null,
+        null,
+        null,
+      ],
+    },
+    "ref": null,
+    "rendered": Array [
+      false,
+      null,
+      null,
+      null,
+    ],
+    "type": Symbol(react.fragment),
+  },
+  Symbol(enzyme.__nodes__): Array [
+    Object {
+      "instance": null,
+      "key": undefined,
+      "nodeType": "function",
+      "props": Object {
+        "children": Array [
+          false,
+          null,
+          null,
+          null,
+        ],
+      },
+      "ref": null,
+      "rendered": Array [
+        false,
+        null,
+        null,
         null,
       ],
       "type": Symbol(react.fragment),
@@ -703,7 +804,7 @@ ShallowWrapper {
         null,
         null,
         <span
-          id="error-message"
+          id="comments-error-message"
         >
           Something going wrong
         </span>,
@@ -720,7 +821,7 @@ ShallowWrapper {
         "nodeType": "host",
         "props": Object {
           "children": "Something going wrong",
-          "id": "error-message",
+          "id": "comments-error-message",
         },
         "ref": null,
         "rendered": "Something going wrong",
@@ -740,7 +841,7 @@ ShallowWrapper {
           null,
           null,
           <span
-            id="error-message"
+            id="comments-error-message"
           >
             Something going wrong
           </span>,
@@ -757,113 +858,12 @@ ShallowWrapper {
           "nodeType": "host",
           "props": Object {
             "children": "Something going wrong",
-            "id": "error-message",
+            "id": "comments-error-message",
           },
           "ref": null,
           "rendered": "Something going wrong",
           "type": "span",
         },
-      ],
-      "type": Symbol(react.fragment),
-    },
-  ],
-  Symbol(enzyme.__options__): Object {
-    "adapter": ReactSixteenAdapter {
-      "options": Object {
-        "enableComponentDidUpdateOnSetState": true,
-        "lifecycles": Object {
-          "componentDidUpdate": Object {
-            "onSetState": true,
-          },
-          "getDerivedStateFromProps": true,
-          "getSnapshotBeforeUpdate": true,
-          "setState": Object {
-            "skipsComponentDidUpdateOnNullish": true,
-          },
-        },
-      },
-    },
-  },
-}
-`;
-
-exports[`Comments CommentsComponentWillUnmount render correctly CommentsComponent 1`] = `
-ShallowWrapper {
-  Symbol(enzyme.__root__): [Circular],
-  Symbol(enzyme.__unrendered__): <CommentsComponent
-    articleId=""
-    classes={
-      Object {
-        "root": "",
-      }
-    }
-    comments={Array []}
-    errorMsg={null}
-    isLoaded={false}
-    isLoading={false}
-    onClearComments={
-      [MockFunction] {
-        "calls": Array [
-          Array [],
-        ],
-        "results": Array [
-          Object {
-            "isThrow": false,
-            "value": undefined,
-          },
-        ],
-      }
-    }
-    onGetAllCommentsByArticleId={[Function]}
-  />,
-  Symbol(enzyme.__renderer__): Object {
-    "batchedUpdates": [Function],
-    "getNode": [Function],
-    "render": [Function],
-    "simulateError": [Function],
-    "simulateEvent": [Function],
-    "unmount": [Function],
-  },
-  Symbol(enzyme.__node__): Object {
-    "instance": null,
-    "key": undefined,
-    "nodeType": "function",
-    "props": Object {
-      "children": Array [
-        false,
-        null,
-        null,
-        null,
-      ],
-    },
-    "ref": null,
-    "rendered": Array [
-      false,
-      null,
-      null,
-      null,
-    ],
-    "type": Symbol(react.fragment),
-  },
-  Symbol(enzyme.__nodes__): Array [
-    Object {
-      "instance": null,
-      "key": undefined,
-      "nodeType": "function",
-      "props": Object {
-        "children": Array [
-          false,
-          null,
-          null,
-          null,
-        ],
-      },
-      "ref": null,
-      "rendered": Array [
-        false,
-        null,
-        null,
-        null,
       ],
       "type": Symbol(react.fragment),
     },
