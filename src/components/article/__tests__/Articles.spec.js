@@ -4,7 +4,6 @@ import configureMockStore from 'redux-mock-store';
 import List from '@material-ui/core/List';
 import Articles, { ArticlesComponent } from '../Articles';
 import Preloader from '../../../containers/preloader/Preloader';
-import { clearArticle } from '../../../store/actions';
 
 describe('Articles', () => {
   const props = {

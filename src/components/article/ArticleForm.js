@@ -31,7 +31,7 @@ const styles = theme => ({
   },
 });
 
-class ArticleForm extends Component {
+export class ArticleFormComponent extends Component {
   state = {
     title: '',
     titleInputTouched: false,
@@ -131,7 +131,7 @@ class ArticleForm extends Component {
           <DialogContentText>{description}</DialogContentText>
           <TextField
             autoFocus
-            id="article-title"
+            id="article-title-input"
             label="Title article here"
             value={title}
             onChange={event => this.handleTitleInput(event)}
@@ -142,7 +142,7 @@ class ArticleForm extends Component {
             fullWidth
           />
           <TextField
-            id="article-text"
+            id="article-text-input"
             label="Text article here"
             multiline
             rows="10"
@@ -156,10 +156,15 @@ class ArticleForm extends Component {
           />
         </DialogContent>
         <DialogActions>
-          <Button onClick={this.handleCancelClick} color="primary">
+          <Button
+            id="cancel-article-button"
+            onClick={this.handleCancelClick}
+            color="primary"
+          >
             Cancel
           </Button>
           <Button
+            id="submit-article-button"
             variant="contained"
             color="primary"
             className={classes.button}
@@ -176,13 +181,13 @@ class ArticleForm extends Component {
   }
 }
 
-ArticleForm.defaultProps = {
+ArticleFormComponent.defaultProps = {
   articleId: '',
   articleTitle: '',
   articleText: '',
 };
 
-ArticleForm.propTypes = {
+ArticleFormComponent.propTypes = {
   classes: PropTypes.shape({
     container: PropTypes.string.isRequired,
     textField: PropTypes.string.isRequired,
@@ -210,7 +215,9 @@ const mapDispatchToProps = {
   onUpdateArticle: updateArticle,
 };
 
-export default connect(
+const ArticleForm = connect(
   mapStateToProps,
   mapDispatchToProps,
-)(withStyles(styles)(ArticleForm));
+)(withStyles(styles)(ArticleFormComponent));
+
+export default ArticleForm;

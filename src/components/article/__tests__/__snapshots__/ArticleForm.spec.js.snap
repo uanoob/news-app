@@ -1,0 +1,702 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`ArticleForm ArticlesFormComponent initial render correctly ArticleFormComponent component 1`] = `
+ShallowWrapper {
+  Symbol(enzyme.__root__): [Circular],
+  Symbol(enzyme.__unrendered__): <ArticleFormComponent
+    articleId=""
+    articleText=""
+    articleTitle=""
+    classes={
+      Object {
+        "button": "",
+        "container": "",
+        "rightIcon": "",
+        "textField": "",
+      }
+    }
+    clearInputField={[MockFunction]}
+    description="PropTypes.string.isRequired"
+    dialog={false}
+    handleCancelClick={[MockFunction]}
+    handleDialogClick={
+      [MockFunction] {
+        "calls": Array [
+          Array [],
+          Array [],
+        ],
+        "results": Array [
+          Object {
+            "isThrow": false,
+            "value": undefined,
+          },
+          Object {
+            "isThrow": false,
+            "value": undefined,
+          },
+        ],
+      }
+    }
+    header="PropTypes.string.isRequired"
+    onCreateArticle={
+      [MockFunction] {
+        "calls": Array [
+          Array [
+            "",
+            "",
+            "PropTypes.string.isRequired",
+            "PropTypes.string.isRequired",
+          ],
+        ],
+        "results": Array [
+          Object {
+            "isThrow": false,
+            "value": undefined,
+          },
+        ],
+      }
+    }
+    onUpdateArticle={
+      [MockFunction] {
+        "calls": Array [
+          Array [
+            "123",
+            "",
+            "",
+            "123",
+          ],
+        ],
+        "results": Array [
+          Object {
+            "isThrow": false,
+            "value": undefined,
+          },
+        ],
+      }
+    }
+    userId="PropTypes.string.isRequired"
+    userName="PropTypes.string.isRequired"
+  />,
+  Symbol(enzyme.__renderer__): Object {
+    "batchedUpdates": [Function],
+    "getNode": [Function],
+    "render": [Function],
+    "simulateError": [Function],
+    "simulateEvent": [Function],
+    "unmount": [Function],
+  },
+  Symbol(enzyme.__node__): Object {
+    "instance": null,
+    "key": undefined,
+    "nodeType": "class",
+    "props": Object {
+      "aria-labelledby": "form-dialog-title",
+      "children": Array [
+        <WithStyles(DialogTitle)
+          id="form-dialog-title"
+        >
+          PropTypes.string.isRequired
+        </WithStyles(DialogTitle)>,
+        <WithStyles(DialogContent)>
+          <WithStyles(DialogContentText)>
+            PropTypes.string.isRequired
+          </WithStyles(DialogContentText)>
+          <TextField
+            autoFocus={true}
+            className=""
+            error={false}
+            fullWidth={true}
+            id="article-title-input"
+            label="Title article here"
+            margin="normal"
+            onChange={[Function]}
+            required={false}
+            select={false}
+            value=""
+            variant="outlined"
+          />
+          <TextField
+            className=""
+            error={false}
+            fullWidth={true}
+            id="article-text-input"
+            label="Text article here"
+            margin="normal"
+            multiline={true}
+            onChange={[Function]}
+            required={false}
+            rows="10"
+            select={false}
+            value=""
+            variant="outlined"
+          />
+        </WithStyles(DialogContent)>,
+        <WithStyles(DialogActions)>
+          <WithStyles(Button)
+            color="primary"
+            id="cancel-article-button"
+            onClick={[Function]}
+          >
+            Cancel
+          </WithStyles(Button)>
+          <WithStyles(Button)
+            className=""
+            color="primary"
+            disabled={true}
+            id="submit-article-button"
+            onClick={[Function]}
+            type="submit"
+            variant="contained"
+          >
+            Send
+            <pure(SendIcon)
+              className=""
+            >
+              send
+            </pure(SendIcon)>
+          </WithStyles(Button)>
+        </WithStyles(DialogActions)>,
+      ],
+      "onClose": [MockFunction] {
+        "calls": Array [
+          Array [],
+          Array [],
+        ],
+        "results": Array [
+          Object {
+            "isThrow": false,
+            "value": undefined,
+          },
+          Object {
+            "isThrow": false,
+            "value": undefined,
+          },
+        ],
+      },
+      "open": false,
+    },
+    "ref": null,
+    "rendered": Array [
+      Object {
+        "instance": null,
+        "key": undefined,
+        "nodeType": "class",
+        "props": Object {
+          "children": "PropTypes.string.isRequired",
+          "id": "form-dialog-title",
+        },
+        "ref": null,
+        "rendered": "PropTypes.string.isRequired",
+        "type": [Function],
+      },
+      Object {
+        "instance": null,
+        "key": undefined,
+        "nodeType": "class",
+        "props": Object {
+          "children": Array [
+            <WithStyles(DialogContentText)>
+              PropTypes.string.isRequired
+            </WithStyles(DialogContentText)>,
+            <TextField
+              autoFocus={true}
+              className=""
+              error={false}
+              fullWidth={true}
+              id="article-title-input"
+              label="Title article here"
+              margin="normal"
+              onChange={[Function]}
+              required={false}
+              select={false}
+              value=""
+              variant="outlined"
+            />,
+            <TextField
+              className=""
+              error={false}
+              fullWidth={true}
+              id="article-text-input"
+              label="Text article here"
+              margin="normal"
+              multiline={true}
+              onChange={[Function]}
+              required={false}
+              rows="10"
+              select={false}
+              value=""
+              variant="outlined"
+            />,
+          ],
+        },
+        "ref": null,
+        "rendered": Array [
+          Object {
+            "instance": null,
+            "key": undefined,
+            "nodeType": "class",
+            "props": Object {
+              "children": "PropTypes.string.isRequired",
+            },
+            "ref": null,
+            "rendered": "PropTypes.string.isRequired",
+            "type": [Function],
+          },
+          Object {
+            "instance": null,
+            "key": undefined,
+            "nodeType": "class",
+            "props": Object {
+              "autoFocus": true,
+              "className": "",
+              "error": false,
+              "fullWidth": true,
+              "id": "article-title-input",
+              "label": "Title article here",
+              "margin": "normal",
+              "onChange": [Function],
+              "required": false,
+              "select": false,
+              "value": "",
+              "variant": "outlined",
+            },
+            "ref": null,
+            "rendered": null,
+            "type": [Function],
+          },
+          Object {
+            "instance": null,
+            "key": undefined,
+            "nodeType": "class",
+            "props": Object {
+              "className": "",
+              "error": false,
+              "fullWidth": true,
+              "id": "article-text-input",
+              "label": "Text article here",
+              "margin": "normal",
+              "multiline": true,
+              "onChange": [Function],
+              "required": false,
+              "rows": "10",
+              "select": false,
+              "value": "",
+              "variant": "outlined",
+            },
+            "ref": null,
+            "rendered": null,
+            "type": [Function],
+          },
+        ],
+        "type": [Function],
+      },
+      Object {
+        "instance": null,
+        "key": undefined,
+        "nodeType": "class",
+        "props": Object {
+          "children": Array [
+            <WithStyles(Button)
+              color="primary"
+              id="cancel-article-button"
+              onClick={[Function]}
+            >
+              Cancel
+            </WithStyles(Button)>,
+            <WithStyles(Button)
+              className=""
+              color="primary"
+              disabled={true}
+              id="submit-article-button"
+              onClick={[Function]}
+              type="submit"
+              variant="contained"
+            >
+              Send
+              <pure(SendIcon)
+                className=""
+              >
+                send
+              </pure(SendIcon)>
+            </WithStyles(Button)>,
+          ],
+        },
+        "ref": null,
+        "rendered": Array [
+          Object {
+            "instance": null,
+            "key": undefined,
+            "nodeType": "class",
+            "props": Object {
+              "children": "Cancel",
+              "color": "primary",
+              "id": "cancel-article-button",
+              "onClick": [Function],
+            },
+            "ref": null,
+            "rendered": "Cancel",
+            "type": [Function],
+          },
+          Object {
+            "instance": null,
+            "key": undefined,
+            "nodeType": "class",
+            "props": Object {
+              "children": Array [
+                "Send",
+                <pure(SendIcon)
+                  className=""
+                >
+                  send
+                </pure(SendIcon)>,
+              ],
+              "className": "",
+              "color": "primary",
+              "disabled": true,
+              "id": "submit-article-button",
+              "onClick": [Function],
+              "type": "submit",
+              "variant": "contained",
+            },
+            "ref": null,
+            "rendered": Array [
+              "Send",
+              Object {
+                "instance": null,
+                "key": undefined,
+                "nodeType": "class",
+                "props": Object {
+                  "children": "send",
+                  "className": "",
+                },
+                "ref": null,
+                "rendered": "send",
+                "type": [Function],
+              },
+            ],
+            "type": [Function],
+          },
+        ],
+        "type": [Function],
+      },
+    ],
+    "type": [Function],
+  },
+  Symbol(enzyme.__nodes__): Array [
+    Object {
+      "instance": null,
+      "key": undefined,
+      "nodeType": "class",
+      "props": Object {
+        "aria-labelledby": "form-dialog-title",
+        "children": Array [
+          <WithStyles(DialogTitle)
+            id="form-dialog-title"
+          >
+            PropTypes.string.isRequired
+          </WithStyles(DialogTitle)>,
+          <WithStyles(DialogContent)>
+            <WithStyles(DialogContentText)>
+              PropTypes.string.isRequired
+            </WithStyles(DialogContentText)>
+            <TextField
+              autoFocus={true}
+              className=""
+              error={false}
+              fullWidth={true}
+              id="article-title-input"
+              label="Title article here"
+              margin="normal"
+              onChange={[Function]}
+              required={false}
+              select={false}
+              value=""
+              variant="outlined"
+            />
+            <TextField
+              className=""
+              error={false}
+              fullWidth={true}
+              id="article-text-input"
+              label="Text article here"
+              margin="normal"
+              multiline={true}
+              onChange={[Function]}
+              required={false}
+              rows="10"
+              select={false}
+              value=""
+              variant="outlined"
+            />
+          </WithStyles(DialogContent)>,
+          <WithStyles(DialogActions)>
+            <WithStyles(Button)
+              color="primary"
+              id="cancel-article-button"
+              onClick={[Function]}
+            >
+              Cancel
+            </WithStyles(Button)>
+            <WithStyles(Button)
+              className=""
+              color="primary"
+              disabled={true}
+              id="submit-article-button"
+              onClick={[Function]}
+              type="submit"
+              variant="contained"
+            >
+              Send
+              <pure(SendIcon)
+                className=""
+              >
+                send
+              </pure(SendIcon)>
+            </WithStyles(Button)>
+          </WithStyles(DialogActions)>,
+        ],
+        "onClose": [MockFunction] {
+          "calls": Array [
+            Array [],
+            Array [],
+          ],
+          "results": Array [
+            Object {
+              "isThrow": false,
+              "value": undefined,
+            },
+            Object {
+              "isThrow": false,
+              "value": undefined,
+            },
+          ],
+        },
+        "open": false,
+      },
+      "ref": null,
+      "rendered": Array [
+        Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "class",
+          "props": Object {
+            "children": "PropTypes.string.isRequired",
+            "id": "form-dialog-title",
+          },
+          "ref": null,
+          "rendered": "PropTypes.string.isRequired",
+          "type": [Function],
+        },
+        Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "class",
+          "props": Object {
+            "children": Array [
+              <WithStyles(DialogContentText)>
+                PropTypes.string.isRequired
+              </WithStyles(DialogContentText)>,
+              <TextField
+                autoFocus={true}
+                className=""
+                error={false}
+                fullWidth={true}
+                id="article-title-input"
+                label="Title article here"
+                margin="normal"
+                onChange={[Function]}
+                required={false}
+                select={false}
+                value=""
+                variant="outlined"
+              />,
+              <TextField
+                className=""
+                error={false}
+                fullWidth={true}
+                id="article-text-input"
+                label="Text article here"
+                margin="normal"
+                multiline={true}
+                onChange={[Function]}
+                required={false}
+                rows="10"
+                select={false}
+                value=""
+                variant="outlined"
+              />,
+            ],
+          },
+          "ref": null,
+          "rendered": Array [
+            Object {
+              "instance": null,
+              "key": undefined,
+              "nodeType": "class",
+              "props": Object {
+                "children": "PropTypes.string.isRequired",
+              },
+              "ref": null,
+              "rendered": "PropTypes.string.isRequired",
+              "type": [Function],
+            },
+            Object {
+              "instance": null,
+              "key": undefined,
+              "nodeType": "class",
+              "props": Object {
+                "autoFocus": true,
+                "className": "",
+                "error": false,
+                "fullWidth": true,
+                "id": "article-title-input",
+                "label": "Title article here",
+                "margin": "normal",
+                "onChange": [Function],
+                "required": false,
+                "select": false,
+                "value": "",
+                "variant": "outlined",
+              },
+              "ref": null,
+              "rendered": null,
+              "type": [Function],
+            },
+            Object {
+              "instance": null,
+              "key": undefined,
+              "nodeType": "class",
+              "props": Object {
+                "className": "",
+                "error": false,
+                "fullWidth": true,
+                "id": "article-text-input",
+                "label": "Text article here",
+                "margin": "normal",
+                "multiline": true,
+                "onChange": [Function],
+                "required": false,
+                "rows": "10",
+                "select": false,
+                "value": "",
+                "variant": "outlined",
+              },
+              "ref": null,
+              "rendered": null,
+              "type": [Function],
+            },
+          ],
+          "type": [Function],
+        },
+        Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "class",
+          "props": Object {
+            "children": Array [
+              <WithStyles(Button)
+                color="primary"
+                id="cancel-article-button"
+                onClick={[Function]}
+              >
+                Cancel
+              </WithStyles(Button)>,
+              <WithStyles(Button)
+                className=""
+                color="primary"
+                disabled={true}
+                id="submit-article-button"
+                onClick={[Function]}
+                type="submit"
+                variant="contained"
+              >
+                Send
+                <pure(SendIcon)
+                  className=""
+                >
+                  send
+                </pure(SendIcon)>
+              </WithStyles(Button)>,
+            ],
+          },
+          "ref": null,
+          "rendered": Array [
+            Object {
+              "instance": null,
+              "key": undefined,
+              "nodeType": "class",
+              "props": Object {
+                "children": "Cancel",
+                "color": "primary",
+                "id": "cancel-article-button",
+                "onClick": [Function],
+              },
+              "ref": null,
+              "rendered": "Cancel",
+              "type": [Function],
+            },
+            Object {
+              "instance": null,
+              "key": undefined,
+              "nodeType": "class",
+              "props": Object {
+                "children": Array [
+                  "Send",
+                  <pure(SendIcon)
+                    className=""
+                  >
+                    send
+                  </pure(SendIcon)>,
+                ],
+                "className": "",
+                "color": "primary",
+                "disabled": true,
+                "id": "submit-article-button",
+                "onClick": [Function],
+                "type": "submit",
+                "variant": "contained",
+              },
+              "ref": null,
+              "rendered": Array [
+                "Send",
+                Object {
+                  "instance": null,
+                  "key": undefined,
+                  "nodeType": "class",
+                  "props": Object {
+                    "children": "send",
+                    "className": "",
+                  },
+                  "ref": null,
+                  "rendered": "send",
+                  "type": [Function],
+                },
+              ],
+              "type": [Function],
+            },
+          ],
+          "type": [Function],
+        },
+      ],
+      "type": [Function],
+    },
+  ],
+  Symbol(enzyme.__options__): Object {
+    "adapter": ReactSixteenAdapter {
+      "options": Object {
+        "enableComponentDidUpdateOnSetState": true,
+        "lifecycles": Object {
+          "componentDidUpdate": Object {
+            "onSetState": true,
+          },
+          "getDerivedStateFromProps": true,
+          "getSnapshotBeforeUpdate": true,
+          "setState": Object {
+            "skipsComponentDidUpdateOnNullish": true,
+          },
+        },
+      },
+    },
+  },
+}
+`;
