@@ -31,7 +31,7 @@ const styles = theme => ({
   },
 });
 
-class CommentForm extends Component {
+export class CommentFormComponent extends Component {
   state = {
     comment: '',
     commentInputTouched: false,
@@ -103,7 +103,7 @@ class CommentForm extends Component {
           <DialogContentText>{description}</DialogContentText>
           <TextField
             autoFocus
-            id="outlined-multiline-flexible"
+            id="comment-textfield-input"
             label="Your comment here"
             multiline
             rows="4"
@@ -121,6 +121,7 @@ class CommentForm extends Component {
             Cancel
           </Button>
           <Button
+            id="comment-submit-button"
             variant="contained"
             color="primary"
             className={classes.button}
@@ -137,12 +138,12 @@ class CommentForm extends Component {
   }
 }
 
-CommentForm.defaultProps = {
+CommentFormComponent.defaultProps = {
   commentId: '',
   commentText: '',
 };
 
-CommentForm.propTypes = {
+CommentFormComponent.propTypes = {
   classes: PropTypes.shape({
     container: PropTypes.string.isRequired,
     textField: PropTypes.string.isRequired,
@@ -170,7 +171,9 @@ const mapDispatchToProps = {
   onUpdateComment: updateComment,
 };
 
-export default connect(
+const CommentForm = connect(
   mapStateToProps,
   mapDispatchToProps,
-)(withStyles(styles)(CommentForm));
+)(withStyles(styles)(CommentFormComponent));
+
+export default CommentForm;
