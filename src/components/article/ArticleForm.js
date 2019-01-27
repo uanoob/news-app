@@ -157,14 +157,14 @@ export class ArticleFormComponent extends Component {
         </DialogContent>
         <DialogActions>
           <Button
-            id="cancel-article-button"
+            id="article-cancel-button"
             onClick={this.handleCancelClick}
             color="primary"
           >
             Cancel
           </Button>
           <Button
-            id="submit-article-button"
+            id="article-submit-button"
             variant="contained"
             color="primary"
             className={classes.button}
