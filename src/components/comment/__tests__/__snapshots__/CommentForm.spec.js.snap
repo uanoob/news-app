@@ -11,7 +11,6 @@ ShallowWrapper {
         "textField": "",
       }
     }
-    clearTextField={[MockFunction]}
     commentId=""
     commentText="PropTypes.string"
     description="PropTypes.string.isRequired"
@@ -21,8 +20,13 @@ ShallowWrapper {
         "calls": Array [
           Array [],
           Array [],
+          Array [],
         ],
         "results": Array [
+          Object {
+            "isThrow": false,
+            "value": undefined,
+          },
           Object {
             "isThrow": false,
             "value": undefined,
@@ -117,6 +121,7 @@ ShallowWrapper {
         <WithStyles(DialogActions)>
           <WithStyles(Button)
             color="primary"
+            id="comment-cancel-button"
             onClick={[Function]}
           >
             Cancel
@@ -140,8 +145,13 @@ ShallowWrapper {
         "calls": Array [
           Array [],
           Array [],
+          Array [],
         ],
         "results": Array [
+          Object {
+            "isThrow": false,
+            "value": undefined,
+          },
           Object {
             "isThrow": false,
             "value": undefined,
@@ -243,6 +253,7 @@ ShallowWrapper {
           "children": Array [
             <WithStyles(Button)
               color="primary"
+              id="comment-cancel-button"
               onClick={[Function]}
             >
               Cancel
@@ -271,6 +282,7 @@ ShallowWrapper {
             "props": Object {
               "children": "Cancel",
               "color": "primary",
+              "id": "comment-cancel-button",
               "onClick": [Function],
             },
             "ref": null,
@@ -357,6 +369,7 @@ ShallowWrapper {
           <WithStyles(DialogActions)>
             <WithStyles(Button)
               color="primary"
+              id="comment-cancel-button"
               onClick={[Function]}
             >
               Cancel
@@ -380,8 +393,13 @@ ShallowWrapper {
           "calls": Array [
             Array [],
             Array [],
+            Array [],
           ],
           "results": Array [
+            Object {
+              "isThrow": false,
+              "value": undefined,
+            },
             Object {
               "isThrow": false,
               "value": undefined,
@@ -483,6 +501,7 @@ ShallowWrapper {
             "children": Array [
               <WithStyles(Button)
                 color="primary"
+                id="comment-cancel-button"
                 onClick={[Function]}
               >
                 Cancel
@@ -511,6 +530,7 @@ ShallowWrapper {
               "props": Object {
                 "children": "Cancel",
                 "color": "primary",
+                "id": "comment-cancel-button",
                 "onClick": [Function],
               },
               "ref": null,
