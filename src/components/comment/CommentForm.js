@@ -117,7 +117,11 @@ export class CommentFormComponent extends Component {
           />
         </DialogContent>
         <DialogActions>
-          <Button onClick={this.handleCancelClick} color="primary">
+          <Button
+            id="comment-cancel-button"
+            onClick={this.handleCancelClick}
+            color="primary"
+          >
             Cancel
           </Button>
           <Button
