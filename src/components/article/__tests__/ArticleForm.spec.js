@@ -1,6 +1,7 @@
 import React from 'react';
 import { shallow } from 'enzyme';
-import { ArticleFormComponent } from '../ArticleForm';
+import configureMockStore from 'redux-mock-store';
+import ArticleForm, { ArticleFormComponent } from '../ArticleForm';
 
 describe('ArticleForm', () => {
   const mockCreateArticle = jest.fn();
@@ -140,11 +141,19 @@ describe('ArticleForm', () => {
 
   describe('ArticlesComponent submit', () => {
     const wrapper = shallow(<ArticleFormComponent {...props} />);
+    const instance = wrapper.instance();
+    jest.spyOn(instance, 'clearInputField');
     describe('when clicking the Send button and no articleId', () => {
       const event = { preventDefault: () => {} };
-      wrapper.find('#submit-article-button').simulate('click', event);
+      wrapper.find('#article-submit-button').simulate('click', event);
       it('calls the onCreateArticle', () => {
         expect(mockCreateArticle).toBeCalledTimes(1);
+      });
+      it('calls clearInputField', () => {
+        expect(instance.clearInputField).toBeCalledTimes(1);
+      });
+      it('set state to initialState', () => {
+        expect(wrapper.state()).toEqual(initialState);
       });
     });
   });
@@ -155,12 +164,87 @@ describe('ArticleForm', () => {
       articleId: '123',
     };
     const wrapper = shallow(<ArticleFormComponent {...nextProps} />);
+    const instance = wrapper.instance();
+    jest.spyOn(instance, 'clearInputField');
     describe('when clicking the Send button and articleId', () => {
       const event = { preventDefault: () => {} };
-      wrapper.find('#submit-article-button').simulate('click', event);
+      wrapper.find('#article-submit-button').simulate('click', event);
       it('calls the onUpdateArticle', () => {
         expect(mockUpdateArticle).toBeCalledTimes(1);
       });
+      it('calls clearInputField', () => {
+        expect(instance.clearInputField).toBeCalledTimes(1);
+      });
+      it('set state to initialState', () => {
+        expect(wrapper.state()).toEqual(initialState);
+      });
+    });
+  });
+  describe('ArticleFormComponent cancel', () => {
+    const wrapper = shallow(<ArticleFormComponent {...props} />);
+    const instance = wrapper.instance();
+    jest.spyOn(instance, 'clearInputField');
+    describe('when clicking the Cancel button', () => {
+      wrapper.find('#article-cancel-button').simulate('click');
+      it('calls clearInputField', () => {
+        expect(instance.clearInputField).toBeCalledTimes(1);
+      });
+    });
+  });
+  describe('ArticleFormComponent componentWillReceiveProps', () => {
+    const nextProps = {
+      ...props,
+      articleTitle: 'Test title',
+    };
+    const wrapper = shallow(<ArticleFormComponent {...props} />);
+    const instance = wrapper.instance();
+    jest.spyOn(instance, 'componentWillReceiveProps');
+    it('Component should call componentWillReceiveProps on update', () => {
+      expect(instance.componentWillReceiveProps).toBeCalledTimes(0);
+      wrapper.setProps(nextProps);
+      expect(instance.componentWillReceiveProps).toBeCalledTimes(1);
+    });
+    it('update state title field', () => {
+      expect(wrapper.state('title')).toEqual(nextProps.articleTitle);
+    });
+  });
+  describe('ArticleForm mapStateToProps & mapDispatchToProps', () => {
+    const mockStore = configureMockStore();
+    const createArticle = () => ({
+      type: 'CREATE_ARTICLE',
+    });
+    const updateArticle = () => ({
+      type: 'UPDATE_ARTICLE',
+    });
+    const user = {
+      user: {
+        _id: 'testid',
+        name: 'testname',
+      },
+    };
+    const initialStateRedux = {
+      user,
+    };
+    let store;
+    let wrapper;
+    beforeEach(() => {
+      store = mockStore(initialStateRedux);
+      wrapper = shallow(<ArticleForm store={store} />);
+    });
+    it('the state values were correctly passed as props', () => {
+      expect(wrapper.props().store.getState()).toEqual(initialStateRedux);
+    });
+    it('the store dispatched the action CREATE_ARTICLE', () => {
+      store.dispatch(createArticle());
+      const actions = store.getActions();
+      const expectedPayload = { type: 'CREATE_ARTICLE' };
+      expect(actions).toEqual([expectedPayload]);
+    });
+    it('the store dispatched the action UPDATE_ARTICLE', () => {
+      store.dispatch(updateArticle());
+      const actions = store.getActions();
+      const expectedPayload = { type: 'UPDATE_ARTICLE' };
+      expect(actions).toEqual([expectedPayload]);
     });
   });
 });
