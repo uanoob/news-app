@@ -59,7 +59,7 @@ const styles = theme => ({
   },
 });
 
-class Article extends Component {
+export class ArticleComponent extends Component {
   state = {
     expanded: false,
     articleDialog: false,
@@ -109,10 +109,15 @@ class Article extends Component {
     const { article, userId } = this.props;
     return article.author_id === userId ? (
       <div>
-        <IconButton>
-          <EditIcon onClick={this.handleArticleClick} />
+        <IconButton
+          id="article-edit-button"
+          type="button"
+          onClick={this.handleArticleClick}
+        >
+          <EditIcon />
         </IconButton>
         <IconButton
+          id="article-delete-button"
           type="button"
           onClick={() => this.handleDeleteArticle(article._id)}
         >
@@ -213,12 +218,12 @@ class Article extends Component {
   }
 }
 
-Article.defaultProps = {
+ArticleComponent.defaultProps = {
   userId: '',
   currentArticleId: '',
 };
 
-Article.propTypes = {
+ArticleComponent.propTypes = {
   classes: PropTypes.shape({
     card: PropTypes.string.isRequired,
     actions: PropTypes.string.isRequired,
@@ -253,9 +258,11 @@ const mapDispatchToProps = {
   onClearArticle: clearArticle,
 };
 
-export default withRouter(
+const Article = withRouter(
   connect(
     mapStateToProps,
     mapDispatchToProps,
-  )(withStyles(styles)(Article)),
+  )(withStyles(styles)(ArticleComponent)),
 );
+
+export default Article;
