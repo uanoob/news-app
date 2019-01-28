@@ -1,0 +1,732 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Article ArticleComponent initial render correctly 1`] = `
+ShallowWrapper {
+  Symbol(enzyme.__root__): [Circular],
+  Symbol(enzyme.__unrendered__): <ArticleComponent
+    article={
+      Object {
+        "_id": "",
+        "author_id": "test_author_id",
+        "author_name": "",
+        "created_at": "",
+        "text": "",
+        "title": "",
+        "updated_at": "",
+      }
+    }
+    classes={
+      Object {
+        "actions": "",
+        "avatar": "",
+        "card": "",
+        "expand": "",
+        "expandOpen": "",
+      }
+    }
+    currentArticleId=""
+    history={
+      Object {
+        "push": [Function],
+      }
+    }
+    isLoading={false}
+    onClearArticle={[MockFunction]}
+    onDeleteArticle={[MockFunction]}
+    userId=""
+  />,
+  Symbol(enzyme.__renderer__): Object {
+    "batchedUpdates": [Function],
+    "getNode": [Function],
+    "render": [Function],
+    "simulateError": [Function],
+    "simulateEvent": [Function],
+    "unmount": [Function],
+  },
+  Symbol(enzyme.__node__): Object {
+    "instance": null,
+    "key": undefined,
+    "nodeType": "class",
+    "props": Object {
+      "children": Array [
+        <WithStyles(CardHeader)
+          action={
+            <WithStyles(IconButton)
+              onClick={[Function]}
+            >
+              <pure(ForwardOutlinedIcon) />
+            </WithStyles(IconButton)>
+          }
+          avatar={
+            <WithStyles(Avatar)
+              aria-label="Recipe"
+              style={
+                Object {
+                  "backgroundColor": "#000000",
+                }
+              }
+            >
+              
+            </WithStyles(Avatar)>
+          }
+          title=""
+        />,
+        <WithStyles(CardContent)>
+          <WithStyles(Typography)
+            component="p"
+          >
+            
+          </WithStyles(Typography)>
+        </WithStyles(CardContent)>,
+        <WithStyles(CardActions)
+          className=""
+          disableActionSpacing={true}
+        >
+          <WithStyles(IconButton)
+            aria-label="Add to favorites"
+          >
+            <pure(FavoriteIcon) />
+          </WithStyles(IconButton)>
+          <WithStyles(IconButton)
+            aria-label="Message"
+            onClick={[Function]}
+          >
+            <pure(CommentIcon) />
+          </WithStyles(IconButton)>
+          <Connect(WithStyles(CommentFormComponent))
+            articleId=""
+            description="Please enter your comment here."
+            dialog={false}
+            handleDialogClick={[Function]}
+            title="Add a comment"
+          />
+          <Connect(WithStyles(ArticleFormComponent))
+            articleId=""
+            articleText=""
+            articleTitle=""
+            description="Please edit your article here."
+            dialog={false}
+            handleDialogClick={[Function]}
+            header="Edit an article"
+          />
+          <WithStyles(IconButton)
+            aria-expanded={false}
+            aria-label="Show more"
+            className=""
+            onClick={[Function]}
+          >
+            <pure(ExpandMoreIcon) />
+          </WithStyles(IconButton)>
+        </WithStyles(CardActions)>,
+        <WithStyles(Collapse)
+          in={false}
+          timeout="auto"
+          unmountOnExit={true}
+        >
+          <WithStyles(CardContent)>
+            <Connect(WithStyles(CommentsComponent))
+              articleId=""
+            />
+          </WithStyles(CardContent)>
+        </WithStyles(Collapse)>,
+      ],
+      "className": "",
+    },
+    "ref": null,
+    "rendered": Array [
+      Object {
+        "instance": null,
+        "key": undefined,
+        "nodeType": "class",
+        "props": Object {
+          "action": <WithStyles(IconButton)
+            onClick={[Function]}
+          >
+            <pure(ForwardOutlinedIcon) />
+          </WithStyles(IconButton)>,
+          "avatar": <WithStyles(Avatar)
+            aria-label="Recipe"
+            style={
+              Object {
+                "backgroundColor": "#000000",
+              }
+            }
+          >
+            
+          </WithStyles(Avatar)>,
+          "subheader": undefined,
+          "title": "",
+        },
+        "ref": null,
+        "rendered": null,
+        "type": [Function],
+      },
+      Object {
+        "instance": null,
+        "key": undefined,
+        "nodeType": "class",
+        "props": Object {
+          "children": <WithStyles(Typography)
+            component="p"
+          >
+            
+          </WithStyles(Typography)>,
+        },
+        "ref": null,
+        "rendered": Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "class",
+          "props": Object {
+            "children": "",
+            "component": "p",
+          },
+          "ref": null,
+          "rendered": "",
+          "type": [Function],
+        },
+        "type": [Function],
+      },
+      Object {
+        "instance": null,
+        "key": undefined,
+        "nodeType": "class",
+        "props": Object {
+          "children": Array [
+            <WithStyles(IconButton)
+              aria-label="Add to favorites"
+            >
+              <pure(FavoriteIcon) />
+            </WithStyles(IconButton)>,
+            <WithStyles(IconButton)
+              aria-label="Message"
+              onClick={[Function]}
+            >
+              <pure(CommentIcon) />
+            </WithStyles(IconButton)>,
+            <Connect(WithStyles(CommentFormComponent))
+              articleId=""
+              description="Please enter your comment here."
+              dialog={false}
+              handleDialogClick={[Function]}
+              title="Add a comment"
+            />,
+            <Connect(WithStyles(ArticleFormComponent))
+              articleId=""
+              articleText=""
+              articleTitle=""
+              description="Please edit your article here."
+              dialog={false}
+              handleDialogClick={[Function]}
+              header="Edit an article"
+            />,
+            <WithStyles(IconButton)
+              aria-expanded={false}
+              aria-label="Show more"
+              className=""
+              onClick={[Function]}
+            >
+              <pure(ExpandMoreIcon) />
+            </WithStyles(IconButton)>,
+          ],
+          "className": "",
+          "disableActionSpacing": true,
+        },
+        "ref": null,
+        "rendered": Array [
+          Object {
+            "instance": null,
+            "key": undefined,
+            "nodeType": "class",
+            "props": Object {
+              "aria-label": "Add to favorites",
+              "children": <pure(FavoriteIcon) />,
+            },
+            "ref": null,
+            "rendered": Object {
+              "instance": null,
+              "key": undefined,
+              "nodeType": "class",
+              "props": Object {},
+              "ref": null,
+              "rendered": null,
+              "type": [Function],
+            },
+            "type": [Function],
+          },
+          Object {
+            "instance": null,
+            "key": undefined,
+            "nodeType": "class",
+            "props": Object {
+              "aria-label": "Message",
+              "children": <pure(CommentIcon) />,
+              "onClick": [Function],
+            },
+            "ref": null,
+            "rendered": Object {
+              "instance": null,
+              "key": undefined,
+              "nodeType": "class",
+              "props": Object {},
+              "ref": null,
+              "rendered": null,
+              "type": [Function],
+            },
+            "type": [Function],
+          },
+          Object {
+            "instance": null,
+            "key": undefined,
+            "nodeType": "class",
+            "props": Object {
+              "articleId": "",
+              "description": "Please enter your comment here.",
+              "dialog": false,
+              "handleDialogClick": [Function],
+              "title": "Add a comment",
+            },
+            "ref": null,
+            "rendered": null,
+            "type": [Function],
+          },
+          Object {
+            "instance": null,
+            "key": undefined,
+            "nodeType": "class",
+            "props": Object {
+              "articleId": "",
+              "articleText": "",
+              "articleTitle": "",
+              "description": "Please edit your article here.",
+              "dialog": false,
+              "handleDialogClick": [Function],
+              "header": "Edit an article",
+            },
+            "ref": null,
+            "rendered": null,
+            "type": [Function],
+          },
+          Object {
+            "instance": null,
+            "key": undefined,
+            "nodeType": "class",
+            "props": Object {
+              "aria-expanded": false,
+              "aria-label": "Show more",
+              "children": <pure(ExpandMoreIcon) />,
+              "className": "",
+              "onClick": [Function],
+            },
+            "ref": null,
+            "rendered": Object {
+              "instance": null,
+              "key": undefined,
+              "nodeType": "class",
+              "props": Object {},
+              "ref": null,
+              "rendered": null,
+              "type": [Function],
+            },
+            "type": [Function],
+          },
+        ],
+        "type": [Function],
+      },
+      Object {
+        "instance": null,
+        "key": undefined,
+        "nodeType": "class",
+        "props": Object {
+          "children": <WithStyles(CardContent)>
+            <Connect(WithStyles(CommentsComponent))
+              articleId=""
+            />
+          </WithStyles(CardContent)>,
+          "in": false,
+          "timeout": "auto",
+          "unmountOnExit": true,
+        },
+        "ref": null,
+        "rendered": Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "class",
+          "props": Object {
+            "children": <Connect(WithStyles(CommentsComponent))
+              articleId=""
+            />,
+          },
+          "ref": null,
+          "rendered": Object {
+            "instance": null,
+            "key": undefined,
+            "nodeType": "class",
+            "props": Object {
+              "articleId": "",
+            },
+            "ref": null,
+            "rendered": null,
+            "type": [Function],
+          },
+          "type": [Function],
+        },
+        "type": [Function],
+      },
+    ],
+    "type": [Function],
+  },
+  Symbol(enzyme.__nodes__): Array [
+    Object {
+      "instance": null,
+      "key": undefined,
+      "nodeType": "class",
+      "props": Object {
+        "children": Array [
+          <WithStyles(CardHeader)
+            action={
+              <WithStyles(IconButton)
+                onClick={[Function]}
+              >
+                <pure(ForwardOutlinedIcon) />
+              </WithStyles(IconButton)>
+            }
+            avatar={
+              <WithStyles(Avatar)
+                aria-label="Recipe"
+                style={
+                  Object {
+                    "backgroundColor": "#000000",
+                  }
+                }
+              >
+                
+              </WithStyles(Avatar)>
+            }
+            title=""
+          />,
+          <WithStyles(CardContent)>
+            <WithStyles(Typography)
+              component="p"
+            >
+              
+            </WithStyles(Typography)>
+          </WithStyles(CardContent)>,
+          <WithStyles(CardActions)
+            className=""
+            disableActionSpacing={true}
+          >
+            <WithStyles(IconButton)
+              aria-label="Add to favorites"
+            >
+              <pure(FavoriteIcon) />
+            </WithStyles(IconButton)>
+            <WithStyles(IconButton)
+              aria-label="Message"
+              onClick={[Function]}
+            >
+              <pure(CommentIcon) />
+            </WithStyles(IconButton)>
+            <Connect(WithStyles(CommentFormComponent))
+              articleId=""
+              description="Please enter your comment here."
+              dialog={false}
+              handleDialogClick={[Function]}
+              title="Add a comment"
+            />
+            <Connect(WithStyles(ArticleFormComponent))
+              articleId=""
+              articleText=""
+              articleTitle=""
+              description="Please edit your article here."
+              dialog={false}
+              handleDialogClick={[Function]}
+              header="Edit an article"
+            />
+            <WithStyles(IconButton)
+              aria-expanded={false}
+              aria-label="Show more"
+              className=""
+              onClick={[Function]}
+            >
+              <pure(ExpandMoreIcon) />
+            </WithStyles(IconButton)>
+          </WithStyles(CardActions)>,
+          <WithStyles(Collapse)
+            in={false}
+            timeout="auto"
+            unmountOnExit={true}
+          >
+            <WithStyles(CardContent)>
+              <Connect(WithStyles(CommentsComponent))
+                articleId=""
+              />
+            </WithStyles(CardContent)>
+          </WithStyles(Collapse)>,
+        ],
+        "className": "",
+      },
+      "ref": null,
+      "rendered": Array [
+        Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "class",
+          "props": Object {
+            "action": <WithStyles(IconButton)
+              onClick={[Function]}
+            >
+              <pure(ForwardOutlinedIcon) />
+            </WithStyles(IconButton)>,
+            "avatar": <WithStyles(Avatar)
+              aria-label="Recipe"
+              style={
+                Object {
+                  "backgroundColor": "#000000",
+                }
+              }
+            >
+              
+            </WithStyles(Avatar)>,
+            "subheader": undefined,
+            "title": "",
+          },
+          "ref": null,
+          "rendered": null,
+          "type": [Function],
+        },
+        Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "class",
+          "props": Object {
+            "children": <WithStyles(Typography)
+              component="p"
+            >
+              
+            </WithStyles(Typography)>,
+          },
+          "ref": null,
+          "rendered": Object {
+            "instance": null,
+            "key": undefined,
+            "nodeType": "class",
+            "props": Object {
+              "children": "",
+              "component": "p",
+            },
+            "ref": null,
+            "rendered": "",
+            "type": [Function],
+          },
+          "type": [Function],
+        },
+        Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "class",
+          "props": Object {
+            "children": Array [
+              <WithStyles(IconButton)
+                aria-label="Add to favorites"
+              >
+                <pure(FavoriteIcon) />
+              </WithStyles(IconButton)>,
+              <WithStyles(IconButton)
+                aria-label="Message"
+                onClick={[Function]}
+              >
+                <pure(CommentIcon) />
+              </WithStyles(IconButton)>,
+              <Connect(WithStyles(CommentFormComponent))
+                articleId=""
+                description="Please enter your comment here."
+                dialog={false}
+                handleDialogClick={[Function]}
+                title="Add a comment"
+              />,
+              <Connect(WithStyles(ArticleFormComponent))
+                articleId=""
+                articleText=""
+                articleTitle=""
+                description="Please edit your article here."
+                dialog={false}
+                handleDialogClick={[Function]}
+                header="Edit an article"
+              />,
+              <WithStyles(IconButton)
+                aria-expanded={false}
+                aria-label="Show more"
+                className=""
+                onClick={[Function]}
+              >
+                <pure(ExpandMoreIcon) />
+              </WithStyles(IconButton)>,
+            ],
+            "className": "",
+            "disableActionSpacing": true,
+          },
+          "ref": null,
+          "rendered": Array [
+            Object {
+              "instance": null,
+              "key": undefined,
+              "nodeType": "class",
+              "props": Object {
+                "aria-label": "Add to favorites",
+                "children": <pure(FavoriteIcon) />,
+              },
+              "ref": null,
+              "rendered": Object {
+                "instance": null,
+                "key": undefined,
+                "nodeType": "class",
+                "props": Object {},
+                "ref": null,
+                "rendered": null,
+                "type": [Function],
+              },
+              "type": [Function],
+            },
+            Object {
+              "instance": null,
+              "key": undefined,
+              "nodeType": "class",
+              "props": Object {
+                "aria-label": "Message",
+                "children": <pure(CommentIcon) />,
+                "onClick": [Function],
+              },
+              "ref": null,
+              "rendered": Object {
+                "instance": null,
+                "key": undefined,
+                "nodeType": "class",
+                "props": Object {},
+                "ref": null,
+                "rendered": null,
+                "type": [Function],
+              },
+              "type": [Function],
+            },
+            Object {
+              "instance": null,
+              "key": undefined,
+              "nodeType": "class",
+              "props": Object {
+                "articleId": "",
+                "description": "Please enter your comment here.",
+                "dialog": false,
+                "handleDialogClick": [Function],
+                "title": "Add a comment",
+              },
+              "ref": null,
+              "rendered": null,
+              "type": [Function],
+            },
+            Object {
+              "instance": null,
+              "key": undefined,
+              "nodeType": "class",
+              "props": Object {
+                "articleId": "",
+                "articleText": "",
+                "articleTitle": "",
+                "description": "Please edit your article here.",
+                "dialog": false,
+                "handleDialogClick": [Function],
+                "header": "Edit an article",
+              },
+              "ref": null,
+              "rendered": null,
+              "type": [Function],
+            },
+            Object {
+              "instance": null,
+              "key": undefined,
+              "nodeType": "class",
+              "props": Object {
+                "aria-expanded": false,
+                "aria-label": "Show more",
+                "children": <pure(ExpandMoreIcon) />,
+                "className": "",
+                "onClick": [Function],
+              },
+              "ref": null,
+              "rendered": Object {
+                "instance": null,
+                "key": undefined,
+                "nodeType": "class",
+                "props": Object {},
+                "ref": null,
+                "rendered": null,
+                "type": [Function],
+              },
+              "type": [Function],
+            },
+          ],
+          "type": [Function],
+        },
+        Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "class",
+          "props": Object {
+            "children": <WithStyles(CardContent)>
+              <Connect(WithStyles(CommentsComponent))
+                articleId=""
+              />
+            </WithStyles(CardContent)>,
+            "in": false,
+            "timeout": "auto",
+            "unmountOnExit": true,
+          },
+          "ref": null,
+          "rendered": Object {
+            "instance": null,
+            "key": undefined,
+            "nodeType": "class",
+            "props": Object {
+              "children": <Connect(WithStyles(CommentsComponent))
+                articleId=""
+              />,
+            },
+            "ref": null,
+            "rendered": Object {
+              "instance": null,
+              "key": undefined,
+              "nodeType": "class",
+              "props": Object {
+                "articleId": "",
+              },
+              "ref": null,
+              "rendered": null,
+              "type": [Function],
+            },
+            "type": [Function],
+          },
+          "type": [Function],
+        },
+      ],
+      "type": [Function],
+    },
+  ],
+  Symbol(enzyme.__options__): Object {
+    "adapter": ReactSixteenAdapter {
+      "options": Object {
+        "enableComponentDidUpdateOnSetState": true,
+        "lifecycles": Object {
+          "componentDidUpdate": Object {
+            "onSetState": true,
+          },
+          "getDerivedStateFromProps": true,
+          "getSnapshotBeforeUpdate": true,
+          "setState": Object {
+            "skipsComponentDidUpdateOnNullish": true,
+          },
+        },
+      },
+    },
+  },
+}
+`;

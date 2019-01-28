@@ -613,7 +613,7 @@ ShallowWrapper {
             component="nav"
           >
             <WithStyles(ListItem)>
-              <withRouter(Connect(WithStyles(Article)))
+              <withRouter(Connect(WithStyles(ArticleComponent)))
                 article={
                   Object {
                     "_id": "PropTypes.string.isRequired",
@@ -645,7 +645,7 @@ ShallowWrapper {
             component="nav"
           >
             <WithStyles(ListItem)>
-              <withRouter(Connect(WithStyles(Article)))
+              <withRouter(Connect(WithStyles(ArticleComponent)))
                 article={
                   Object {
                     "_id": "PropTypes.string.isRequired",
@@ -670,7 +670,7 @@ ShallowWrapper {
           "props": Object {
             "children": Array [
               <WithStyles(ListItem)>
-                <withRouter(Connect(WithStyles(Article)))
+                <withRouter(Connect(WithStyles(ArticleComponent)))
                   article={
                     Object {
                       "_id": "PropTypes.string.isRequired",
@@ -694,7 +694,7 @@ ShallowWrapper {
               "key": "PropTypes.string.isRequired",
               "nodeType": "class",
               "props": Object {
-                "children": <withRouter(Connect(WithStyles(Article)))
+                "children": <withRouter(Connect(WithStyles(ArticleComponent)))
                   article={
                     Object {
                       "_id": "PropTypes.string.isRequired",
@@ -755,7 +755,7 @@ ShallowWrapper {
               component="nav"
             >
               <WithStyles(ListItem)>
-                <withRouter(Connect(WithStyles(Article)))
+                <withRouter(Connect(WithStyles(ArticleComponent)))
                   article={
                     Object {
                       "_id": "PropTypes.string.isRequired",
@@ -787,7 +787,7 @@ ShallowWrapper {
               component="nav"
             >
               <WithStyles(ListItem)>
-                <withRouter(Connect(WithStyles(Article)))
+                <withRouter(Connect(WithStyles(ArticleComponent)))
                   article={
                     Object {
                       "_id": "PropTypes.string.isRequired",
@@ -812,7 +812,7 @@ ShallowWrapper {
             "props": Object {
               "children": Array [
                 <WithStyles(ListItem)>
-                  <withRouter(Connect(WithStyles(Article)))
+                  <withRouter(Connect(WithStyles(ArticleComponent)))
                     article={
                       Object {
                         "_id": "PropTypes.string.isRequired",
@@ -836,7 +836,7 @@ ShallowWrapper {
                 "key": "PropTypes.string.isRequired",
                 "nodeType": "class",
                 "props": Object {
-                  "children": <withRouter(Connect(WithStyles(Article)))
+                  "children": <withRouter(Connect(WithStyles(ArticleComponent)))
                     article={
                       Object {
                         "_id": "PropTypes.string.isRequired",
