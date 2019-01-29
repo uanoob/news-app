@@ -4,11 +4,6 @@ import { ArticleComponent } from '../Article';
 import Preloader from '../../../containers/preloader/Preloader';
 
 describe('Article', () => {
-  // const initialState = {
-  //   expanded: false,
-  //   articleDialog: false,
-  //   commentDialog: false,
-  // };
   const mockDeleteArticle = jest.fn();
   const mockClearArticle = jest.fn();
   const props = {
@@ -62,19 +57,6 @@ describe('Article', () => {
     wrapper.unmount();
     it('method handleClearArticle should have to be called', () => {
       expect(instance.handleClearArticle).toBeCalledTimes(1);
-    });
-  });
-  describe('ArticleComponent & userId', () => {
-    const nextProps = {
-      ...props,
-      userId: 'test_author_id',
-    };
-    const wrapper = shallow(<ArticleComponent {...nextProps} />);
-    describe('when clicking the Delete button', () => {
-      wrapper.find('#article-delete-button').simulate('click');
-      it('method onDeleteArticle should been called', () => {
-        expect(mockDeleteArticle).toBeCalledTimes(1);
-      });
     });
   });
 });
