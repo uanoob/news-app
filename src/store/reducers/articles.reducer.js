@@ -9,7 +9,7 @@ import {
   CLEAR_ARTICLES_SUCCESS,
 } from '../actions/types';
 
-const initialState = {
+export const initialState = {
   articles: [],
   loading: false,
   loaded: false,
