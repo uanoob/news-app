@@ -10,7 +10,7 @@ import {
   UPDATE_COMMENT_FAIL,
 } from '../actions/types';
 
-const initialState = {
+export const initialState = {
   comment: null,
   loading: false,
   loaded: false,
