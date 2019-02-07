@@ -6,7 +6,7 @@ import {
   CLEAR_COMMENTS_SUCCESS,
 } from '../actions/types';
 
-const initialState = {
+export const initialState = {
   comments: [],
   loading: false,
   loaded: false,
