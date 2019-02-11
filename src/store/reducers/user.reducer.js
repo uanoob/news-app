@@ -13,7 +13,7 @@ import {
   GET_USER_BY_TOKEN_FAIL,
 } from '../actions/types';
 
-const initialState = {
+export const initialState = {
   user: {
     _id: '',
     name: '',
