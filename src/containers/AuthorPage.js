@@ -21,7 +21,7 @@ const styles = theme => ({
   },
 });
 
-class AuthorPage extends Component {
+export class AuthorPageComponent extends Component {
   state = {
     articleDialog: false,
   };
@@ -48,14 +48,17 @@ class AuthorPage extends Component {
                   <Avatar
                     aria-label="Recipe"
                     style={{
-                      backgroundColor: stringToColor(userName || 'Anonymous'),
+                      backgroundColor: stringToColor(userName),
                     }}
                   >
-                    {handleAuthorAvatar(userName || 'Anonymous')}
+                    {handleAuthorAvatar(userName)}
                   </Avatar>
 )}
                 action={(
-                  <IconButton onClick={this.handleArticleClick}>
+                  <IconButton
+                    id="article-add-button"
+                    onClick={this.handleArticleClick}
+                  >
                     <AddIcon />
                   </IconButton>
 )}
@@ -77,7 +80,12 @@ class AuthorPage extends Component {
     );
   }
 }
-AuthorPage.propTypes = {
+
+AuthorPageComponent.defaultProps = {
+  userName: 'Anonymous',
+};
+
+AuthorPageComponent.propTypes = {
   classes: PropTypes.shape({
     container: PropTypes.string.isRequired,
   }).isRequired,
@@ -88,7 +96,7 @@ AuthorPage.propTypes = {
     url: PropTypes.string.isRequired,
   }).isRequired,
   userId: PropTypes.string.isRequired,
-  userName: PropTypes.string.isRequired,
+  userName: PropTypes.string,
   userEmail: PropTypes.string.isRequired,
 };
 
@@ -100,7 +108,9 @@ const mapStateToProps = state => ({
 
 const mapDispatchToProps = {};
 
-export default connect(
+const AuthorPage = connect(
   mapStateToProps,
   mapDispatchToProps,
-)(withStyles(styles)(AuthorPage));
+)(withStyles(styles)(AuthorPageComponent));
+
+export default AuthorPage;
