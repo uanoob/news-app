@@ -1,0 +1,420 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`AuthorPageComponent initialize AuthorPageComponent render correctly AuthorPageComponent component 1`] = `
+ShallowWrapper {
+  Symbol(enzyme.__root__): [Circular],
+  Symbol(enzyme.__unrendered__): <AuthorPageComponent
+    classes={
+      Object {
+        "container": "",
+      }
+    }
+    match={
+      Object {
+        "isExact": true,
+        "params": Object {
+          "id": "test-is-author-id",
+        },
+        "path": "test-path",
+        "url": "test-url",
+      }
+    }
+    userEmail="test-userEmail"
+    userId="test-is-author-id"
+    userName="test-userName"
+  />,
+  Symbol(enzyme.__renderer__): Object {
+    "batchedUpdates": [Function],
+    "getNode": [Function],
+    "render": [Function],
+    "simulateError": [Function],
+    "simulateEvent": [Function],
+    "unmount": [Function],
+  },
+  Symbol(enzyme.__node__): Object {
+    "instance": null,
+    "key": undefined,
+    "nodeType": "host",
+    "props": Object {
+      "children": <div
+        className=""
+      >
+        <WithStyles(Card)>
+          <WithStyles(CardHeader)
+            action={
+              <WithStyles(IconButton)
+                id="article-add-button"
+                onClick={[Function]}
+              >
+                <pure(AddCircleOutlineIcon) />
+              </WithStyles(IconButton)>
+            }
+            avatar={
+              <WithStyles(Avatar)
+                aria-label="Recipe"
+                style={
+                  Object {
+                    "backgroundColor": "#d13f9b",
+                  }
+                }
+              >
+                TE
+              </WithStyles(Avatar)>
+            }
+            subheader="test-userEmail"
+            title="test-userName"
+          />
+        </WithStyles(Card)>
+        <Connect(WithStyles(ArticlesComponent))
+          authorId="test-is-author-id"
+        />
+        <Connect(WithStyles(ArticleFormComponent))
+          description="Please add your article here."
+          dialog={false}
+          handleDialogClick={[Function]}
+          header="Add an article"
+        />
+      </div>,
+    },
+    "ref": null,
+    "rendered": Object {
+      "instance": null,
+      "key": undefined,
+      "nodeType": "host",
+      "props": Object {
+        "children": Array [
+          <WithStyles(Card)>
+            <WithStyles(CardHeader)
+              action={
+                <WithStyles(IconButton)
+                  id="article-add-button"
+                  onClick={[Function]}
+                >
+                  <pure(AddCircleOutlineIcon) />
+                </WithStyles(IconButton)>
+              }
+              avatar={
+                <WithStyles(Avatar)
+                  aria-label="Recipe"
+                  style={
+                    Object {
+                      "backgroundColor": "#d13f9b",
+                    }
+                  }
+                >
+                  TE
+                </WithStyles(Avatar)>
+              }
+              subheader="test-userEmail"
+              title="test-userName"
+            />
+          </WithStyles(Card)>,
+          <Connect(WithStyles(ArticlesComponent))
+            authorId="test-is-author-id"
+          />,
+          <Connect(WithStyles(ArticleFormComponent))
+            description="Please add your article here."
+            dialog={false}
+            handleDialogClick={[Function]}
+            header="Add an article"
+          />,
+        ],
+        "className": "",
+      },
+      "ref": null,
+      "rendered": Array [
+        Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "class",
+          "props": Object {
+            "children": <WithStyles(CardHeader)
+              action={
+                <WithStyles(IconButton)
+                  id="article-add-button"
+                  onClick={[Function]}
+                >
+                  <pure(AddCircleOutlineIcon) />
+                </WithStyles(IconButton)>
+              }
+              avatar={
+                <WithStyles(Avatar)
+                  aria-label="Recipe"
+                  style={
+                    Object {
+                      "backgroundColor": "#d13f9b",
+                    }
+                  }
+                >
+                  TE
+                </WithStyles(Avatar)>
+              }
+              subheader="test-userEmail"
+              title="test-userName"
+            />,
+          },
+          "ref": null,
+          "rendered": Object {
+            "instance": null,
+            "key": undefined,
+            "nodeType": "class",
+            "props": Object {
+              "action": <WithStyles(IconButton)
+                id="article-add-button"
+                onClick={[Function]}
+              >
+                <pure(AddCircleOutlineIcon) />
+              </WithStyles(IconButton)>,
+              "avatar": <WithStyles(Avatar)
+                aria-label="Recipe"
+                style={
+                  Object {
+                    "backgroundColor": "#d13f9b",
+                  }
+                }
+              >
+                TE
+              </WithStyles(Avatar)>,
+              "subheader": "test-userEmail",
+              "title": "test-userName",
+            },
+            "ref": null,
+            "rendered": null,
+            "type": [Function],
+          },
+          "type": [Function],
+        },
+        Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "class",
+          "props": Object {
+            "authorId": "test-is-author-id",
+          },
+          "ref": null,
+          "rendered": null,
+          "type": [Function],
+        },
+        Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "class",
+          "props": Object {
+            "description": "Please add your article here.",
+            "dialog": false,
+            "handleDialogClick": [Function],
+            "header": "Add an article",
+          },
+          "ref": null,
+          "rendered": null,
+          "type": [Function],
+        },
+      ],
+      "type": "div",
+    },
+    "type": "div",
+  },
+  Symbol(enzyme.__nodes__): Array [
+    Object {
+      "instance": null,
+      "key": undefined,
+      "nodeType": "host",
+      "props": Object {
+        "children": <div
+          className=""
+        >
+          <WithStyles(Card)>
+            <WithStyles(CardHeader)
+              action={
+                <WithStyles(IconButton)
+                  id="article-add-button"
+                  onClick={[Function]}
+                >
+                  <pure(AddCircleOutlineIcon) />
+                </WithStyles(IconButton)>
+              }
+              avatar={
+                <WithStyles(Avatar)
+                  aria-label="Recipe"
+                  style={
+                    Object {
+                      "backgroundColor": "#d13f9b",
+                    }
+                  }
+                >
+                  TE
+                </WithStyles(Avatar)>
+              }
+              subheader="test-userEmail"
+              title="test-userName"
+            />
+          </WithStyles(Card)>
+          <Connect(WithStyles(ArticlesComponent))
+            authorId="test-is-author-id"
+          />
+          <Connect(WithStyles(ArticleFormComponent))
+            description="Please add your article here."
+            dialog={false}
+            handleDialogClick={[Function]}
+            header="Add an article"
+          />
+        </div>,
+      },
+      "ref": null,
+      "rendered": Object {
+        "instance": null,
+        "key": undefined,
+        "nodeType": "host",
+        "props": Object {
+          "children": Array [
+            <WithStyles(Card)>
+              <WithStyles(CardHeader)
+                action={
+                  <WithStyles(IconButton)
+                    id="article-add-button"
+                    onClick={[Function]}
+                  >
+                    <pure(AddCircleOutlineIcon) />
+                  </WithStyles(IconButton)>
+                }
+                avatar={
+                  <WithStyles(Avatar)
+                    aria-label="Recipe"
+                    style={
+                      Object {
+                        "backgroundColor": "#d13f9b",
+                      }
+                    }
+                  >
+                    TE
+                  </WithStyles(Avatar)>
+                }
+                subheader="test-userEmail"
+                title="test-userName"
+              />
+            </WithStyles(Card)>,
+            <Connect(WithStyles(ArticlesComponent))
+              authorId="test-is-author-id"
+            />,
+            <Connect(WithStyles(ArticleFormComponent))
+              description="Please add your article here."
+              dialog={false}
+              handleDialogClick={[Function]}
+              header="Add an article"
+            />,
+          ],
+          "className": "",
+        },
+        "ref": null,
+        "rendered": Array [
+          Object {
+            "instance": null,
+            "key": undefined,
+            "nodeType": "class",
+            "props": Object {
+              "children": <WithStyles(CardHeader)
+                action={
+                  <WithStyles(IconButton)
+                    id="article-add-button"
+                    onClick={[Function]}
+                  >
+                    <pure(AddCircleOutlineIcon) />
+                  </WithStyles(IconButton)>
+                }
+                avatar={
+                  <WithStyles(Avatar)
+                    aria-label="Recipe"
+                    style={
+                      Object {
+                        "backgroundColor": "#d13f9b",
+                      }
+                    }
+                  >
+                    TE
+                  </WithStyles(Avatar)>
+                }
+                subheader="test-userEmail"
+                title="test-userName"
+              />,
+            },
+            "ref": null,
+            "rendered": Object {
+              "instance": null,
+              "key": undefined,
+              "nodeType": "class",
+              "props": Object {
+                "action": <WithStyles(IconButton)
+                  id="article-add-button"
+                  onClick={[Function]}
+                >
+                  <pure(AddCircleOutlineIcon) />
+                </WithStyles(IconButton)>,
+                "avatar": <WithStyles(Avatar)
+                  aria-label="Recipe"
+                  style={
+                    Object {
+                      "backgroundColor": "#d13f9b",
+                    }
+                  }
+                >
+                  TE
+                </WithStyles(Avatar)>,
+                "subheader": "test-userEmail",
+                "title": "test-userName",
+              },
+              "ref": null,
+              "rendered": null,
+              "type": [Function],
+            },
+            "type": [Function],
+          },
+          Object {
+            "instance": null,
+            "key": undefined,
+            "nodeType": "class",
+            "props": Object {
+              "authorId": "test-is-author-id",
+            },
+            "ref": null,
+            "rendered": null,
+            "type": [Function],
+          },
+          Object {
+            "instance": null,
+            "key": undefined,
+            "nodeType": "class",
+            "props": Object {
+              "description": "Please add your article here.",
+              "dialog": false,
+              "handleDialogClick": [Function],
+              "header": "Add an article",
+            },
+            "ref": null,
+            "rendered": null,
+            "type": [Function],
+          },
+        ],
+        "type": "div",
+      },
+      "type": "div",
+    },
+  ],
+  Symbol(enzyme.__options__): Object {
+    "adapter": ReactSixteenAdapter {
+      "options": Object {
+        "enableComponentDidUpdateOnSetState": true,
+        "lifecycles": Object {
+          "componentDidUpdate": Object {
+            "onSetState": true,
+          },
+          "getDerivedStateFromProps": true,
+          "getSnapshotBeforeUpdate": true,
+          "setState": Object {
+            "skipsComponentDidUpdateOnNullish": true,
+          },
+        },
+      },
+    },
+  },
+}
+`;
